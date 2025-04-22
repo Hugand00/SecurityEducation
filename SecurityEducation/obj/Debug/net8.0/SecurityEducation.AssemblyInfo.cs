@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SecurityEducation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc5ae30e952fa82c5ab037cdc7f52cbd53a3f977")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a51d3156d299287df12406322e8cd974b2401fbe")]
 [assembly: System.Reflection.AssemblyProductAttribute("SecurityEducation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SecurityEducation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
