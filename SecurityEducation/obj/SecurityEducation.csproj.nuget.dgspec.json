@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pette\\source\\repos\\SecurityEducation\\SecurityEducation\\SecurityEducation.csproj": {}
+    "C:\\Users\\hugoa\\Source\\Repos\\SecurityEducation\\SecurityEducation\\SecurityEducation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pette\\source\\repos\\SecurityEducation\\SecurityEducation\\SecurityEducation.csproj": {
+    "C:\\Users\\hugoa\\Source\\Repos\\SecurityEducation\\SecurityEducation\\SecurityEducation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pette\\source\\repos\\SecurityEducation\\SecurityEducation\\SecurityEducation.csproj",
+        "projectUniqueName": "C:\\Users\\hugoa\\Source\\Repos\\SecurityEducation\\SecurityEducation\\SecurityEducation.csproj",
         "projectName": "SecurityEducation",
-        "projectPath": "C:\\Users\\pette\\source\\repos\\SecurityEducation\\SecurityEducation\\SecurityEducation.csproj",
-        "packagesPath": "C:\\Users\\pette\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pette\\Source\\Repos\\SecurityEducation\\SecurityEducation\\obj\\",
+        "projectPath": "C:\\Users\\hugoa\\Source\\Repos\\SecurityEducation\\SecurityEducation\\SecurityEducation.csproj",
+        "packagesPath": "C:\\Users\\hugoa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hugoa\\Source\\Repos\\SecurityEducation\\SecurityEducation\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\pette\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hugoa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
