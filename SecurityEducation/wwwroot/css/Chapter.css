@@ -1,0 +1,27 @@
+﻿
+.content-div{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.chapter-div{
+    border: black  2px, solid;
+    border-radius: 20px;
+    padding: 10px;
+}
+.chapter-div img{
+    width: 200px;
+    height: 175px;
+    border-radius: 20px
+}
+.chapter-name{
+    font-size:20px;
+}
+.chapter-description{
+    font-size: 16px;
+}
+.chapter-btn{
+    width: 100px;
+    height: 75px;
+    border-radius: 10px;
+}
