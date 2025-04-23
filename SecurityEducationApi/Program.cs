@@ -23,6 +23,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // services
 builder.Services.AddScoped<IChapterService, ChapterService>();
 builder.Services.AddScoped<IChapterRepository, ChapterRepository>();
+builder.Services.AddScoped<IEpisodeService, EpisodeService>();
+builder.Services.AddScoped<IEpisodeRepository, EpisodeRepository>();
 
 
 var app = builder.Build();
