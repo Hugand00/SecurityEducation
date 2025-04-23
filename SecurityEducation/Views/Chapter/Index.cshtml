@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Kapitel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/css/chapter.css" asp-append-version="true" />
+
+<div class="content-div">
+    @foreach (var chapter in Model.Chapters)
+    {
+        <div class="chapter-div">
+            <p class="chapter-name">@chapter.Name</p>
+            <img src="@chapter.ImageUrl" />
+            <p class="chapter-description">@chapter.Description</p>
+            <button class="chapter-btn">Gå till kapitel!</button>
+        </div>
+    }
+</div>

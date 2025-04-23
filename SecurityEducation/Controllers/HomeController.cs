@@ -14,13 +14,12 @@ namespace SecurityEducation.Controllers
 		public HomeController(ILogger<HomeController> logger, IChapterService chapterService)
 		{
 			_logger = logger;
-			_chapterService = chapterService;
+			
 		}
 
 		public async Task<IActionResult> Index()
 		{
-			var model = await _chapterService.GetEveryChapter();
-			return View(model);
+			return View();
 		}
 
 		public IActionResult Privacy()
