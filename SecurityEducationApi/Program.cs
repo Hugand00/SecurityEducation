@@ -1,6 +1,10 @@
 using SecurityEducationApi.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
+using SecurityEducationApi.Services.Interface;
+using SecurityEducationApi.Services;
+using SecurityEducationApi.Repositories.Interface;
+using SecurityEducationApi.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +19,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 	options.UseNpgsql(builder.Configuration.GetConnectionString("Production")),
 	ServiceLifetime.Scoped
 );
+
+// services
+builder.Services.AddScoped<IChapterService, ChapterService>();
+builder.Services.AddScoped<IChapterRepository, ChapterRepository>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
