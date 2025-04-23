@@ -1,7 +1,13 @@
+using SecurityEducation.Services;
+using SecurityEducation.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IChapterService, ChapterService>();
+
+builder.Services.AddHttpClient<ApiEngine>();
 
 var app = builder.Build();
 

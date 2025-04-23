@@ -1,8 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-}
 
+}
 <div class="text-center">
     <h1 class="display-4">Hej Petter!</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @foreach (var chapter in Model.Chapters)
+    {
+        <p>@chapter.Name</p>
+        <p>@chapter.Description</p>
+        <img src="@chapter.ImageUrl", width="200", height="150"/>
+    }
 </div>
