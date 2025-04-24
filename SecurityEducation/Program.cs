@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IChapterService, ChapterService>();
 builder.Services.AddScoped<IEpisodeService, EpisodeService>();
+builder.Services.AddScoped<IReadingMaterialService, ReadingMaterialService>();
 
 builder.Services.AddHttpClient<ApiEngine>();
 

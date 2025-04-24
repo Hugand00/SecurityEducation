@@ -7,6 +7,7 @@
         public string Content { get; set; }
         public int PageNumber {  get; set; }
         public string ImageUrl { get; set; }
+        public int EpisodeId { get; set; }
         public Episode Episode { get; set; }
 
     }
