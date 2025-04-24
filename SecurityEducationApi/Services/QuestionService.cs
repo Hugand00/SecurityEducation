@@ -20,7 +20,8 @@ namespace SecurityEducationApi.Services
             return questions.Select(q => new QuestionDto
             {
                 Id = q.Id,
-                Title = q.Title,                
+                Title = q.Title,
+                TestId = q.TestId,
                 
             }).ToList();
         }

@@ -6,7 +6,7 @@
     @foreach (var readingMaterials in Model.ReadingMaterials)
     {
         <div>
-            <a href="@Url.Action("TestStartPage", "Test", new {id = readingMaterials.id})">
+            <a href="@Url.Action("TestStartPage", "Test", new {id = readingMaterials.EpisodeId})">
                 <p>@readingMaterials.PageNumber</p>
                 <p>@readingMaterials.Name</p>            
                 <p>@readingMaterials.Content</p>

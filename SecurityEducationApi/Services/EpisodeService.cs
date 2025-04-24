@@ -21,7 +21,8 @@ namespace SecurityEducationApi.Services
               Id = e.Id,
               Name = e.Name,
               Description = e.Description,
-              ImageUrl = e.ImageUrl,              
+              ImageUrl = e.ImageUrl, 
+              ChapterId = e.ChapterId,
           }).ToList();
        }
    }

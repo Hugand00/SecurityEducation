@@ -1,4 +1,5 @@
-﻿using SecurityEducation.Dtos;
+﻿using Microsoft.AspNetCore.Mvc;
+using SecurityEducation.Dtos;
 using SecurityEducation.Services.Interfaces;
 using SecurityEducation.ViewModels;
 
@@ -13,7 +14,9 @@ namespace SecurityEducation.Services
             _apiEngine = apiEngine;
         }
 
-        public async Task<ReadingMaterialViewModel> GetReadingMaterialByEpisodeId(int id)
+
+		[HttpGet("/ReadingMaterial/ReadingMaterials/{id}")]
+		public async Task<ReadingMaterialViewModel> GetReadingMaterialByEpisodeId(int id)
         {
             ReadingMaterialViewModel readingMaterialViewModel = new ReadingMaterialViewModel();
             var readingMaterials = await _apiEngine.GetAsync<ICollection<ReadingMaterialDto>>($"https://localhost:7215/api/ReadingMaterial/ReadingMaterials?episodeId={id}");

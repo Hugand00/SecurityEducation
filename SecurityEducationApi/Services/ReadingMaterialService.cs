@@ -24,6 +24,7 @@ namespace SecurityEducationApi.Services
                 Content = r.Content,
                 ImageUrl = r.ImageUrl,
                 PageNumber = r.PageNumber,
+                EpisodeId = r.EpisodeId,
             }).ToList();
         }
     }

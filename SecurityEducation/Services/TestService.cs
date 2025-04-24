@@ -16,9 +16,9 @@ namespace SecurityEducation.Services
 		public async Task<TestViewModel> GetTestInfoByEpisodeId(int episodeId)
 		{
 			TestViewModel viewModel = new TestViewModel();
-			var testData = _apiEngine.GetAsync<TestDto>($"https://localhost:7215/api/Test/Test Info?id={episodeId}");
-
-			return testData;
+			var testData = await _apiEngine.GetAsync<TestDto>($"https://localhost:7215/api/Test/Test Info?id={episodeId}");
+			viewModel.TestInfo = testData;
+			return viewModel;
 		}
 	}
 }
