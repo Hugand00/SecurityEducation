@@ -8,6 +8,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IChapterService, ChapterService>();
 builder.Services.AddScoped<IEpisodeService, EpisodeService>();
 builder.Services.AddScoped<IReadingMaterialService, ReadingMaterialService>();
+builder.Services.AddScoped<IQuestionService, QuestionService>();
 
 builder.Services.AddHttpClient<ApiEngine>();
 

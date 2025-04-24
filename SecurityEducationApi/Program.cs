@@ -27,6 +27,8 @@ builder.Services.AddScoped<IEpisodeService, EpisodeService>();
 builder.Services.AddScoped<IEpisodeRepository, EpisodeRepository>();
 builder.Services.AddScoped<IReadingMaterialService, ReadingMaterialService>();
 builder.Services.AddScoped<IReadingMaterialRepository, ReadingMaterialRepository>();
+builder.Services.AddScoped<IQuestionService, QuestionService>();
+builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
 
 
 var app = builder.Build();

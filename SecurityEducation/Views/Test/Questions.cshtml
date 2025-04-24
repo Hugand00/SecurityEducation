@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Frågor";
+}
+
+<div>
+    @foreach (var question in Model.Questions)
+    {
+        <div>           
+            <p>@question.Title</p>
+            
+        </div>
+    }
+
+</div>
