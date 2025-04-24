@@ -13,15 +13,15 @@ namespace SecurityEducationApi.Services
            _episodeRepository = episodeRepository;
        }
 
-       public async Task<List<EpisodeDto>> GetEpisodesByChapterId()
+       public async Task<List<EpisodeDto>> GetEpisodesByChapterId(int chapterId)
        {
-          var episodes = await _episodeRepository.GetEpisodesByChapterId();
+          var episodes = await _episodeRepository.GetEpisodesByChapterId(chapterId);
           return episodes.Select(e => new EpisodeDto
           {
               Id = e.Id,
               Name = e.Name,
               Description = e.Description,
-              ImageUrl = e.ImageUrl,
+              ImageUrl = e.ImageUrl,              
           }).ToList();
        }
    }
