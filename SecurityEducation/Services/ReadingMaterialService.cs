@@ -13,10 +13,10 @@ namespace SecurityEducation.Services
             _apiEngine = apiEngine;
         }
 
-        public async Task<ReadingMaterialViewModel> GetReadingMaterialByEpisodeId()
+        public async Task<ReadingMaterialViewModel> GetReadingMaterialByEpisodeId(int id)
         {
             ReadingMaterialViewModel readingMaterialViewModel = new ReadingMaterialViewModel();
-            var readingMaterials = await _apiEngine.GetAsync<ICollection<ReadingMaterialDto>>("https://localhost:7215/api/ReadingMaterial/ReadingMaterials");
+            var readingMaterials = await _apiEngine.GetAsync<ICollection<ReadingMaterialDto>>($"https://localhost:7215/api/ReadingMaterial/ReadingMaterials?episodeId={id}");
             foreach (var readingMaterial in readingMaterials)
             {
                 readingMaterialViewModel.ReadingMaterials.Add(readingMaterial);

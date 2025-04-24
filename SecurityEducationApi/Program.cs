@@ -29,6 +29,8 @@ builder.Services.AddScoped<IReadingMaterialService, ReadingMaterialService>();
 builder.Services.AddScoped<IReadingMaterialRepository, ReadingMaterialRepository>();
 builder.Services.AddScoped<IQuestionService, QuestionService>();
 builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
+builder.Services.AddScoped<ITestRepository, TestRepository>();
+builder.Services.AddScoped<ITestService, TestService>();
 
 
 var app = builder.Build();

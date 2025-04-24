@@ -7,11 +7,13 @@
 <div class="episodeContainer">
     @foreach (var episode in Model.Episodes)
     {
-        <div class="episodeDiv">
-            <p class="episodeName">@episode.Name</p>
-            <img class="episodeImg" src="@episode.ImageUrl" />
-            <p class="episodeDescription">@episode.Description</p>
-        </div>
+        <a href="@Url.Action("ReadingMaterials", "ReadingMaterial", new { id = episode.Id})">
+            <div class="episodeDiv">
+                <p class="episodeName">@episode.Name</p>
+                <img class="episodeImg" src="@episode.ImageUrl" />
+                <p class="episodeDescription">@episode.Description</p>
+            </div>
+        </a>
     }
 
 </div>

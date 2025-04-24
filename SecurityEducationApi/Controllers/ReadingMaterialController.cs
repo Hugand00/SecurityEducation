@@ -18,7 +18,7 @@ namespace SecurityEducationApi.Controllers
         [HttpGet("ReadingMaterials")]
         public async Task<IActionResult> GetReadingMaterialByEpisodeId(int episodeId)
         {
-            episodeId = 2;
+            
             var result = await _readingMaterialService.GetReadingMaterialByEpisodeId(episodeId);
             return Ok(result);
         }

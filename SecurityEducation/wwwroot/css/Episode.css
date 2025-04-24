@@ -8,10 +8,17 @@
     border: black 2px, solid;
     border-radius: 20px;
     padding: 10px;
-    width:400px;
+    width:400px;   
 }
-.episodeName{
-    font-size:24px;
+a{
+    color: black;
+    text-decoration:none;
+}
+a:hover{
+    color:black;
+}
+.episodeName {
+    font-size: 24px;
 }
 .episodeImg {
     width: 200px;
@@ -19,6 +26,6 @@
     border-radius: 20px;
     text-align:center;
 }
-.episodeDescription{
-    font-size:18px;
+.episodeDescription {
+    font-size: 18px;
 }

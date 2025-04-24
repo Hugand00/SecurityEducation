@@ -4,6 +4,6 @@ namespace SecurityEducation.Services.Interfaces
 {
     public interface IReadingMaterialService
     {
-        Task<ReadingMaterialViewModel> GetReadingMaterialByEpisodeId();
+        Task<ReadingMaterialViewModel> GetReadingMaterialByEpisodeId(int id);
     }
 }

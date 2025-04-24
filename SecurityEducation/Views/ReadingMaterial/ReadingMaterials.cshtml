@@ -6,10 +6,12 @@
     @foreach (var readingMaterials in Model.ReadingMaterials)
     {
         <div>
-            <p>@readingMaterials.PageNumber</p>
-            <p>@readingMaterials.Name</p>            
-            <p>@readingMaterials.Content</p>
-            <img src="@readingMaterials.ImageUrl"/>
+            <a href="@Url.Action("TestStartPage", "Test", new {id = readingMaterials.id})">
+                <p>@readingMaterials.PageNumber</p>
+                <p>@readingMaterials.Name</p>            
+                <p>@readingMaterials.Content</p>
+                <img src="@readingMaterials.ImageUrl"/>
+            </a>
         </div>
     }
 
