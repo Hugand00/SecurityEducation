@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Läsmaterial";
+}
+
+<div>
+    @foreach (var readingMaterials in Model.ReadingMaterials)
+    {
+        <div>
+            <p>@readingMaterials.PageNumber</p>
+            <p>@readingMaterials.Name</p>            
+            <p>@readingMaterials.Content</p>
+            <img src="@readingMaterials.ImageUrl"/>
+        </div>
+    }
+
+</div>
