@@ -15,9 +15,11 @@ namespace SecurityEducationApi.Repositories
 
         }
 
-        public async Task<List<Episode>> GetEpisodesByChapterId()
+        public async Task<List<Episode>> GetEpisodesByChapterId(int chapterId)
         {
-            return await _context.Episodes.ToListAsync();
+            return await _context.Episodes
+                                 .Where(e => e.ChapterId == chapterId)
+                                 .ToListAsync();
         }
     }
 

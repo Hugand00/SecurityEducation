@@ -8,8 +8,8 @@ namespace SecurityEducationApi.Models
 		public string Name { get; set; }
 		public string Description { get; set; }
 		public string? ImageUrl { get; set; }
-		public Chapter Chapter { get; set; }
-		
+		public int ChapterId { get; set; }
+		public Chapter Chapter { get; set; }		
 		public Test Test { get; set; }
 	}
 }	
