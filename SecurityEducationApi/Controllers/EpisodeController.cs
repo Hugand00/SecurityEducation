@@ -18,7 +18,6 @@ namespace SecurityEducationApi.Controllers
         [HttpGet("Episodes")]
         public async Task<IActionResult> GetEpisodesByChapterId(int chapterId)
         {
-            chapterId = 1;
             var result = await _episodeService.GetEpisodesByChapterId(chapterId);
             return Ok(result);
         }

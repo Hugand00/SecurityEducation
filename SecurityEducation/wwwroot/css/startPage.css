@@ -1,0 +1,27 @@
+﻿
+main{
+    background-color:antiquewhite;
+}
+.titleText{
+    font-size: 30px;
+    text-align:center;
+}
+.welcomeText {
+    font-size: 20px;
+    text-align: center;
+}
+#startBtn{
+    border-radius:20px;
+    background-color:aliceblue;
+    font-size:18px;
+    width:400px;
+    height:150px;
+    margin-bottom:20px;
+}
+#infoBtn {
+    border-radius: 20px;
+    background-color: aliceblue;
+    font-size: 18px;
+    width: 400px;
+    height: 150px;
+}

@@ -13,9 +13,11 @@ namespace SecurityEducation.Controllers
             _episodeService = episodeService;
         }
 
-        public async Task<IActionResult> Episodes()
+        [HttpGet("Episode/Episodes/{id}")]
+        public async Task<IActionResult> Episodes(int id)
         {
-            var model = await _episodeService.GetEpisodesByChapterId();
+            var model = await _episodeService.GetEpisodesByChapterId(id);
+
             return View(model);
         }
     }

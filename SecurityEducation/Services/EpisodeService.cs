@@ -1,4 +1,5 @@
-﻿using SecurityEducation.Dtos;
+﻿using Microsoft.AspNetCore.Mvc;
+using SecurityEducation.Dtos;
 using SecurityEducation.Services.Interfaces;
 using SecurityEducation.ViewModels;
 
@@ -13,10 +14,11 @@ namespace SecurityEducation.Services
             _apiEngine = apiEngine;
         }
 
-        public async Task<EpisodeViewModel> GetEpisodesByChapterId()
+        [HttpGet("Episode/Episodes/{id}")]
+        public async Task<EpisodeViewModel> GetEpisodesByChapterId(int id)
         {
             EpisodeViewModel episodeViewModel = new EpisodeViewModel();
-            var episodes = await _apiEngine.GetAsync<ICollection<EpisodeDto>>("https://localhost:7215/api/Episode/Episodes?chapterId=1");
+            var episodes = await _apiEngine.GetAsync<ICollection<EpisodeDto>>($"https://localhost:7215/api/Episode/Episodes?chapterId={id}");
             foreach (var episode in episodes)
             {
                 episodeViewModel.Episodes.Add(episode);

@@ -2,10 +2,16 @@
     ViewData["Title"] = "Avsnitt";
 }
 
-<div>
+<link rel="stylesheet" href="/css/Episode.css" asp-append-version="true" />
+
+<div class="episodeContainer">
     @foreach (var episode in Model.Episodes)
     {
-        <p>@episode.Name</p>
+        <div class="episodeDiv">
+            <p class="episodeName">@episode.Name</p>
+            <img class="episodeImg" src="@episode.ImageUrl" />
+            <p class="episodeDescription">@episode.Description</p>
+        </div>
     }
 
 </div>

@@ -4,15 +4,17 @@
     gap: 20px;
     justify-content: center;
 }
-.chapter-div{
-    border: black  2px, solid;
+.chapter-div {
+    border: black 2px, solid;
     border-radius: 20px;
     padding: 10px;
+    width:400px;
 }
 .chapter-div img{
     width: 200px;
     height: 175px;
-    border-radius: 20px
+    border-radius: 20px;
+    margin-bottom: 10px;
 }
 .chapter-name{
     font-size:20px;

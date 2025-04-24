@@ -12,7 +12,9 @@
             <p class="chapter-name">@chapter.Name</p>
             <img src="@chapter.ImageUrl" />
             <p class="chapter-description">@chapter.Description</p>
-            <button class="chapter-btn">Gå till kapitel!</button>
+            <button onclick="location.href = '@Url.Action("Episodes", "Episode", new { id = chapter.Id })'">Gå till kapitel!</button>
         </div>
     }
 </div>
+
+<script src="~/js/Chapter.js"></script>

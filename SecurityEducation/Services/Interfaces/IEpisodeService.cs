@@ -4,6 +4,6 @@ namespace SecurityEducation.Services.Interfaces
 {
     public interface IEpisodeService
     {
-        Task<EpisodeViewModel> GetEpisodesByChapterId();
+        Task<EpisodeViewModel> GetEpisodesByChapterId(int id);
     }
 }

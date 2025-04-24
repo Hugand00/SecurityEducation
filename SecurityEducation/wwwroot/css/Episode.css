@@ -1,0 +1,24 @@
+﻿.episodeContainer {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    text-align:center;
+}
+.episodeDiv {
+    border: black 2px, solid;
+    border-radius: 20px;
+    padding: 10px;
+    width:400px;
+}
+.episodeName{
+    font-size:24px;
+}
+.episodeImg {
+    width: 200px;
+    height: 175px;
+    border-radius: 20px;
+    text-align:center;
+}
+.episodeDescription{
+    font-size:18px;
+}
