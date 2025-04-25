@@ -9,9 +9,8 @@ namespace SecurityEducation.Controllers
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
-		private readonly IChapterService _chapterService;
 
-		public HomeController(ILogger<HomeController> logger, IChapterService chapterService)
+		public HomeController(ILogger<HomeController> logger)
 		{
 			_logger = logger;
 			

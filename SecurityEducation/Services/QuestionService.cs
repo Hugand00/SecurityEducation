@@ -18,10 +18,17 @@ namespace SecurityEducation.Services
         {
             QuestionViewModel questionViewModel = new QuestionViewModel();
             var questions = await _apiEngine.GetAsync<ICollection<QuestionDto>>($"https://localhost:7215/api/Question/Questions?testId={testId}");
+             
             foreach (var question in questions)
             {
                 questionViewModel.Questions.Add(question);
-            }
+                var answers = await _apiEngine.GetAsync<ICollection<AnswerDto>>($"https://localhost:7215/api/Answer/Answers?questionId={question.Id}");
+                foreach (var answer in answers)
+                {
+                    questionViewModel.Answers.Add(answer);
+                }
+            }    
+            
             return questionViewModel;
         }
 

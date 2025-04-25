@@ -8,17 +8,20 @@ namespace SecurityEducation.Controllers
     {
         private readonly IQuestionService _questionService;
         private readonly ITestService _testService;
+        
 
         public TestController(IQuestionService questionService, ITestService testService)
         {
             _questionService = questionService;
-            _testService = testService;
+            _testService = testService;            
         }
+                
 
-		[HttpGet("/Test/Questions/{id}")]
-		public async Task<IActionResult> Questions(int id)
+        [HttpGet("/Test/Questions/{id}")]
+		public async Task<IActionResult> Questions(int id)        
         {
-            var model = await _questionService.GetQuestionsByTestId(id); //obs
+            
+            var model = await _questionService.GetQuestionsByTestId(id);
             return View(model);
         }
 

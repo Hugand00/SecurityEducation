@@ -1,14 +1,32 @@
-﻿@{
+﻿@using SecurityEducation.Dtos
+@{
     ViewData["Title"] = "Frågor";
 }
 
-<div>
+@{
+    var answers = (List<AnswerDto>)Model.Answers;
+}
+<form method="post" asp-action="SubmitAnswers">
+    <!-- eller vilken action du vill skicka till -->
     @foreach (var question in Model.Questions)
     {
-        <div>           
-            <p>@question.Title</p>
-            
+        <div class="question-block" style="margin-bottom: 20px;">
+            <p><strong>@question.Title</strong></p>
+
+            @foreach (var answer in ((List<AnswerDto>)Model.Answers).Where(a => a.QuestionId == question.Id))
+            {
+                <div>
+                    <input type="radio"
+                           name="SelectedAnswers[@question.Id]"
+                           value="@answer.Id"
+                           id="q@question.Id-a@answer.Id" />
+
+                    <label for="q@question.Id-a@answer.Id">@answer.Title</label>
+                </div>
+            }
         </div>
     }
 
-</div>
+    <button type="submit">Skicka</button>
+</form>
+

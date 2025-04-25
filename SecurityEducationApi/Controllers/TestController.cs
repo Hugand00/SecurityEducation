@@ -15,7 +15,7 @@ namespace SecurityEducationApi.Controllers
 			_testService = testService;
 		}
 
-		[HttpGet("Test Info")]
+		[HttpGet("TestInfo")]
 		public async Task<IActionResult> GetTestInfo(int id)
 		{
 			var result = await _testService.GetTestInfoFromID(id);
