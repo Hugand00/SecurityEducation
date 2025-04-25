@@ -12,6 +12,7 @@
                     <div class="materialName">@readingMaterials.Name</div>            
                     <img class="slideImg" src="@readingMaterials.ImageUrl"/>
                     <div class="materialText">@readingMaterials.Content</div>
+                    <button onclick="location.href='@Url.Action("TestStartPage", "Test", new {id = readingMaterials.EpisodeId})'"> </button>
                 </div>
            
         }
@@ -26,4 +27,3 @@
     </div>
 </div>
 <script src="/js/Redaingmaterial.js"></script>
-@* <a href="@Url.Action("TestStartPage", "Test", new {id = readingMaterials.EpisodeId})"> </a> *@
