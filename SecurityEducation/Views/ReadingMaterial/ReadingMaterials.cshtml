@@ -1,18 +1,29 @@
 ﻿@{
     ViewData["Title"] = "Läsmaterial";
 }
-
+<link rel="stylesheet" href="~/css/ReadingMaterial.css" asp-append-version="true"/>
 <div>
-    @foreach (var readingMaterials in Model.ReadingMaterials)
-    {
-        <div>
-            <a href="@Url.Action("TestStartPage", "Test", new {id = readingMaterials.EpisodeId})">
-                <p>@readingMaterials.PageNumber</p>
-                <p>@readingMaterials.Name</p>            
-                <p>@readingMaterials.Content</p>
-                <img src="@readingMaterials.ImageUrl"/>
-            </a>
-        </div>
-    }
-
+	<div class="readingMaterialSlideCont">
+        @foreach (var readingMaterials in Model.ReadingMaterials)
+        {
+            
+                <div class="mySlides fade">
+                    <div class="numberText">@readingMaterials.PageNumber/@Model.ReadingMaterials.Count</div>
+                    <div class="materialName">@readingMaterials.Name</div>            
+                    <img class="slideImg" src="@readingMaterials.ImageUrl"/>
+                    <div class="materialText">@readingMaterials.Content</div>
+                </div>
+           
+        }
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div style="text-align:center">
+        @for (int i = 0; i < Model.ReadingMaterials.Count; i++)
+        {
+            <span class="dot" onclick="currentSlide(@(i + 1))"></span>
+        }
+    </div>
 </div>
+<script src="/js/Redaingmaterial.js"></script>
+@* <a href="@Url.Action("TestStartPage", "Test", new {id = readingMaterials.EpisodeId})"> </a> *@
