@@ -32,5 +32,9 @@ namespace SecurityEducation.Controllers
             var model = await _testService.GetTestInfoByEpisodeId(id);
             return View(model);
         }
-    }
+		public async Task<IActionResult> Result()
+		{
+			return View();
+		}
+	}
 }
