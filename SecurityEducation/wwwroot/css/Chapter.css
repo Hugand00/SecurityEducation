@@ -1,23 +1,28 @@
 ﻿
-.content-div{
+.content-div {
     display: flex;
     gap: 20px;
     justify-content: center;
+    text-align: center;
 }
 .chapter-div {
     border: black 2px, solid;
     border-radius: 20px;
     padding: 10px;
     width:400px;
+    align-items: center;
+    text-align: center;
 }
 .chapter-div img{
     width: 200px;
     height: 175px;
     border-radius: 20px;
     margin-bottom: 10px;
+    text-align: center;
 }
 .chapter-name{
     font-size:20px;
+    text-align:center;    
 }
 .chapter-description{
     font-size: 16px;
@@ -27,3 +32,5 @@
     height: 75px;
     border-radius: 10px;
 }
+
+

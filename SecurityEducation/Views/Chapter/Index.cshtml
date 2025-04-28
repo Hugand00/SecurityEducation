@@ -8,11 +8,10 @@
 <div class="content-div">
     @foreach (var chapter in Model.Chapters)
     {
-        <div class="chapter-div">
+        <div class="chapter-div" style="cursor: pointer;" onclick="location.href = '@Url.Action("Episodes", "Episode", new { id = chapter.Id })'">
             <p class="chapter-name">@chapter.Name</p>
             <img src="@chapter.ImageUrl" />
-            <p class="chapter-description">@chapter.Description</p>
-            <button onclick="location.href = '@Url.Action("Episodes", "Episode", new { id = chapter.Id })'">Gå till kapitel!</button>
+            <p class="chapter-description">@chapter.Description</p>            
         </div>
     }
 </div>

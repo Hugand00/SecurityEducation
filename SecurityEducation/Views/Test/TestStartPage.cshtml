@@ -1,11 +1,10 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Prov";
 }
+<link rel="stylesheet" href="~/css/Test.css" asp-append-version="true" />
 <div>
         <h1>Välkommen till avsnittsprovet!</h1>
         <h2>@Model.TestInfo.Name</h2>
         <p>@Model.TestInfo.Description</p>
-        <button onclick="location.href ='@Url.Action("Questions", "Test", new {id = Model.TestInfo.Id})'"></button>
+        <button onclick="location.href ='@Url.Action("Questions", "Test", new {id = Model.TestInfo.Id})'">Starta prov</button>
 </div>
