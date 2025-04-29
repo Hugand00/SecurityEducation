@@ -4,12 +4,13 @@
 }
 
 <link rel="stylesheet" href="/css/startPage.css" asp-append-version="true" />
-
-<div class="text-center">
-    <h1 class="titleText">Välkommen till UCID!</h1>
-    <p class="welcomeText">Världens bästa utbildning inom info-, cybersäkerhet samt AI!</p>
-    
-    <button id="startBtn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Klicka här</button>
+<main>
+<div class="div-container">
+    <h1 class="title-text">Välkommen till UCIDA!</h1>
+    <p class="welcome-text speech-bubble">Världens bästa utbildning inom cyber- och informationssäkerhet, <br />dataskydd samt AI!</p>
+    <img src="images\Kotte som vinkar med sköld.png" alt="Igelkott med sköld som vinkar"/>    
+    <button id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Starta utbildningen!</button>
     <br />
-    <button id="infoBtn" href="#">Så här gör du!</button>  
+    <button id="info-btn" href="#">Så här gör du.</button>
 </div>
+</main>

@@ -1,10 +1,10 @@
-﻿.episodeContainer {
+﻿.episode-container {
     display: flex;
     gap: 20px;
     justify-content: center;
     text-align:center;
 }
-.episodeDiv {
+.episode-div {
     border: black 2px, solid;
     border-radius: 20px;
     padding: 10px;
@@ -17,15 +17,23 @@ a{
 a:hover{
     color:black;
 }
-.episodeName {
+.episode-name {
     font-size: 24px;
 }
-.episodeImg {
+.episode-img {
     width: 200px;
     height: 175px;
     border-radius: 20px;
     text-align:center;
 }
-.episodeDescription {
+.episode-description {
+    font-size: 18px;
+}
+
+#back-btn {
+    border-radius: 20px;
+    background-color: #3498db;
+    font-weight: bold;
+    color: white;
     font-size: 18px;
 }

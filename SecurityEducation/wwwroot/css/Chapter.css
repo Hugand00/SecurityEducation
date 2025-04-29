@@ -3,15 +3,16 @@
     display: flex;
     gap: 20px;
     justify-content: center;
-    text-align: center;
+    text-align: center;    
 }
 .chapter-div {
     border: black 2px, solid;
     border-radius: 20px;
     padding: 10px;
-    width:400px;
+    width: 400px;
     align-items: center;
     text-align: center;
+    background-color: #EDF3F9;
 }
 .chapter-div img{
     width: 200px;
@@ -31,6 +32,30 @@
     width: 100px;
     height: 75px;
     border-radius: 10px;
+
 }
+
+#back-btn {
+    border-radius: 20px;
+    background-color: #3498db;
+    font-weight: bold;
+    color: white;
+    font-size: 32px;
+    width:300px;
+    height:100px;
+}
+
+.button-container {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+
+
 
 

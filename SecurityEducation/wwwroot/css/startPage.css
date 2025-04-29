@@ -1,27 +1,72 @@
 ﻿
-main{
-    background-color:antiquewhite;
+main {
+    background-color: #EDF3F9;
+    width: max-content;
+    display: flex;
 }
-.titleText{
-    font-size: 30px;
+.title-text{
+    font-size: 32px;
     text-align:center;
+    font-weight: bold;
+    margin: 50px;
 }
-.welcomeText {
-    font-size: 20px;
+.welcome-text {
+    font-size: 36px;
     text-align: center;
+    font-weight: bold;
+    margin: 50px;
 }
-#startBtn{
+#start-btn{
     border-radius:20px;
-    background-color:aliceblue;
-    font-size:18px;
-    width:400px;
+    background-color:forestgreen;
+    color: white;
+    font-size:36px;
+    font-weight: bold;
+    width:600px;
     height:150px;
     margin-bottom:20px;
 }
-#infoBtn {
+#info-btn {
     border-radius: 20px;
-    background-color: aliceblue;
-    font-size: 18px;
-    width: 400px;
+    background-color: #3498db;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    width: 600px;
     height: 150px;
+    margin-bottom: 20px;
 }
+
+img {
+    width: 400px;    
+}
+
+.div-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.speech-bubble {
+    position: relative; /* Gör att vi kan använda pseudo-element */
+    background-color: #fff; /* Bakgrundsfärg på pratbubblan */
+    border: 2px solid #000; /* Rand på pratbubblan */
+    padding: 20px; /* Utrymme inne i bubblan */
+    border-radius: 10px; /* Rundade hörn */
+    max-width: auto; /* Maxbredd */
+    margin: 20px; /* Marginal runt pratbubblan */
+}
+
+    .speech-bubble::after {
+        content: ""; /* Inget textinnehåll, bara ett triangulärt element */
+        position: absolute; /* Absolut position för triangeln */
+        bottom: -15px; /* Placera triangeln under bubblan */
+        left: 50%; /* Centrerad horisontellt */
+        transform: translateX(-50%); /* Justera så att triangeln är centrerad */
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent; /* Vänster transparent kant */
+        border-right: 10px solid transparent; /* Höger transparent kant */
+        border-top: 15px solid #000; /* Den faktiska triangeln, svart */
+    }

@@ -4,17 +4,19 @@
 
 <link rel="stylesheet" href="/css/Episode.css" asp-append-version="true" />
 
-<div class="episodeContainer">
+<div class="episode-container">
     @foreach (var episode in Model.Episodes)
     {
         <a href="@Url.Action("ReadingMaterials", "ReadingMaterial", new { id = episode.Id})">
-            <div class="episodeDiv">
-                <p class="episodeName">@episode.Name</p>
-                <img class="episodeImg" src="@episode.ImageUrl" />
-                <p class="episodeDescription">@episode.Description</p>
+            <div class="episode-div">
+                <p class="episode-name">@episode.Name</p>
+                <img class="episode-img" src="@episode.ImageUrl" />
+                <p class="episode-description">@episode.Description</p>
             </div>
         </a>
     }
 
 </div>
-
+<div>
+    <button id="back-btn" onclick="history.back()">Gå tillbaka till kapitelsidan</button>
+</div>

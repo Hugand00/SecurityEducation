@@ -4,7 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="~/css/chapter.css" asp-append-version="true" />
-
+<div>
+    <h3>Välj kapitel</h3>
+</div>
 <div class="content-div">
     @foreach (var chapter in Model.Chapters)
     {
@@ -15,5 +17,9 @@
         </div>
     }
 </div>
+<div class="button-container">
+    <button id="back-btn" onclick="history.back()">Gå tillbaka till startsidan</button>
+</div>
+
 
 <script src="~/js/Chapter.js"></script>
