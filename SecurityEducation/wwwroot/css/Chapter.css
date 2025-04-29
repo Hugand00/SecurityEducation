@@ -1,5 +1,9 @@
 ﻿
-.content-div {
+body {
+    background-color: lightgray;
+}
+
+.chapter-container {
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -15,15 +19,15 @@
     background-color: #EDF3F9;
 }
 .chapter-div img{
-    width: 200px;
-    height: 175px;
+    width: 100%;
+    height: auto;
     border-radius: 20px;
     margin-bottom: 10px;
     text-align: center;
 }
 .chapter-name{
     font-size:20px;
-    text-align:center;    
+    text-align:center;
 }
 .chapter-description{
     font-size: 16px;
@@ -32,7 +36,6 @@
     width: 100px;
     height: 75px;
     border-radius: 10px;
-
 }
 
 #back-btn {
@@ -41,7 +44,8 @@
     font-weight: bold;
     color: white;
     font-size: 32px;
-    width:300px;
+    width:90%;
+    max-width: 600px;
     height:100px;
 }
 

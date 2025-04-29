@@ -36,6 +36,7 @@
         }
         <div class="mySlides">
             <p>Vill du rätta ditt prov?</p>
+            <button id="check-answer" type='button' onclick="checkAnswers()">Skicka in ditt prov</button>
             
         </div>
         <a class="prev" onclick="plusSlides(-1)">Tillbaka</a>
@@ -46,11 +47,9 @@
         {
             <span class="dot" onclick="currentSlide(@(i + 1))"></span>
         }
-    </div>
-
-    
+    </div>    
 </form>
-<button onclick="checkAnswers()">Skicka</button>
+
 <script>
     var answers = @Html.Raw(answers);
 </script>

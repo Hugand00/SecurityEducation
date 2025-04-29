@@ -3,18 +3,22 @@
 }
 <link rel="stylesheet" href="~/css/ReadingMaterial.css" asp-append-version="true"/>
 <div>
-	<div class="readingMaterialSlideCont">
+	<div class="reading-material-slide-cont">
         @foreach (var readingMaterials in Model.ReadingMaterials)
         {
             
                 <div class="mySlides fade">
-                    <div class="numberText">@readingMaterials.PageNumber/@Model.ReadingMaterials.Count</div>
-                    <div class="materialName">@readingMaterials.Name</div>            
-                    <img class="slideImg" src="@readingMaterials.ImageUrl"/>
-                    <div class="materialText">@readingMaterials.Content</div>
-                <button id="back-btn" onclick="history.back()">Gå tillbaka till avsnittssidan</button>
-                <button id="start-test-btn" onclick="location.href='@Url.Action("TestStartPage", "Test", new {id = readingMaterials.EpisodeId})'"> Gå direkt till prov </button>
+                    <div class="number-text">@readingMaterials.PageNumber/@Model.ReadingMaterials.Count</div>
+                    <div class="material-name">@readingMaterials.Name</div>            
+                    <img class="slide-img" src="@readingMaterials.ImageUrl"/>
+                    <div class="material-text">@readingMaterials.Content</div>
+                    <div class="button-container">
+                        <button id="back-btn" onclick="history.back()">Gå tillbaka till avsnittssidan</button>
+                        <button id="start-test-btn" onclick="location.href='@Url.Action("TestStartPage", "Test", new {id = readingMaterials.EpisodeId})'"> Gå direkt till prov </button>
+                    </div>
                 </div>
+
+            
            
         }
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -26,5 +30,6 @@
             <span class="dot" onclick="currentSlide(@(i + 1))"></span>
         }
     </div>
+    
 </div>
-<script src="/js/Redaingmaterial.js"></script>
+<script src="/js/Readingmaterial.js"></script>

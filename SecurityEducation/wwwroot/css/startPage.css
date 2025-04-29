@@ -1,51 +1,58 @@
-﻿
+﻿body {
+    background-color: lightgray;
+}
+
 main {
     background-color: #EDF3F9;
-    width: max-content;
-    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
 }
 .title-text{
-    font-size: 32px;
+    font-size: 24px;
     text-align:center;
     font-weight: bold;
-    margin: 50px;
+    margin: 20px;
 }
 .welcome-text {
-    font-size: 36px;
+    font-size: 24px;
     text-align: center;
     font-weight: bold;
-    margin: 50px;
+    margin: 20px;
 }
-#start-btn{
-    border-radius:20px;
-    background-color:forestgreen;
+#start-btn {
+    border-radius: 20px;
+    background-color: forestgreen;
     color: white;
-    font-size:36px;
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    padding: 20px;
+    font-size: 24px;
     font-weight: bold;
-    width:600px;
-    height:150px;
-    margin-bottom:20px;
 }
 #info-btn {
     border-radius: 20px;
     background-color: #3498db;
-    font-size: 36px;
-    font-weight: bold;
     color: white;
-    width: 600px;
-    height: 150px;
-    margin-bottom: 20px;
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+
 }
 
 img {
-    width: 400px;    
+    max-width: 25%;
+    height: auto;
 }
 
 .div-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .speech-bubble {

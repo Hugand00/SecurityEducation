@@ -1,4 +1,25 @@
-﻿button {
+﻿body {
+    background-color: lightgrey;
+}
+
+main {
+    background-color: #EDF3F9;
+    
+}
+
+h1 {
+    margin: 10px;
+}
+
+h2 {
+    margin: 10px;
+}
+
+p {
+    margin: 10px;
+}
+
+button {
     width: 200px;
     height: 50px;
     background-color: forestgreen;
@@ -6,4 +27,5 @@
     font-weight: bold;
     border-radius: 20px;
     font-size: 18px;
+    margin: 10px;
 }

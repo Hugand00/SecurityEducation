@@ -21,7 +21,22 @@ namespace SecurityEducation.Controllers
 			return View();
 		}
 
-		public IActionResult Privacy()
+        public IActionResult EducationInfo()
+        {
+            return View();
+        }
+
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+
+        public IActionResult AccessibilityInfo()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
 		{
 			return View();
 		}

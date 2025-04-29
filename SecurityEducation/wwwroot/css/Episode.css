@@ -1,14 +1,29 @@
-﻿.episode-container {
+﻿body {
+    background-color: lightgrey;
+}
+
+.episode-container {
     display: flex;
     gap: 20px;
     justify-content: center;
-    text-align:center;
+    text-align: center;
+    flex-wrap: wrap;
 }
+
 .episode-div {
-    border: black 2px, solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid black;
     border-radius: 20px;
     padding: 10px;
-    width:600px;   
+    width: 400px;
+    background-color: #EDF3F9;
+    box-sizing: border-box;
+    text-align: center;
+    height: 100%;
+    min-height: 700px;
 }
 a{
     color: black;
@@ -19,15 +34,19 @@ a:hover{
 }
 .episode-name {
     font-size: 24px;
+    width: 400px;
+    min-height: 17%;
 }
 .episode-img {
-    width: 200px;
-    height: 175px;
+    width: 100%;
+    height: auto;
     border-radius: 20px;
     text-align:center;
 }
 .episode-description {
     font-size: 18px;
+    width: 100%;
+    height: auto;
 }
 
 #back-btn {
@@ -35,5 +54,21 @@ a:hover{
     background-color: #3498db;
     font-weight: bold;
     color: white;
-    font-size: 18px;
+    font-size: 32px;
+    width: 90%;
+    max-width: 600px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    text-align: center;
 }
