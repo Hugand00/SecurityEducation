@@ -9,9 +9,11 @@
             
                 <div class="mySlides fade">
                     <div class="number-text">@readingMaterials.PageNumber/@Model.ReadingMaterials.Count</div>
-                    <div class="material-name">@readingMaterials.Name</div>            
-                    <img class="slide-img" src="@readingMaterials.ImageUrl"/>
-                    <div class="material-text">@readingMaterials.Content</div>
+                    <div class="material-name">@readingMaterials.Name</div>
+                    <div class="text-and-img-container">
+                        <div class="material-text">@readingMaterials.Content</div>
+                        <img class="slide-img" src="@readingMaterials.ImageUrl" />
+                    </div>
                     <div class="button-container">
                         <button id="back-btn" onclick="history.back()">Gå tillbaka till avsnittssidan</button>
                         <button id="start-test-btn" onclick="location.href='@Url.Action("TestStartPage", "Test", new {id = readingMaterials.EpisodeId})'"> Gå direkt till prov </button>

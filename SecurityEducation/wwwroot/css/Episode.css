@@ -64,11 +64,13 @@ a:hover{
 }
 
 .button-container {
-    margin: 20px;
+    margin: 2%;
     display: flex;
     justify-content: center;
+    margin-bottom: 5%;
 }
 
-h3 {
+h2 {
     text-align: center;
+    color: white;
 }

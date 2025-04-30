@@ -1,5 +1,9 @@
 ﻿body {
-    background-color: lightgrey;
+    background-image: url('../images/Background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 10px;
 }
 
 container{
@@ -13,6 +17,7 @@ container{
     min-height: max-content;
     background-color: #EDF3F9;
     text-align: center;
+    margin-bottom: 20px;
 }
 /* Hide the images by default */
 .mySlides {
@@ -29,7 +34,7 @@ container{
 .prev, .next {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 75%;
     width: auto;
     margin-top: -150px;
     padding: 16px;
@@ -41,10 +46,11 @@ container{
     user-select: none;
     display: block;
 }
-.slide-img{
-    width:80%;
-    margin: 20px;
-    text-align: center;
+.slide-img {
+    width: calc(50% - 10px); /* Tar ~40% av containern minus halva gap:en */
+    height: auto;
+    margin: 0;
+    border-radius: 10px;
 }
 /* Position the "next button" to the right */
 .next {
@@ -68,25 +74,40 @@ container{
     text-align: center;
 }
 
+.material-text {
+    width: calc(50% - 10px); /* Tar ~60% av containern minus halva gap:en */
+    margin: 0;
+    padding: 10px;
+    text-align:left;
+}
+
+.text-and-img-container {
+    display: flex;
+    flex-wrap: wrap; /* Tillåter radbrytning om skärmen blir för smal */
+    align-items: flex-start; /* Börja högst upp */
+    justify-content: center; /* Centrera radvis */
+    gap: 20px;
+    padding: 20px;
+}   
+
+
+
 /* Number text (1/3 etc) */
 .number-text {
     color: black;
     font-size: 14px;
-    font-weight:bold;
+    font-weight: bold;
     padding: 8px 12px;
     position: absolute;
     top: 0;
 }
 .material-name {
-    color: #f2f2f2;
-    font-size: 24px;
-    position: absolute;
+    color: black;
+    font-size: 24px; 
     top: 0;
     left:50%;
-    transform:translateX(-50%);
     font-weight:bold;
     margin-top: 20px;
-
 }
 
 /* The dots/bullets/indicators */
@@ -159,3 +180,5 @@ container{
     justify-content: center;
     margin: 20px;
 }
+
+
