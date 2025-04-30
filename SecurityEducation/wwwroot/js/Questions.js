@@ -37,7 +37,7 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active";
 }
 
-function checkAnswers() {
+function checkAnswers(chapterId, episodeId) {
     var checkedAnswers = document.querySelectorAll('input[type="radio"]:checked');
     let correctAnswers = []
     if (Array.isArray(answers)) {
@@ -55,7 +55,9 @@ function checkAnswers() {
     });
 
     window.sessionStorage.setItem('correctAnswers', correctAnswers.length)
-    window.location.href = "/Test/Result"
+    const fullUrl = `${url}/${chapterId}/${episodeId}`;
+    console.log(fullUrl)
+    location.href = fullUrl;
     console.log(correctAnswers)
    
 }

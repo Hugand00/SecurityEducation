@@ -47,11 +47,15 @@
         {
             <span class="dot" onclick="currentSlide(@(i + 1))"></span>
         }
-    </div>    
-</form>
+    </div>
 
+    
+</form>
+<button onclick="checkAnswers(@ViewBag.ChapterId, @ViewBag.EpisodeId)">Skicka</button>
 <script>
     var answers = @Html.Raw(answers);
+    var url = '@Url.Action("Result", "Test")';
 </script>
 <script src="~/js/Questions.js"></script>
+
 

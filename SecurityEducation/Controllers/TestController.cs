@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Validations;
 using SecurityEducation.Services.Interfaces;
+using SecurityEducation.ViewModels;
 
 namespace SecurityEducation.Controllers
 {
@@ -8,33 +9,46 @@ namespace SecurityEducation.Controllers
     {
         private readonly IQuestionService _questionService;
         private readonly ITestService _testService;
+        private readonly IChapterService _chapterService;
+        private readonly IEpisodeService _episodeService;
         
 
-        public TestController(IQuestionService questionService, ITestService testService)
+        public TestController(IQuestionService questionService, ITestService testService, IChapterService chapterService, IEpisodeService episodeService)
         {
             _questionService = questionService;
-            _testService = testService;            
+            _testService = testService;  
+            _chapterService = chapterService;
+            _episodeService = episodeService;
         }
                 
 
-        [HttpGet("/Test/Questions/{id}")]
-		public async Task<IActionResult> Questions(int id)        
+        [HttpGet("/Test/Questions/{chapterId}/{episodeId}/{testId}")]
+		public async Task<IActionResult> Questions(int chapterId, int episodeId, int testId)        
         {
             
-            var model = await _questionService.GetQuestionsByTestId(id);
+            var model = await _questionService.GetQuestionsByTestId(testId);
+            ViewBag.ChapterId = chapterId;
+            ViewBag.EpisodeId = episodeId;
             return View(model);
         }
 
 
-		[HttpGet("/Test/TestStartPage/{id}")]
-		public async Task<IActionResult> TestStartPage(int id)
+		[HttpGet("/Test/TestStartPage/{chapterId}/{episodeId}")]
+		public async Task<IActionResult> TestStartPage(int chapterId, int episodeId)
         {
-            var model = await _testService.GetTestInfoByEpisodeId(id);
+            var model = await _testService.GetTestInfoByEpisodeId(episodeId);
+            ViewBag.ChapterId = chapterId;
             return View(model);
         }
-		public async Task<IActionResult> Result()
+        [HttpGet("/Test/Result/{chapterId}/{episodeId}")]
+		public async Task<IActionResult> Result(int chapterId, int episodeId)
 		{
-			return View();
+            InfoViewModel model = new InfoViewModel();
+            var chapteriInfo = await _chapterService.GetChapterFromId(chapterId);
+            var episodeInfo = await _episodeService.GetEpisodeById(episodeId, chapterId);
+            model.Chapter = chapteriInfo;
+            model.Episode = episodeInfo;
+			return View(model);
 		}
 	}
 }

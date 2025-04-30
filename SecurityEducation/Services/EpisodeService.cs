@@ -25,5 +25,15 @@ namespace SecurityEducation.Services
             }
             return episodeViewModel;
         }
+		public async Task<EpisodeDto> GetEpisodeById(int episodeId, int chapterId)
+        {
+			var episodes = await _apiEngine.GetAsync<ICollection<EpisodeDto>>($"https://localhost:7215/api/Episode/Episodes?chapterId={chapterId}");
+            foreach(var episode in episodes)
+            {
+                if (episode.Id == episodeId)
+                    return episode;
+            }
+            return null;
+		}
     }
 }

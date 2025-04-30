@@ -12,10 +12,12 @@ namespace SecurityEducation.Controllers
             _readingMaterialService = readingMaterialService;
         }
 
-        [HttpGet("/ReadingMaterial/ReadingMaterials/{id}")]
-        public async Task<IActionResult> ReadingMaterials(int id)
+        [HttpGet("/ReadingMaterial/ReadingMaterials/{chapterId}/{episodeId}")]
+        public async Task<IActionResult> ReadingMaterials(int chapterId, int episodeId)
         {
-            var model = await _readingMaterialService.GetReadingMaterialByEpisodeId(id);
+            var model = await _readingMaterialService.GetReadingMaterialByEpisodeId(episodeId);
+
+            ViewBag.ChapterId = chapterId;
             return View(model);
         }
     }
