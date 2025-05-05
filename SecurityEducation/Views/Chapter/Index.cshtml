@@ -1,7 +1,12 @@
-﻿
+﻿@using System.Text.Json
+@using SecurityEducation.Dtos
+
 @{
     ViewData["Title"] = "Kapitel";
     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var chapters = JsonSerializer.Serialize((List<ChapterDto>)Model.Chapters);
 }
 <link rel="stylesheet" href="~/css/chapter.css" asp-append-version="true" />
 <div>
@@ -12,6 +17,10 @@
     {
         <div class="chapter-div" style="cursor: pointer;" onclick="location.href = '@Url.Action("Episodes", "Episode", new { id = chapter.Id })'">
             <p class="chapter-name">@chapter.Name</p>
+            <div class="result-div" data-result-div="@chapter.Id">
+                <p class="completed"></p>
+                <p class="completed-episodes"></p>
+            </div>
             <img src="@chapter.ImageUrl" />
             <p class="chapter-description">@chapter.Description</p>            
         </div>
@@ -21,5 +30,8 @@
     <button id="back-btn" onclick="history.back()">Gå tillbaka till startsidan</button>
 </div>
 
+<script>
+    var chapters = @Html.Raw(chapters);
+</script>
 
 <script src="~/js/Chapter.js"></script>

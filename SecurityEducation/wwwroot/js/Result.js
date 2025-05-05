@@ -15,6 +15,7 @@ function showCorrectAnswers(vm) {
     }
     else {
         resultText.textContent = `Tyvärr är du inte godkänd! Du fick ${amountOfCorrectAnswers}/5`
+        sendStatement("failed", "misslyckades med", amountOfCorrectAnswers, vm.Chapter.Id, vm.Chapter.Name, vm.Episode.Id, vm.Episode.Name, false);
     }
     
 }

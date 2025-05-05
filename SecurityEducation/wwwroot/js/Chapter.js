@@ -1,6 +1,11 @@
-﻿
+﻿const xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
+console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
 
 
-//function EnterChapter(chapterId) {
-//    window.location.href = Url.Action("Episodes", "Episode", new { id = chapterId });
-//}
+function showStoredChapters() {
+
+}
+
+function getnumberOfCompletedEpisodes() {
+
+}

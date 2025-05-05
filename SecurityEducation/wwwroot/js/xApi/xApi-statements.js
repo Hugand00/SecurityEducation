@@ -24,8 +24,11 @@ export function sendStatement(verb, verbSwe, userResult, chapterId, chapterName,
             "objectType": "Activity",// Se till att objektet definieras som en aktivitet
             "definition": {
                 "name": {"sv-SE": chapterName + " - " + episodeName}, // Kombinera kapitel och episodenamn
-                
-            }
+                "extensions": {
+                    "https://localhost:7142/extensions/chapterId": chapterId,
+                    "https://localhost:7142/extensions/episodeId": episodeId
+                }
+            }   
         },
         "result": {
                 "score": {
