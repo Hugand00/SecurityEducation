@@ -25,5 +25,17 @@ namespace SecurityEducationApi.Services
                 
             }).ToList();
         }
+
+        public async Task<List<QuestionDto>> GetAllQuestions()
+        {
+            var questions = await _questionRepository.GetAllQuestions();
+            return questions.Select(q => new QuestionDto
+            {
+                Id = q.Id,
+                Title = q.Title,
+                TestId = q.TestId,
+
+            }).ToList();
+        }
     }
 }

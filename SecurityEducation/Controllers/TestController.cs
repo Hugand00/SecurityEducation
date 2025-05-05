@@ -32,8 +32,25 @@ namespace SecurityEducation.Controllers
             return View(model);
         }
 
+        [HttpGet("/Test/Examination/")]
+        public async Task<IActionResult> Examination()
+        {
+            var model = await _questionService.GetAllQuestions();
 
-		[HttpGet("/Test/TestStartPage/{chapterId}/{episodeId}")]
+            // randomizes the questions and gives 
+            var random = new Random();
+            model.Questions = model.Questions.OrderBy(q => random.Next()).Take(10).ToList();
+
+            
+            model.Answers = model.Answers
+                .Where(a => model.Questions.Select(q => q.Id).Contains(a.QuestionId))
+                .ToList();
+
+            return View(model);
+        }
+
+
+        [HttpGet("/Test/TestStartPage/{chapterId}/{episodeId}")]
 		public async Task<IActionResult> TestStartPage(int chapterId, int episodeId)
         {
             var model = await _testService.GetTestInfoByEpisodeId(episodeId);
@@ -49,6 +66,7 @@ namespace SecurityEducation.Controllers
             model.Chapter = chapteriInfo;
             model.Episode = episodeInfo;
 			return View(model);
-		}
-	}
+		}        
+
+    }
 }

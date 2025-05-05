@@ -17,7 +17,7 @@ namespace SecurityEducation.Services
         public async Task<QuestionViewModel> GetQuestionsByTestId(int testId)
         {
             QuestionViewModel questionViewModel = new QuestionViewModel();
-            var questions = await _apiEngine.GetAsync<ICollection<QuestionDto>>($"https://localhost:7215/api/Question/Questions?testId={testId}");
+            var questions = await _apiEngine.GetAsync<ICollection<QuestionDto>>($"https://localhost:7215/api/Question/Questions/{testId}");
              
             foreach (var question in questions)
             {
@@ -29,6 +29,24 @@ namespace SecurityEducation.Services
                 }
             }    
             
+            return questionViewModel;
+        }
+
+        public async Task<QuestionViewModel> GetAllQuestions()
+        {
+            QuestionViewModel questionViewModel = new QuestionViewModel();
+            var questions = await _apiEngine.GetAsync<ICollection<QuestionDto>>($"https://localhost:7215/api/Question/AllQuestions");
+
+            foreach (var question in questions)
+            {
+                questionViewModel.Questions.Add(question);
+                var answers = await _apiEngine.GetAsync<ICollection<AnswerDto>>($"https://localhost:7215/api/Answer/Answers?questionId={question.Id}");
+                foreach (var answer in answers)
+                {
+                    questionViewModel.Answers.Add(answer);
+                }
+            }
+
             return questionViewModel;
         }
 

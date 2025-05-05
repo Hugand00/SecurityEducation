@@ -15,11 +15,19 @@ namespace SecurityEducationApi.Controllers
             _questionService = questionService;
         }
 
-        [HttpGet("Questions")]
+        [HttpGet("Questions/{testId}")]
         public async Task<IActionResult> GetQuestionsByTestId(int testId)
         {            
             var result = await _questionService.GetQuestionsByTestId(testId);
             return Ok(result);
         }
+
+        [HttpGet("AllQuestions")]
+        public async Task<IActionResult> GetAllQuestions()
+        {
+            var result = await _questionService.GetAllQuestions();
+            return Ok(result);
+        }
+
     }
 }

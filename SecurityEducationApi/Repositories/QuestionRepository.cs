@@ -20,5 +20,10 @@ namespace SecurityEducationApi.Repositories
                                  .ToListAsync();
         }
 
+        public async Task<List<Question>> GetAllQuestions()
+        {
+            return await _context.Questions.ToListAsync();
+        }
+
     }
 }

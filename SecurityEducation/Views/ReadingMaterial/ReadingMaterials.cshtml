@@ -1,34 +1,45 @@
 ﻿@{
     ViewData["Title"] = "Läsmaterial";
 }
-<link rel="stylesheet" href="~/css/ReadingMaterial.css" asp-append-version="true"/>
+<link rel="stylesheet" href="~/css/ReadingMaterial.css" asp-append-version="true" />
+
 <div>
-	<div class="reading-material-slide-cont">
+    <div class="reading-material-slide-cont">
         @foreach (var readingMaterials in Model.ReadingMaterials)
         {
-            
-                <div class="mySlides fade">
-                    <div class="number-text">@readingMaterials.PageNumber/@Model.ReadingMaterials.Count</div>
-                    <div class="material-name">@readingMaterials.Name</div>
-                    <div class="text-and-img-container">
-                        <div class="material-text">@readingMaterials.Content</div>
-                        <img class="slide-img" src="@readingMaterials.ImageUrl" />
+            <div class="mySlides fade">
+                <div class="number-text">@readingMaterials.PageNumber/@Model.ReadingMaterials.Count</div>
+                <div class="material-name">@readingMaterials.Name</div>
+                <div class="text-and-img-container">
+                    <div class="material-text">
+                        @foreach (var line in readingMaterials.Content.Split('\n'))
+                        {
+                            if (!string.IsNullOrWhiteSpace(line))
+                            {
+                                <p>@line.Trim()</p>
+                            }
+                        }
                     </div>
-                    <div class="button-container">
-                        <button id="back-btn" onclick="history.back()">Gå tillbaka till avsnittssidan</button>  
-                        <button id="start-test-btn" onclick="location.href='@Url.Action("TestStartPage", "Test", new {chapterId = ViewBag.ChapterId, episodeId = readingMaterials.EpisodeId})'"> Gå direkt till prov </button>
-                    </div>
+                    <img class="slide-img" src="@readingMaterials.ImageUrl" />
                 </div>
+                <div class="button-container">
+                    <button id="back-btn" onclick="history.back()">Gå tillbaka till avsnittssidan</button>
+                    <button id="start-test-btn" onclick="location.href='@Url.Action("TestStartPage", "Test", new { chapterId = ViewBag.ChapterId, episodeId = readingMaterials.EpisodeId })'"> Gå direkt till prov </button>
+                </div>
+            </div>
         }
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
+
     <div style="text-align:center">
         @for (int i = 0; i < Model.ReadingMaterials.Count; i++)
         {
             <span class="dot" onclick="currentSlide(@(i + 1))"></span>
         }
     </div>
-    
 </div>
+
 <script src="/js/Readingmaterial.js"></script>
+

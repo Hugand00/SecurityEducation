@@ -1,0 +1,61 @@
+﻿@using SecurityEducation.Dtos
+@model SecurityEducation.ViewModels.QuestionViewModel
+@using System.Text.Json
+@{
+    ViewData["Title"] = "Slutprov";
+}
+
+@{
+    var answers = JsonSerializer.Serialize((List<AnswerDto>)Model.Answers);
+}
+<link href="~/css/Questions.css" rel="stylesheet" asp-append-version="true" />
+<form id="answerForm">
+    <!-- eller vilken action du vill skicka till -->    
+    <div class="questionSlideCont">
+        @foreach (var question in Model.Questions)
+        {
+            <div class="mySlides">
+                <h3>Slutprov</h3>
+                <div class="question-block" style="margin-bottom: 20px;">
+                    <p><strong>@question.Title</strong></p>
+                    <div class="answer-grid">
+                        @foreach (var answer in ((List<AnswerDto>)Model.Answers).Where(a => a.QuestionId == question.Id))
+                        {
+                            <div class="answer-box">
+                                <input type="radio"
+                                       name="SelectedAnswers[@question.Id]"
+                                       value="@answer.Id"
+                                       id="@question.Id-@answer.Id"
+                                       class="hidden-radio" />
+                                <label for="@question.Id-@answer.Id">
+                                    @answer.Title
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="mySlides">
+            <p>Vill du rätta ditt prov?</p>
+
+            <button id="check-answer" type='button' onclick="checkFinalAnswers()">Rätta</button>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">Tillbaka</a>
+        <a class="next" onclick="plusSlides(1)">Nästa</a>
+    </div>
+    <div style="text-align:center">
+        @for (int i = 0; i < Model.Questions.Count + 1; i++)
+        {
+            <span class="dot" onclick="currentSlide(@(i + 1))"></span>
+        }
+    </div>
+
+
+</form>
+
+<script>
+    var answers = @Html.Raw(answers);
+    var url = '@Url.Action("Result", "Test")';
+</script>
+<script src="~/js/Questions.js"></script>
