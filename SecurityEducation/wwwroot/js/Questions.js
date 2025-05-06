@@ -55,3 +55,33 @@ function checkAnswers(chapterId, episodeId) {
     location.href = fullUrl;
 }
 
+function checkFinalAnswers() {
+    console.log("Knappen fungerar!");
+    var checkedAnswers = document.querySelectorAll('input[type="radio"]:checked');
+    let correctAnswers = [];
+
+    if (Array.isArray(answers)) {
+        console.log(answers);
+    }
+
+    answers.forEach(answer => {
+        checkedAnswers.forEach(checkedAnswer => {
+            if (answer.Id == checkedAnswer.value && answer.IsCorrect === true) {
+                correctAnswers.push(answer);
+            }
+        });
+    });
+
+    const correctCount = correctAnswers.length;
+    const totalQuestions = document.querySelectorAll('.question-block').length;
+
+    // Spara till sessionStorage så vi kan hämta i resultatsidan om vi vill
+    window.sessionStorage.setItem('correctFinalAnswers', correctCount);
+    window.sessionStorage.setItem('totalQuestions', totalQuestions);
+
+    // Vidare till resultatsidan för slutprov
+    location.href = "/Test/ExaminationResult";
+}
+
+
+

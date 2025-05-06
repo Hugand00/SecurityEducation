@@ -66,7 +66,14 @@ namespace SecurityEducation.Controllers
             model.Chapter = chapteriInfo;
             model.Episode = episodeInfo;
 			return View(model);
-		}        
+		}
+
+        [HttpGet("/Test/ExaminationResult/")]
+        public async Task<IActionResult> ExaminationResult()
+        {
+            InfoViewModel model = new InfoViewModel();
+            return View(model);
+        }
 
     }
 }

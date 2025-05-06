@@ -8,6 +8,8 @@
     var answers = JsonSerializer.Serialize((List<AnswerDto>)Model.Answers);
 }
 <link href="~/css/Questions.css" rel="stylesheet" asp-append-version="true"/>
+
+
 <form id="answerForm" >
     <!-- eller vilken action du vill skicka till -->
     <div class="questionSlideCont">
@@ -51,6 +53,7 @@
 
     
 </form>
+
 
 <script>
     var answers = @Html.Raw(answers);

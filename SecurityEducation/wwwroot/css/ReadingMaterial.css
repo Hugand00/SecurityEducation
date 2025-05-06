@@ -1,11 +1,4 @@
-﻿body {
-    background-image: url('../images/Background.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-bottom: 10px;
-}
-
+﻿
 container{
     max-width:1600px;
 }

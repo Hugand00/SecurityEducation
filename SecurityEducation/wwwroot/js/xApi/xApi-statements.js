@@ -10,6 +10,7 @@ export function sendStatement(verb, verbSwe, userResult, chapterId, chapterName,
     }
     ADL.XAPIWrapper.changeConfig(config)
 
+
     const statement = {
         "actor": {
             "name": uName,
@@ -43,4 +44,46 @@ export function sendStatement(verb, verbSwe, userResult, chapterId, chapterName,
     
     const res = ADL.XAPIWrapper.sendStatement(statement);
     console.log(res)
+}
+
+export function sendFinalExamStatement(verb, verbSwe, userResult, passed) {
+    const uName = "admin";
+    const uEmail = "huan2300@student.miun.se";
+
+    const config = {
+        "endpoint": "https://seceducation-hugand.lrs.io/xapi/",
+        "auth": "Basic " + btoa("herabr:dudfoh")
+    };
+    ADL.XAPIWrapper.changeConfig(config);
+
+    const statement = {
+        "actor": {
+            "name": uName,
+            "mbox": "mailto:" + uEmail
+        },
+        "verb": {
+            "id": "http://adlnet.gov/expapi/verbs/" + verb,
+            "display": { "sv-SE": verbSwe }
+        },
+        "object": {
+            "id": "https://localhost:7142/Test/ExaminationResult", // Generell ID för slutprovet
+            "objectType": "Activity",
+            "definition": {
+                "name": { "sv-SE": "Slutprov" },
+                "description": { "sv-SE": "Avslutande test för hela kursen" }
+            }
+        },
+        "result": {
+            "score": {
+                "min": 0,
+                "max": 10, // Anpassa detta till din faktiska maxpoäng
+                "raw": userResult,
+                "scaled": userResult / 10
+            },
+            "success": passed
+        }
+    };
+
+    const res = ADL.XAPIWrapper.sendStatement(statement);
+    console.log(res);
 }

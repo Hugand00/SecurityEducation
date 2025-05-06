@@ -1,9 +1,9 @@
 ﻿@using System.Text.Json
 @{
-    ViewData["Title"] = "Resultat";
+    ViewData["Title"] = "Resultat slutprov";
 }
 @{
-    bool isExamination = false;
+    bool isExamination = true;
 }
 
 <link href="~/css/result.css" rel="stylesheet" asp-append-version="true" />
@@ -13,7 +13,7 @@
     <p id="result"></p>
 </div>
 
-<div class="button-container">   
+<div class="button-container">
     <button id="start-page-btn" onclick="location.href = '@Url.Action("Index", "Home")'">Tillbaka till startsidan</button>
 </div>
 
@@ -23,4 +23,3 @@
 </script>
 <script src="~/js/xapiwrapper.min.js"></script>
 <script type="module" src="~/js/Result.js"></script>
-
