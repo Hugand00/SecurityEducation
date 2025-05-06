@@ -17,10 +17,11 @@
     {
         <a href="@Url.Action("ReadingMaterials", "ReadingMaterial", new { chapterId = episode.ChapterId, episodeId = episode.Id })">
             <div class="episode-div" data-episode-div="@episode.Id">
+                <p class="episode-name">@episode.Name</p>
                 <div class="episode-result">
+                    <p class="completed"></p>
                     <p class="result-text"></p>
                 </div>
-                <p class="episode-name">@episode.Name</p>
                 <img class="episode-img" src="@episode.ImageUrl" />
                 <p class="episode-description">@episode.Description</p>
             </div>

@@ -11,13 +11,20 @@ body {
     flex-wrap: wrap;
 }
 .chapter-div {
-    border: black 2px, solid;
+    border: black, 2px, solid;
     border-radius: 20px;
     padding: 10px;
     width: 400px;
     align-items: center;
     text-align: center;
     background-color: #EDF3F9;
+    min-height: 700px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.chapter-div:hover {
+    transform: translateY(-5px); /* Flyttar upp rutan 5px */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Större skugga för mer djupkänsla */
 }
 .chapter-div img{
     width: 100%;
@@ -29,6 +36,7 @@ body {
 .chapter-name{
     font-size:20px;
     text-align:center;
+    font-weight: bold;
 }
 .chapter-description{
     font-size: 16px;
@@ -38,7 +46,18 @@ body {
     height: 75px;
     border-radius: 10px;
 }
-
+.completed{
+    margin:auto;
+    padding: 10px;
+    border: 1px, solid, black;
+    background:green;
+    border-radius: 20px;
+    font-weight:bold;
+}
+.completed-episodes{
+    font-size:18px;
+    font-weight: bold;
+}
 #back-btn {
     border-radius: 20px;
     background-color: #3498db;

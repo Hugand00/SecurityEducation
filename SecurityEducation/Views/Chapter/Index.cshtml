@@ -5,9 +5,10 @@
     ViewData["Title"] = "Kapitel";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@{
+@* @{
     var chapters = JsonSerializer.Serialize((List<ChapterDto>)Model.Chapters);
-}
+    
+} *@
 <link rel="stylesheet" href="~/css/chapter.css" asp-append-version="true" />
 <div>
     <h2>Välj kapitel</h2>
@@ -15,7 +16,7 @@
 <div class="chapter-container">
     @foreach (var chapter in Model.Chapters)
     {
-        <div class="chapter-div" style="cursor: pointer;" onclick="location.href = '@Url.Action("Episodes", "Episode", new { id = chapter.Id })'">
+        <div data-chapter-div="@chapter.Id" class="chapter-div" style="cursor: pointer;" onclick="location.href = '@Url.Action("Episodes", "Episode", new { id = chapter.Id })'">
             <p class="chapter-name">@chapter.Name</p>
             <div class="result-div" data-result-div="@chapter.Id">
                 <p class="completed"></p>
@@ -31,7 +32,7 @@
 </div>
 
 <script>
-    var chapters = @Html.Raw(chapters);
+    var chapters = @Html.Raw(JsonSerializer.Serialize((List<ChapterDto>)Model.Chapters));
 </script>
 
 <script src="~/js/Chapter.js"></script>

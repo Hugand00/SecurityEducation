@@ -7,6 +7,7 @@ function showStoredResults() {
     episodeDivs.forEach(div => {
         const episodeId = parseInt(div.getAttribute("data-episode-div"));
         const resultP = div.querySelector(".result-text");
+        const episodeComplete = div.querySelector(".completed")
         console.log(episodeId)
         const matchingStatement = xapiData?.statements.find(statement => {
             const extensionId = parseInt(statement.object?.definition?.extensions?.["https://localhost:7142/extensions/episodeId"]);
@@ -15,9 +16,22 @@ function showStoredResults() {
         });
 
         if (matchingStatement) {
-            const score = matchingStatement.result?.score;
-            resultP.textContent = `Senaste försöket: ${score.raw}/${score.max}`;
+            const score = matchingStatement.result;
+            console.log(matchingStatement)
+            if (score.success === true) {
+                episodeComplete.textContent = "Avklarad";
+            }
+            else {
+                episodeComplete.textContent = "Inte avklarad"
+                episodeComplete.style.background = "red"
+            }
+            resultP.textContent = `Senaste försöket: ${score.score.raw}/${score.score.max}`;
             console.log("inne")
+        }
+        else {
+            episodeComplete.textContent = "Inte avklarad"
+            episodeComplete.style.background = "red"
+            resultP.textContent = "Senaste försöket: Saknas"
         }
     });
 }

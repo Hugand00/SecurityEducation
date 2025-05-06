@@ -1,8 +1,4 @@
-﻿
-
-    // din kod här
-
-let slideIndex = 1;
+﻿let slideIndex = 1;
 showSlides(slideIndex);
 
 // Next/previous controls
@@ -47,7 +43,7 @@ function checkAnswers(chapterId, episodeId) {
     answers.forEach(answer => {
         // Iterera genom alla checkedAnswers
         checkedAnswers.forEach(checkedAnswer => {
-            // Om Id på svaren stämmer överens med det markerade svaret, lägg till det i korrekt lista
+           
             if (answer.Id == checkedAnswer.value && answer.IsCorrect == true) {
                 correctAnswers.push(answer);
             }
@@ -56,9 +52,6 @@ function checkAnswers(chapterId, episodeId) {
 
     window.sessionStorage.setItem('correctAnswers', correctAnswers.length)
     const fullUrl = `${url}/${chapterId}/${episodeId}`;
-    console.log(fullUrl)
     location.href = fullUrl;
-    console.log(correctAnswers)
-   
 }
 
