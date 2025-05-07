@@ -36,10 +36,10 @@ html {
 
 body {
     background-image: url('../images/17930.jpg');
-    background-size: contain;
+    background-size: cover;
     background-repeat: repeat-y;
     background-position: center;
-    margin-bottom: 10px;
+    
 }
 
 footer {
