@@ -8,7 +8,7 @@ function plusSlides(n) {
 
 // Thumbnail image controls
 function currentSlide(n) {
-    showSlides(slideIndex = n);
+    showSlides(n);
 }
 
 function showSlides(n) {
@@ -17,20 +17,37 @@ function showSlides(n) {
     let dots = document.getElementsByClassName("dot");
     let prevBtn = document.querySelector(".prev");
     let nextBtn = document.querySelector(".next");
-    console.log(nextBtn, prevBtn);
-    console.log(slides)
-    if (n === slides.length) { nextBtn.style.display = "none"; }
-    else { nextBtn.style.display = "block"; }
-    if (n === 1) { prevBtn.style.display = "none" }
-    else { prevBtn.style.display = "block" }
+
+    // Begränsa slideIndex till inom bounds
+    if (n > slides.length) { slideIndex = slides.length; }
+    else if (n < 1) { slideIndex = 1; }
+    else { slideIndex = n; }
+
+    // Dölj alla slides
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
+
+    // Ta bort "active" från alla prickar
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
+
+    // Visa rätt slide och markera rätt dot
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
+
+    // Visa/dölj knappar beroende på slideIndex
+    if (slideIndex === 1) {
+        prevBtn.style.visibility = "hidden";
+        nextBtn.style.display = "inline-block";
+    } else if (slideIndex === slides.length) {
+        prevBtn.style.display = "inline-block";
+        nextBtn.style.display = "none";
+    } else {
+        prevBtn.style.display = "inline-block";
+        nextBtn.style.display = "inline-block";
+    }
 }
 
 function checkAnswers(chapterId, episodeId) {

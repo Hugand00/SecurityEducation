@@ -34,15 +34,21 @@
                         }
                     </div>
                 </div>
+                <div class="nav-buttons">
+                    <button type="button" class="prev" onclick="plusSlides(-1)">Tillbaka</button>
+                    <button type="button" class="next" onclick="plusSlides(1)">Nästa</button>
+                </div>
             </div>
         }
         <div class="mySlides">
             <p>Vill du rätta ditt prov?</p>
             
             <button id="check-answer" type='button' onclick="checkAnswers(@ViewBag.ChapterId, @ViewBag.EpisodeId)">Skicka</button>
+            <div class="nav-buttons">
+                <button type="button" class="prev" onclick="plusSlides(-1)">Tillbaka</button>
+            </div>
         </div>
-        <a class="prev" onclick="plusSlides(-1)">Tillbaka</a>
-        <a class="next" onclick="plusSlides(1)">Nästa</a>
+        
     </div>
     <div style="text-align:center">
         @for (int i = 0; i < Model.Questions.Count+1; i++)
