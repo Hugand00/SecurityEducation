@@ -11,7 +11,7 @@ namespace SecurityEducation.Controllers
 		{
 			_overviewService = overviewService;
 		}
-		[HttpGet]
+		[HttpGet("Overview/Overviews/")]
 		public async Task<IActionResult> Overviews()
 		{
 			var model = await _overviewService.GetChaptersAndEpisodes();

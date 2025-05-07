@@ -1,11 +1,14 @@
 ﻿
 .overview-div {
-    background-color: rgba(240, 248, 255, 0.95);
+    background-color: rgba(240, 248, 255, 1);
     width: 100%;
     max-width:1800px;
     border-radius:10px;
     margin:auto;
     box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 .chapter-div{
     display:flex;
@@ -14,6 +17,7 @@
     justify-content: center;
     text-align:center;
     margin:auto;
+    
 }
 .medal-img{
     border: 2px solid black;
@@ -49,7 +53,7 @@
    justify-content:center;
    flex-direction:column;
    width:200px;
-   height:250px;
+   height:220px;
 }
 .episode-name{
     font-size:18px;
@@ -71,7 +75,55 @@
     height: 100px;
     margin-left:auto;
     margin-right:auto;
-    margin-bottom:30px;
+    margin-bottom:10px;
+}
+.examination-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.examination-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.examination-name {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.examination-star-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.examination-star-div p {
+    font-size: 28px;
+}
+
+.examination-medal {
+    border: 2px, solid, black;
+    border-radius: 90px;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+#start-btn {
+    border-radius: 20px;
+    background-color: forestgreen;
+    color: white;
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    margin:auto;
 }
 
 @media (min-width:1900px){

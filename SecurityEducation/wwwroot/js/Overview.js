@@ -3,6 +3,7 @@ console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
 
 ShowStoredEpisodes()
 ShowStoredChapter()
+showStoredExamination()
 
 ///OBS inte klar! 
 function ShowStoredChapter() {
@@ -103,7 +104,47 @@ function ShowStoredEpisodes() {
           }
     });
 }
-export function getnumberOfCompletedEpisodes(chapterId) {
+
+function showStoredExamination() {
+    const examinationStarDiv = document.querySelector(".examination-star-div")
+
+    const matchingStatement = xapiData?.statements.find(statement => 
+        statement.object?.id === "https://localhost:7142/Test/ExaminationResult"
+    );
+    console.log(matchingStatement)
+    if (matchingStatement) {
+        const score = matchingStatement.result;
+        if (score.success === true) {
+            for (let i = 0; i < score.score.raw; i++) {
+                const star = document.createElement("p")
+                star.innerHTML = "&#9733";
+                examinationStarDiv.appendChild(star)
+            }
+            if (score.score.raw < 5) {
+                for (let i = 0; i < 5 - score.score.raw; i++) {
+                    const star = document.createElement("p")
+                    star.innerHTML = "&#9734";
+                    examinationStarDiv.appendChild(star)
+                }
+            }
+        }
+        else {
+            for (let i = 0; i < 5; i++) {
+                const star = document.createElement("p")
+                star.innerHTML = "&#9734";
+                examinationStarDiv.appendChild(star)
+            }
+        }
+    }
+    else {
+        for (let i = 0; i < 5; i++) {
+            const star = document.createElement("p")
+            star.innerHTML = "&#9734";
+            examinationStarDiv.appendChild(star)
+        }
+    }
+}
+function getnumberOfCompletedEpisodes(chapterId) {
     let chapterArray = []
     xapiData?.statements.forEach(statement => {
         const extensionId = parseInt(statement.object?.definition?.extensions?.["https://localhost:7142/extensions/chapterId"]);
