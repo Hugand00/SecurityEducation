@@ -7,6 +7,23 @@ html {
     font-size: 16px;
   }
 }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1;
+}
+
+.footer {
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+}
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
@@ -19,8 +36,8 @@ html {
 
 body {
     background-image: url('../images/17930.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size: contain;
+    background-repeat: repeat-y;
     background-position: center;
     margin-bottom: 10px;
 }
