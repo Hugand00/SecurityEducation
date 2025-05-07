@@ -8,33 +8,48 @@
 <div class="instruction-container">
     <h1>Så här går det till</h1>
 
-    <p>Välkommen till vår utbildning inom cyber- och informationssäkerhet, dataskydd samt AI. Vi hoppas att du genom att göra utbildningen kommer känna dig tryggare med att hantera frågor kopplade till området.
-        Utbildningen är uppdelad i tre kapitel och varje kapitel har mellan tre och fem avsnitt enligt följande:</p>
-    <ul>Cybersäkerhet
-        <li>Avsnitt 1: På och utanför arbetsplatsen</li>
-        <li>Avsnitt 2: Nätfiske</li>
-        <li>Avsnitt 3: Skadlig kod och virus</li>
-    </ul>
+    <h4>Välkommen till vår utbildning inom cyber- och informationssäkerhet, dataskydd samt AI. Vi hoppas att du genom att göra utbildningen kommer känna dig tryggare med att hantera dessa frågor.
+        Utbildningen är uppdelad i tre kapitel och varje kapitel har mellan tre och fem avsnitt enligt följande:</h4>
+        <div class="list-container">
+        <ul>
+            <h4>Cybersäkerhet</h4>            
+            <li>Avsnitt 1: På och utanför arbetsplatsen</li>
+            <li>Avsnitt 2: Nätfiske</li>
+            <li>Avsnitt 3: Skadlig kod och virus</li>
+        </ul>
+        <br />
+        <ul>
+            <h4>Informationssäkerhet och dataskydd</h4>
+            <li>Avsnitt 1: Utanför arbetsplatsen</li>
+            <li>Avsnitt 2: Incidenter</li>
+            <li>Avsnitt 3: E-post</li>
+            <li>Avsnitt 4: Lösenord och användarprofil</li>
+            <li>Avsnitt 5: Informationssäkerhetsklassning</li>
+        </ul>
+        <br />
+        <ul>
+            <h4>AI</h4>
+            <li>Avsnitt 1: Introduktion till AI</li>
+            <li>Avsnitt 2: Regler vid användning av AI</li>
+            <li>Avsnitt 3: Hantering av resultat och källkritik</li>
+        </ul>
+        </div>    
     <br />
-    <ul>Informationssäkerhet och dataskydd
-        <li>Avsnitt 1: Utanför arbetsplatsen</li>
-        <li>Avsnitt 2: Incidenter</li>
-        <li>Avsnitt 3: E-post</li>
-        <li>Avsnitt 4: Lösenord och användarprofil</li>
-        <li>Avsnitt 5: Informationssäkerhetsklassning</li>
-    </ul>
-    <br />
-    <ul>AI
-        <li>Avsnitt 1: Introduktion till AI</li>
-        <li>Avsnitt 2: Regler vid användning av AI</li>
-        <li>Avsnitt 3: Hantering av resultat och källkritik</li>
-    </ul>
-    <br />
-    <p>
-        Varje avsnitt inleds med en eller flera sidor med information. Varje avsnitt tar endast några minuter att gå igenom. Efter genomgånget avsnitt ska ett prov genomföras på innehållet i avsnittet.<br /><br />
-        Avsnittsproven består av fem frågor med vardera fyra svarsalternativ där du markerar vilket alternativ du anser är rätt och klickar sedan vidare dig till nästa fråga. Om du vill ändra något svar går det bra att gå bakåt och göra detta. När du svarat på sista frågan kommer du kunna välja att skicka in och rätta ditt prov. För att bli godkänd på provet krävs att du får minst tre rätt av de fem frågorna.<br /><br />
-        När du klarat ett prov kommer det att synas på avsnittssidan inklusive resultatet. Om du vill finns då möjligheten för dig att göra om provet så att du kan förbättra ditt resultat och dina kunskaper.<br /><br />
-        När du klarat alla avsnittsprov kommer du att få möjligheten att göra slutprovet. Slutprovet kommer att vara det sista du gör på utbildningen och kommer att vara beviset på att du klarat utbildningen. Slutprovet kommer att bestå av frågor från alla kapitel och kommer att innehålla tio frågor där det krävs sju rätt för att du ska bli godkänd på utbildningen.<br /><br />
-        Lycka till!</p>
+    <div class="info-img-container">
+        <img src="~/images/Kotte med pekpinne.png" alt="Igelkott med pekpinne" />
+        <p>
+        Varje avsnitt inleds med en eller flera sidor med utbildningsmaterial som tar endast några minuter att gå igenom. Efter varje avsnitt ska ett avsnittsprov genomföras på innehållet.<br /><br />
+        Avsnittsproven består av fem frågor med vardera fyra svarsalternativ där du markerar vilket alternativ du anser är rätt och klickar dig sedan vidare till nästa fråga. Om du vill ändra något svar går det bra att gå bakåt och göra detta. När du svarat på sista frågan kommer du kunna välja att skicka in och rätta ditt prov. För att bli godkänd på provet krävs att du får minst tre rätt av de fem frågorna.<br /><br />
+        När du klarat ett prov kommer det att synas på avsnittssidan samt på översiktssidan. Om du vill finns möjligheten för dig att göra om provet så att du kan förbättra ditt resultat och dina kunskaper och få bättre belöningar.<br /><br />
+        När du klarat alla avsnittsprov kommer du att låsa upp slutprovet. Slutprovet är det sista du gör på utbildningen och är beviset på att du klarat utbildningen. Slutprovet kommer att bestå av frågor från alla kapitel och kommer att innehålla tio frågor där det krävs sju rätt för att du ska bli godkänd.<br /><br />
+        Lycka till!
+        </p>
+        
+
+    </div>
+    <div class="button-container">
+        <button id="back-btn" onclick="history.back()">Gå tillbaka till startsidan</button>
+        <button id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Starta utbildningen!</button>
+    </div>
 
 </div>
