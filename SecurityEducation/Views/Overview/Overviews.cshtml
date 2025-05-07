@@ -1,0 +1,46 @@
+﻿@using SecurityEducation.Dtos
+@using System.Text.Json
+
+@{
+    ViewData["Title"] = "Översikt";
+}
+<link href="~/css/overview.css" rel="stylesheet" asp-append-version="true"/>
+<div class="wrapper">
+    <div class="overview-div">
+        @foreach(var chapter in Model.Chapters)
+        {
+            <a>
+                <div class="chapter-div" data-chapter-div="@chapter.Id">
+                    <p class="chapter-name">@chapter.Name</p>
+                    <img class="medal-img" />
+                    <div class="star-div">
+                       
+                    </div>
+                </div>
+            </a>
+            <div class="episode-container">
+            @foreach(var episode in ((List<EpisodeDto>)Model.Episodes).Where(e => e.ChapterId == chapter.Id))
+            {
+                <a>
+                        <div class="episode-div" data-episode-div="@episode.Id">
+                        <p class="episode-name">@episode.Name</p>
+                        <img class="episode-medal"/>
+                        <div class="episode-star-div" data-episode-star-div="@episode.Id">
+                            
+                        </div>
+                    </div>
+                </a>
+            }
+            </div>
+        }
+        <div class="examination-div">
+
+        </div>
+    </div>
+</div>
+<script>
+    var chapters = @Html.Raw(JsonSerializer.Serialize((List<ChapterDto>)Model.Chapters));
+</script>
+
+<script src="~/js/xapiwrapper.min.js"></script>
+<script type="module" src="~/js/Overview.js"></script>

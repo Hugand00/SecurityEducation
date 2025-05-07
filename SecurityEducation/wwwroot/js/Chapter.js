@@ -1,6 +1,7 @@
 ﻿const xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
 console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
-showStoredChapters()
+
+    showStoredChapters()
 
 function showStoredChapters() {
     const chapterDivs = document.querySelectorAll(".chapter-div");
@@ -48,7 +49,7 @@ function showStoredChapters() {
         completedEpisodes.textContent = `Avklarade avsnitt: ${allSuccess.length}/${numberOfEpisodes}`;
     });
 }
-function getnumberOfCompletedEpisodes(chapterId) {
+export function getnumberOfCompletedEpisodes(chapterId) {
     let chapterArray = []
     xapiData?.statements.forEach(statement => {
         const extensionId = parseInt(statement.object?.definition?.extensions?.["https://localhost:7142/extensions/chapterId"]);

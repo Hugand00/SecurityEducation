@@ -1,0 +1,81 @@
+﻿
+.overview-div {
+    background-color: rgba(240, 248, 255, 0.95);
+    width: 100%;
+    max-width:1800px;
+    border-radius:10px;
+    margin:auto;
+    box-sizing:border-box;
+}
+.chapter-div{
+    display:flex;
+    flex-direction:column;
+    width: 50%;
+    justify-content: center;
+    text-align:center;
+    margin:auto;
+}
+.medal-img{
+    border: 2px solid black;
+    border-radius:90px;
+    width: 150px;
+    height: 150px;
+    margin:auto;
+    background-image: url('../images/silvermedal-removebg-preview.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.chapter-name{
+    font-size:28px;
+    font-weight:bold;
+}
+.star-div{
+    display:flex;
+    justify-content:center;
+    flex-direction:row;
+}
+.star-div p{
+    font-size: 28px;
+}
+.episode-container{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    text-align:center;
+}
+.episode-div{
+   display:flex;
+   justify-content:center;
+   flex-direction:column;
+   width:200px;
+   height:250px;
+}
+.episode-name{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:auto;
+}
+.episode-star-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.episode-star-div p {
+    font-size: 24px;
+}
+.episode-medal {
+    border: 2px, solid, black;
+    border-radius: 90px;
+    width: 100px;
+    height: 100px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:30px;
+}
+
+@media (min-width:1900px){
+    .container{
+        max-width:1800px
+    }
+}

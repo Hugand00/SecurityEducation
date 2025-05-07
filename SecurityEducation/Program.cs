@@ -10,6 +10,7 @@ builder.Services.AddScoped<IEpisodeService, EpisodeService>();
 builder.Services.AddScoped<IReadingMaterialService, ReadingMaterialService>();
 builder.Services.AddScoped<IQuestionService, QuestionService>();
 builder.Services.AddScoped<ITestService, TestService>();
+builder.Services.AddScoped<IOverviewService, OverviewService>();
 
 builder.Services.AddHttpClient<ApiEngine>();
 
