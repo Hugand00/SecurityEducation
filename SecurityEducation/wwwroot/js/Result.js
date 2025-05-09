@@ -14,31 +14,50 @@ document.addEventListener("DOMContentLoaded", function () {
     
 });
 function showCorrectAnswers(vm) {
-    var resultText = document.querySelector("#result")
+    var resultText = document.querySelector("#result");
+
+    let starHtml = "";
+    for (let i = 0; i < 5; i++) {
+        if (i < amountOfCorrectAnswers) {
+            starHtml += `<span class="star">&#9733;</span>`; // fylld stjärna
+        } else {
+            starHtml += `<span class="star-empty">&#9734;</span>`; // tom stjärna
+        }
+    }
 
     if (amountOfCorrectAnswers >= 3) {
-        resultText.textContent = `Grattis du är godkänd! Du fick ${amountOfCorrectAnswers}/5`
+        resultText.innerHTML = `Grattis du är godkänd! Du fick ${amountOfCorrectAnswers} av 5 rätt.<br>${starHtml}`;
         sendStatement("completed", "klarade", amountOfCorrectAnswers, vm.Chapter.Id, vm.Chapter.Name, vm.Episode.Id, vm.Episode.Name, true);
-    }
-    else {
-        resultText.textContent = `Tyvärr är du inte godkänd! Du fick ${amountOfCorrectAnswers}/5`
+    } else {
+        resultText.innerHTML = `Bra jobbat men tyvärr är du inte godkänd. Du fick ${amountOfCorrectAnswers} av 5 rätt.<br>Försök en gång till!<br>${starHtml}`;
         sendStatement("failed", "misslyckades med", amountOfCorrectAnswers, vm.Chapter.Id, vm.Chapter.Name, vm.Episode.Id, vm.Episode.Name, false);
     }
-    
 }
 
+
+
+
 function showCorrectFinalAnswers(vm) {
-    var resultText = document.querySelector("#result")
+    var resultText = document.querySelector("#result");
+    
+    const starCount = Math.round((amountOfCorrectFinalAnswers / 10) * 5);
+    
+    let starHtmlFinal = "";
+    for (let i = 0; i < 5; i++) {
+        if (i < starCount) {
+            starHtmlFinal += `<span class="star">&#9733;</span>`; // fylld stjärna
+        } else {
+            starHtmlFinal += `<span class="star-empty">&#9734;</span>`; // tom stjärna
+        }
+    }
 
     if (amountOfCorrectFinalAnswers >= 7) {
-        resultText.textContent = `Grattis du är godkänd! Du fick ${amountOfCorrectFinalAnswers}/10`
+        resultText.innerHTML = `Grattis du är godkänd! Du fick ${amountOfCorrectFinalAnswers} av 10 rätt.<br>${starHtmlFinal}`;
         sendFinalExamStatement("completed", "klarade", amountOfCorrectFinalAnswers, true);
-    }
-    else {
-        resultText.textContent = `Tyvärr är du inte godkänd! Du fick ${amountOfCorrectFinalAnswers}/10`
+    } else {
+        resultText.innerHTML = `Bra jobbat men tyvärr är du inte godkänd. Du fick ${amountOfCorrectFinalAnswers} av 10 rätt och det krävs 7 rätt för att bli godkänd.<br> Försök en gång till!<br>${starHtmlFinal}`;
         sendFinalExamStatement("failed", "misslyckades med", amountOfCorrectFinalAnswers, false);
     }
-
 }
 
 
