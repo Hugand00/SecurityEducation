@@ -5,46 +5,61 @@
     ViewData["Title"] = "Översikt";
 }
 <link href="~/css/overview.css" rel="stylesheet" asp-append-version="true"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="wrapper">
     <div class="overview-div">
         @foreach(var chapter in Model.Chapters)
         {
-            <a>
-                <div class="chapter-div" data-chapter-div="@chapter.Id">
-                    <p class="chapter-name">@chapter.Name</p>
-                    <img class="medal-img" />
-                    <div class="star-div">
-                       
-                    </div>
-                </div>
-            </a>
-            <div class="episode-container">
-            @foreach(var episode in ((List<EpisodeDto>)Model.Episodes).Where(e => e.ChapterId == chapter.Id))
-            {
+            <div class="chapter-episode-div">
                 <a>
-                        <div class="episode-div" data-episode-div="@episode.Id">
-                        <p class="episode-name">@episode.Name</p>
-                        <img class="episode-medal"/>
-                        <div class="episode-star-div" data-episode-star-div="@episode.Id">
-                            
+                    <div class="chapter-div" data-chapter-div="@chapter.Id">
+                        <p class="chapter-name">@chapter.Name</p>
+                        <div class="chapter-medal-div">
+                            <p class="medal-text"></p>
+                            <img class="chapter-medal"/>
+                        </div>
+                    
+                        <div class="star-div">
+                       
                         </div>
                     </div>
                 </a>
-            }
+                <div class="episode-container">
+                @foreach(var episode in ((List<EpisodeDto>)Model.Episodes).Where(e => e.ChapterId == chapter.Id))
+                {
+                    <a>
+                            <div class="episode-div" data-episode-div="@episode.Id">
+                            <p class="episode-name">@episode.Name</p>
+                            <div class="episode-medal-div">
+                                <p class="medal-text"></p>
+                                <img class="episode-medal"/>
+                            </div>
+                            <div class="episode-star-div" data-episode-star-div="@episode.Id">
+                            
+                            </div>
+                        </div>
+                    </a>
+                }
+                </div>
             </div>
         }
+        
         <div class="examination-container">
             <a>
                 <div class="examination-div">
                     <p class="examination-name">Slutprov</p>
-                    <img class="examination-medal" />
+                    <div class="examination-medal-div">
+                        <p class="medal-text"></p>
+                        <img class="examination-medal"/>
+                    </div>
                     <div class="examination-star-div">
                     </div>
                 </div>
             </a>
         </div>
-        <button id ="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till kapitel!</button>
+        
     </div>
+    <button id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till kapitel!</button>
 </div>
 <script>
     var chapters = @Html.Raw(JsonSerializer.Serialize((List<ChapterDto>)Model.Chapters));

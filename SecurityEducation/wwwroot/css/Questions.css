@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    box-sizing: border-box;    
+    box-sizing: border-box;  
+    
 }
 
 .questionSlideCont {
@@ -12,6 +13,7 @@
     padding: 20px;
     background-color: #EDF3F9;
     box-sizing: border-box;
+    border-radius: 5px;
 }
 
 /* Döljer slides som inte är aktiva */
@@ -62,11 +64,11 @@
     position: relative;
     border: 2px solid #ccc;
     border-radius: 8px;
-    padding: 20px;
     text-align: center;
     cursor: pointer;
     transition: 0.3s;
     min-height: 200px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
     .answer-box input[type="radio"] {

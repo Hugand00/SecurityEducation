@@ -18,11 +18,14 @@ html, body {
 .wrapper {
     flex: 1;
 }
-
+nav {
+    background-color: #EDF3F9;
+}
 .footer {
     height: 60px;
     text-align: center;
     line-height: 60px;
+    background-color: #EDF3F9;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -35,15 +38,15 @@ html {
 }
 
 body {
-    background-image: url('../images/17930.jpg');
+    background: linear-gradient(to right,#012a4a, #014f86, #2a6f97, #2c7da0, #468faf, #89c2d9, #a9d6e5);
+    /*background-image: url('../images/17930.jpg');
     background-size: cover;
     background-repeat: repeat-y;
-    background-position: center;
-    
+    background-position: center;*/
 }
 
 footer {
-    background-color: white;
+  
     position: relative;
     z-index: 1;
 }

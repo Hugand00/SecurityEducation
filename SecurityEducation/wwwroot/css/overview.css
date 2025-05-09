@@ -1,64 +1,90 @@
 ﻿
+
 .overview-div {
     background-color: rgba(240, 248, 255, 1);
     width: 100%;
-    max-width:1800px;
+    max-width:2000px;
     border-radius:10px;
     margin:auto;
     box-sizing:border-box;
     display:flex;
     flex-direction:column;
     justify-content:center;
+
+}
+.chapter-episode-div{
+    display:flex;
+    flex-direction:row;
+}
+.medal-text{
+    position:absolute;
+    top:12px;
+    font-weight:bolder;
+    font-size:9px;
 }
 .chapter-div{
     display:flex;
     flex-direction:column;
-    width: 50%;
     justify-content: center;
     text-align:center;
-    margin:auto;
-    
+    margin-left:20px;
+    width:187px;
+    min-height:180px;
 }
-.medal-img{
+.chapter-medal-div {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
     border: 2px solid black;
-    border-radius:90px;
-    width: 150px;
-    height: 150px;
-    margin:auto;
-    background-image: url('../images/silvermedal-removebg-preview.png');
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    border-radius: 90px;
+    width: 100px;
+    height: 100px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    box-shadow: 2px 4px 20px;
+}
+.chapter-medal {
+    position:absolute;
+    bottom:7px;
+    max-width:60px;
+    max-height:60px;
 }
 .chapter-name{
-    font-size:28px;
+    font-size:14px;
     font-weight:bold;
+    margin-bottom:2px;
 }
 .star-div{
     display:flex;
     justify-content:center;
     flex-direction:row;
 }
-.star-div p{
-    font-size: 28px;
-}
+    .star-div p {
+        font-size: 18px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
 .episode-container{
     display:flex;
     flex-direction:row;
     justify-content:space-evenly;
     text-align:center;
+    max-height:100px;
 }
-.episode-div{
-   display:flex;
-   justify-content:center;
-   flex-direction:column;
-   width:200px;
-   height:220px;
+.episode-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 200px;
+    min-height: 185px;
+    margin-right:10px
 }
 .episode-name{
-    font-size:18px;
+    font-size:12px;
     font-weight:bold;
     margin-bottom:auto;
+   
 }
 .episode-star-div {
     display: flex;
@@ -66,16 +92,27 @@
     flex-direction: row;
 }
 .episode-star-div p {
-    font-size: 24px;
+    font-size: 18px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.episode-medal-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 90px;
+    width: 85px;
+    height: 85px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 2px 4px 20px;
 }
 .episode-medal {
-    border: 2px, solid, black;
-    border-radius: 90px;
-    width: 100px;
-    height: 100px;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom:10px;
+    position: absolute;
+    bottom: 2px;
+    max-width: 40px;
+    max-height: 40px;
 }
 .examination-container {
     display: flex;
@@ -90,7 +127,7 @@
 }
 
 .examination-name {
-    font-size: 28px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -102,28 +139,43 @@
 
 .examination-star-div p {
     font-size: 28px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.examination-medal {
-    border: 2px, solid, black;
+.examination-medal-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 2px solid black;
     border-radius: 90px;
-    width: 150px;
-    height: 150px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 2px 4px 20px;
+}
+.examination-medal {
+    position: absolute;
+    bottom: 7px;
+    max-width: 50px;
+    max-height: 50px;
 }
 #start-btn {
     border-radius: 20px;
     background-color: forestgreen;
     color: white;
     width: 90%;
-    max-width: 600px;
+    max-width: 400px;
     height: auto;
     padding: 20px;
     font-size: 24px;
     font-weight: bold;
     margin:auto;
+    margin-bottom:10px;
+}
+.checked{
+    color:gold;
 }
 
 @media (min-width:1900px){
