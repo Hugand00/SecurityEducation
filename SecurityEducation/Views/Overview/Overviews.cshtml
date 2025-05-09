@@ -56,10 +56,11 @@
                     </div>
                 </div>
             </a>
+            <button id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till kapitel!</button>
         </div>
         
     </div>
-    <button id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till kapitel!</button>
+    
 </div>
 <script>
     var chapters = @Html.Raw(JsonSerializer.Serialize((List<ChapterDto>)Model.Chapters));
@@ -67,3 +68,4 @@
 
 <script src="~/js/xapiwrapper.min.js"></script>
 <script type="module" src="~/js/Overview.js"></script>
+<script src="~/js/xApi/xApiQueries.js"></script>

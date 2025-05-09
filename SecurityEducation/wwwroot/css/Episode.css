@@ -11,17 +11,17 @@
 }
 
 .episode-div {
-    
     align-items: center;
     border: 2px, solid, black;
     border-radius: 20px;
-    padding: 10px;
-    width: 400px;
+    padding: 5px;
+    width: 285px;
     background-color: #EDF3F9;
     box-sizing: border-box;
     text-align: center;
     height: 100%;
-    min-height: 700px;
+    min-height: 575px;
+    max-height:575px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -38,18 +38,19 @@ a:hover{
     color:black;
 }
 .episode-name {
-    font-size: 20px;
+    font-size: 18px;
     font-weight:bold;
+    min-height: 55px;
 }
 .episode-img {
-    width: 100%;
-    height: auto;
+    width: 90%;
+    height: 28%;
     border-radius: 20px;
     margin-bottom:10px;
     text-align:center;
 }
 .episode-description {
-    font-size: 16px;
+    font-size: 14px;
     width: 100%;
     height: auto;
 }

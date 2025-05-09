@@ -3,6 +3,7 @@ console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
 
 showStoredChapters()
 showExamination()
+allChaptersDone()
 function showStoredChapters() {
     const chapterDivs = document.querySelectorAll(".chapter-div");
 
@@ -10,7 +11,6 @@ function showStoredChapters() {
         const chapterId = parseInt(div.getAttribute("data-chapter-div"));
         const chapterComplete = div.querySelector(".completed");
         const completedEpisodes = div.querySelector(".completed-episodes");
-        console.log(chapterId)
         const result = getnumberOfCompletedEpisodes(chapterId)
      
         let rawRelevantItems = result.filter(item =>
@@ -32,13 +32,8 @@ function showStoredChapters() {
         let numberOfEpisodes = []
         if (chapter) {
             numberOfEpisodes = chapter.NumberOfEpisodes;
-            console.log("Antal avsnitt:", numberOfEpisodes);
-        }
-        console.log(relevantItems)
-        
-            let allSuccess = relevantItems.filter(item => item.result?.success === true);
-            console.log(allSuccess)
-
+        }       
+        let allSuccess = relevantItems.filter(item => item.result?.success === true);
         if (allSuccess.length === numberOfEpisodes) {
             chapterComplete.textContent = "Avklarad";
         }
@@ -54,16 +49,39 @@ function showStoredChapters() {
 
 function showExamination() {
     const examDiv = document.querySelector("#examination");
-
-    const matchingStatement = xapiData?.statements.find(statement =>
-        statement.object?.id === "https://localhost:7142/Test/ExaminationResult"
-    );
-    console.log(matchingStatement)
-    if (!matchingStatement) {
+    const result = allChaptersDone()
+    if (!result) {
         const overlay = document.createElement("div")
         overlay.classList.add("overlay")
         examDiv.appendChild(overlay)
-    }
+    }  
+}
+
+function allChaptersDone() {
+    let chaptersDone = 0
+    chapters.forEach(chapter => {
+        const result = getnumberOfCompletedEpisodes(chapter.Id)
+        
+        let rawRelevantItems = result.filter(item =>
+            item.object?.definition?.extensions?.["https://localhost:7142/extensions/chapterId"] === chapter.Id
+        );
+        let bestResultsByEpisode = {};
+
+        for (let item of rawRelevantItems) {
+            let episodeId = item.object?.definition?.extensions?.["https://localhost:7142/extensions/episodeId"];
+            let score = item.result?.score?.raw ?? 0;
+            if (!episodeId) continue;
+            if (!bestResultsByEpisode[episodeId] || score > (bestResultsByEpisode[episodeId].result?.score?.raw ?? 0)) {
+                bestResultsByEpisode[episodeId] = item;
+            }
+        }
+        if (bestResultsByEpisode.length === chapter.NumberOfEpisodes) {
+            chaptersDone++;
+        } 
+    })
+    if (chaptersDone === chapters.length)
+    { return true }
+    else { return false }
 }
 
 export function getnumberOfCompletedEpisodes(chapterId) {

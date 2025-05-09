@@ -64,17 +64,17 @@ function ShowStoredChapter() {
                 console.log(medalImg)
                 if (calcResult === 5) {
                     ///gold
-                    medalText.textContent ="Guld medalj!"
+                    medalText.textContent ="Guld!"
                     div.style.background = "gold";
                     medalImg.src = "/images/Kottemedbådetummarupp.png";
                 } else if (calcResult >= 3) {
                     ///silver
-                    medalText.textContent = "Silver medalj!"
+                    medalText.textContent = "Silver!"
                     div.style.background = "silver";
                     medalImg.src = "/images/Kottemedbådetummarupp.png";
                 } else {
                     ///bronze
-                    medalText.textContent = "Brons medalj!"
+                    medalText.textContent = "Brons!"
                     div.style.background = "#cd7f32"
                     medalImg.src = "/images/Kottemedbådetummarupp.png";
                 }
@@ -127,17 +127,17 @@ function ShowStoredEpisodes() {
                     const medalText = div.querySelector(".medal-text")
                     if (score.score.raw === 5) {
                         ///gold
-                        medalText.textContent = "Guld medalj!"
+                        medalText.textContent = "Guld!"
                         div.style.background = "gold";
                         medalImg.src = "/images/Kottemedbådetummarupp.png";
                     } else if (score.score.raw >= 3) {
                         ///silver
-                        medalText.textContent = "Silver medalj!"
+                        medalText.textContent = "Silver!"
                         div.style.background = "silver";
                         medalImg.src = "/images/Kottemedbådetummarupp.png";
                     } else {
                         ///bronze
-                        medalText.textContent = "Brons medalj!"
+                        medalText.textContent = "Brons!"
                         div.style.background = "#cd7f32"
                         medalImg.src = "/images/Kottemedbådetummarupp.png";
                     }
@@ -177,7 +177,7 @@ function showStoredExamination() {
                 star.classList.add("checked")
                 examinationStarDiv.appendChild(star)
             }
-            if (score.score.raw < 5) {
+            if (score.score.raw/2 < 5) {
                 for (let i = 0; i < 5 - score.score.raw/2; i++) {
                     const star = document.createElement("p")
                     star.innerHTML = "&#9734";
@@ -190,17 +190,17 @@ function showStoredExamination() {
             console.log(medal)
             if (score.score.raw/2 === 5) {
                 ///gold
-                medalText.textContent = "Guld medalj!"
+                medalText.textContent = "Guld!"
                 medal.style.background = "gold";
                 medalImg.src = "/images/Kottemedbådetummarupp.png";
             } else if (score.score.raw  >= 3) {
                 ///silver
-                medalText.textContent = "Silver medalj!"
+                medalText.textContent = "Silver!"
                 medal.style.background = "silver";
                 medalImg.src = "/images/Kottemedbådetummarupp.png";
             } else {
                 ///bronze
-                medalText.textContent = "Brons medalj!"
+                medalText.textContent = "Brons!"
                 medal.style.background = "#cd7f32"
                 medalImg.src = "/images/Kottemedbådetummarupp.png";
             }

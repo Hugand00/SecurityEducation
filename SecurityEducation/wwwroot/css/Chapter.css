@@ -18,7 +18,8 @@ body {
     align-items: center;
     text-align: center;
     background-color: #EDF3F9;
-    min-height: 700px;
+    min-height: 560px;
+    max-height: 560px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -28,7 +29,7 @@ body {
 }
 .chapter-div img{
     width: auto;
-    height: 200px;
+    height: 150px;
     border-radius: 20px;
     margin-bottom: 10px;
     text-align: center;
