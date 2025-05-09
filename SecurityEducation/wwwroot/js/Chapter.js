@@ -84,7 +84,7 @@ function allChaptersDone() {
     else { return false }
 }
 
-export function getnumberOfCompletedEpisodes(chapterId) {
+function getnumberOfCompletedEpisodes(chapterId) {
     let chapterArray = []
     xapiData?.statements.forEach(statement => {
         const extensionId = parseInt(statement.object?.definition?.extensions?.["https://localhost:7142/extensions/chapterId"]);

@@ -1,5 +1,7 @@
 ﻿import { sendStatement, sendFinalExamStatement } from "./xApi/xApi-statements.js"
-import { getnumberOfCompletedEpisodes } from "./chapter.js"
+
+const xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
+console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
 var amountOfCorrectAnswers = parseInt(sessionStorage.getItem('correctAnswers'))
 var amountOfCorrectFinalAnswers = parseInt(sessionStorage.getItem('correctFinalAnswers'))
 document.addEventListener("DOMContentLoaded", function () {
@@ -128,9 +130,16 @@ function showCorrectAnswers(vm) {
         };
     }
 }
-
-
-
+function getnumberOfCompletedEpisodes(chapterId) {
+    let chapterArray = []
+    xapiData?.statements.forEach(statement => {
+        const extensionId = parseInt(statement.object?.definition?.extensions?.["https://localhost:7142/extensions/chapterId"]);
+        if (extensionId === chapterId) {
+            chapterArray.push(statement)
+        }
+    });
+    return chapterArray
+}
 
 function showCorrectFinalAnswers(vm) {
     var resultText = document.querySelector("#result");
