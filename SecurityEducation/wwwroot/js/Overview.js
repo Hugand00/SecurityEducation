@@ -44,15 +44,49 @@ function ShowStoredChapter() {
         }
         const calcResult = Math.round(totalStars / numberOfEpisodes)
         console.log(calcResult)
-        for (let i = 0; i < calcResult; i++) {
-            const star = document.createElement("p")
-            star.innerHTML = "&#9733";
-            chapterStars.appendChild(star)
+        if (allSuccess.length === numberOfEpisodes) {
+            for (let i = 0; i < calcResult; i++) {
+                const star = document.createElement("p")
+                star.innerHTML = "&#9733";
+                star.classList.add("checked")
+                chapterStars.appendChild(star)
+            }
+            for (let i = 0; i < 5 - calcResult; i++) {
+                const star = document.createElement("p")
+                star.innerHTML = "&#9734";
+                chapterStars.appendChild(star)
+            }
+            const medal = div.querySelectorAll(".chapter-medal-div")
+         
+            medal.forEach(div => {
+                const medalImg = div.querySelector(".chapter-medal")
+                const medalText = div.querySelector(".medal-text")
+                console.log(medalImg)
+                if (calcResult === 5) {
+                    ///gold
+                    medalText.textContent ="Guld medalj!"
+                    div.style.background = "gold";
+                    medalImg.src = "/images/Kottemedbådetummarupp.png";
+                } else if (calcResult >= 3) {
+                    ///silver
+                    medalText.textContent = "Silver medalj!"
+                    div.style.background = "silver";
+                    medalImg.src = "/images/Kottemedbådetummarupp.png";
+                } else {
+                    ///bronze
+                    medalText.textContent = "Brons medalj!"
+                    div.style.background = "#cd7f32"
+                    medalImg.src = "/images/Kottemedbådetummarupp.png";
+                }
+            })
+           
         }
-        for (let i = 0; i < 5 - calcResult; i++) {
-            const star = document.createElement("p")
-            star.innerHTML = "&#9734";
-            chapterStars.appendChild(star)
+        else {
+            for (let i = 0; i < 5; i++) {
+                const star = document.createElement("p")
+                star.innerHTML = "&#9734";
+                chapterStars.appendChild(star)
+            }
         }
     })
     
@@ -76,6 +110,7 @@ function ShowStoredEpisodes() {
                 for (let i = 0; i < score.score.raw; i++) {
                     const star = document.createElement("p")
                     star.innerHTML = "&#9733";
+                    star.classList.add("checked")
                     episodeStars.appendChild(star)
                 }
                 if (score.score.raw < 5) {
@@ -85,6 +120,28 @@ function ShowStoredEpisodes() {
                         episodeStars.appendChild(star)
                     }
                 }
+                const medal = div.querySelectorAll(".episode-medal-div")
+                
+                medal.forEach(div => {
+                    const medalImg = div.querySelector(".episode-medal")
+                    const medalText = div.querySelector(".medal-text")
+                    if (score.score.raw === 5) {
+                        ///gold
+                        medalText.textContent = "Guld medalj!"
+                        div.style.background = "gold";
+                        medalImg.src = "/images/Kottemedbådetummarupp.png";
+                    } else if (score.score.raw >= 3) {
+                        ///silver
+                        medalText.textContent = "Silver medalj!"
+                        div.style.background = "silver";
+                        medalImg.src = "/images/Kottemedbådetummarupp.png";
+                    } else {
+                        ///bronze
+                        medalText.textContent = "Brons medalj!"
+                        div.style.background = "#cd7f32"
+                        medalImg.src = "/images/Kottemedbådetummarupp.png";
+                    }
+                });
             }
             else {
                 for (let i = 0; i < 5; i++) {
@@ -93,7 +150,6 @@ function ShowStoredEpisodes() {
                     episodeStars.appendChild(star)
                 }
             }
-
         }
         else {
             for (let i = 0; i < 5; i++) {
@@ -115,18 +171,40 @@ function showStoredExamination() {
     if (matchingStatement) {
         const score = matchingStatement.result;
         if (score.success === true) {
-            for (let i = 0; i < score.score.raw; i++) {
+            for (let i = 0; i < score.score.raw/2; i++) {
                 const star = document.createElement("p")
                 star.innerHTML = "&#9733";
+                star.classList.add("checked")
                 examinationStarDiv.appendChild(star)
             }
             if (score.score.raw < 5) {
-                for (let i = 0; i < 5 - score.score.raw; i++) {
+                for (let i = 0; i < 5 - score.score.raw/2; i++) {
                     const star = document.createElement("p")
                     star.innerHTML = "&#9734";
                     examinationStarDiv.appendChild(star)
                 }
             }
+            const medal = document.querySelector(".examination-medal-div")
+            const medalImg = document.querySelector(".examination-medal")
+            const medalText = medal.querySelector(".medal-text")
+            console.log(medal)
+            if (score.score.raw/2 === 5) {
+                ///gold
+                medalText.textContent = "Guld medalj!"
+                medal.style.background = "gold";
+                medalImg.src = "/images/Kottemedbådetummarupp.png";
+            } else if (score.score.raw  >= 3) {
+                ///silver
+                medalText.textContent = "Silver medalj!"
+                medal.style.background = "silver";
+                medalImg.src = "/images/Kottemedbådetummarupp.png";
+            } else {
+                ///bronze
+                medalText.textContent = "Brons medalj!"
+                medal.style.background = "#cd7f32"
+                medalImg.src = "/images/Kottemedbådetummarupp.png";
+            }
+            medalImg.src = "/images/Kottemedbådetummarupp.png";
         }
         else {
             for (let i = 0; i < 5; i++) {

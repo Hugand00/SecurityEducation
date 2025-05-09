@@ -2,7 +2,7 @@
 console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
 
 showStoredChapters()
-
+showExamination()
 function showStoredChapters() {
     const chapterDivs = document.querySelectorAll(".chapter-div");
 
@@ -46,9 +46,26 @@ function showStoredChapters() {
             chapterComplete.textContent = "Inte avklarad"
             chapterComplete.style.background = "red"
         }
-        completedEpisodes.textContent = `Avklarade avsnitt: ${allSuccess.length}/${numberOfEpisodes}`;
+        if (completedEpisodes) {
+            completedEpisodes.textContent = `Avklarade avsnitt: ${allSuccess.length}/${numberOfEpisodes}`;
+        }
     });
 }
+
+function showExamination() {
+    const examDiv = document.querySelector("#examination");
+
+    const matchingStatement = xapiData?.statements.find(statement =>
+        statement.object?.id === "https://localhost:7142/Test/ExaminationResult"
+    );
+    console.log(matchingStatement)
+    if (!matchingStatement) {
+        const overlay = document.createElement("div")
+        overlay.classList.add("overlay")
+        examDiv.appendChild(overlay)
+    }
+}
+
 function getnumberOfCompletedEpisodes(chapterId) {
     let chapterArray = []
     xapiData?.statements.forEach(statement => {
