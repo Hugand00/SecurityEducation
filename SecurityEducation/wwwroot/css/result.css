@@ -1,4 +1,5 @@
 ﻿
+
 .result-div {
     display: flex;
     flex-direction: column;
@@ -6,13 +7,14 @@
     min-height: 500px;
     padding: 20px;
     background-color: #EDF3F9;
-    text-align: center;
+    text-align: center;    
+    box-sizing: border-box;
 }
 
-.button container {
+.button-container {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 #start-page-btn {
@@ -23,9 +25,9 @@
     font-size: 26px;
     padding: 2%;
     width: max-content;
-    min-width: 25%;
-    height: auto;
-    margin-left: 10%;
+    min-width: 25%;    
+    height: max-content;
+    margin: 5%;
 }
 
 #overview-page-btn {
@@ -37,8 +39,8 @@
     padding: 2%;
     width: max-content;
     min-width: 25%;
-    height: auto;
-    margin-left: 10%;
+    height: max-content;
+    margin: 5%;
 }
 
 .star {
@@ -53,6 +55,76 @@
     color: transparent;
     text-shadow: -0.001px -0.001px 0 #000, 0.001px -0.001px 0 #000, -0.001px 0.001px 0 #000, 0.001px 0.001px 0 #000;
 }
+
+img {
+    width: 200px;
+}
+
+.episode-medal-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 90px;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    box-shadow: 2px 4px 20px;
+}
+
+.episode-medal-text {
+    position: absolute;
+    top: 12px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.episode-medal {
+    position: absolute;
+    bottom: 7px;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.medal-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.chapter-medal-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 90px;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    box-shadow: 2px 4px 20px;
+}
+
+.chapter-medal-text {
+    position: absolute;
+    top: 12px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.chapter-medal {
+    position: absolute;
+    bottom: 7px;
+    max-width: 100px;
+    max-height: 100px;
+}
+
 
 
 

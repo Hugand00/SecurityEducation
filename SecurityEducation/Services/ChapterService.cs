@@ -35,7 +35,12 @@ namespace SecurityEducation.Services
 			foreach (var chapter in chapters)
 			{
 				if(chapter.Id == chapterId)
-					return chapter;
+				{
+                    var numberOfEpisodes = _episodeService.GetEpisodesByChapterId(chapter.Id);
+                    chapter.NumberOfEpisodes = numberOfEpisodes.Result.Episodes.Count;
+                    return chapter;
+                }
+					
 			}
 			return null;
 
