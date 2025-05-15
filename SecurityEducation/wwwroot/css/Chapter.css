@@ -76,6 +76,12 @@ body {
     max-width: 600px;
     height:100px;
 }
+.exam-name {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    min-height: 97px;
+}
 #examination {
    
     position: relative;
