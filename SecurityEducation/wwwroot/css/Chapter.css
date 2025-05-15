@@ -10,6 +10,10 @@ body {
     text-align: center;
     
 }
+.estimated-time{
+    font-weight:bold;
+    font-size: 14px;
+}
 .chapter-div {
     border: black, 2px, solid;
     border-radius: 20px;
@@ -41,7 +45,7 @@ body {
     min-height: 60px;
 }
 .chapter-description{
-    font-size: 16px;
+    font-size: 14px;
 }
 .chapter-btn{
     width: 100px;

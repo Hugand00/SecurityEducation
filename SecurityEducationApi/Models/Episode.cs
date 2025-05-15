@@ -11,5 +11,6 @@ namespace SecurityEducationApi.Models
 		public int ChapterId { get; set; }
 		public Chapter Chapter { get; set; }		
 		public Test Test { get; set; }
+		public string EstimatedTime { get; set; }
 	}
 }	

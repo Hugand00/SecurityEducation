@@ -22,6 +22,7 @@ namespace SecurityEducationApi.Services
 				Name = c.Name,
 				Description = c.Description,
 				ImageUrl = c.ImageUrl,
+				EstimatedTime = c.EstimatedTime,
 			}).ToList();
 		}
 	}

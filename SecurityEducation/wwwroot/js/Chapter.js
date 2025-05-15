@@ -50,6 +50,7 @@ function showStoredChapters() {
 function showExamination() {
     const examDiv = document.querySelector("#examination");
     const result = allChaptersDone()
+    console.log(result);
     if (!result) {
         const overlay = document.createElement("div")
         overlay.classList.add("overlay")
@@ -66,7 +67,7 @@ function allChaptersDone() {
             item.object?.definition?.extensions?.["https://localhost:7142/extensions/chapterId"] === chapter.Id
         );
         let bestResultsByEpisode = {};
-
+        
         for (let item of rawRelevantItems) {
             let episodeId = item.object?.definition?.extensions?.["https://localhost:7142/extensions/episodeId"];
             let score = item.result?.score?.raw ?? 0;
@@ -75,7 +76,11 @@ function allChaptersDone() {
                 bestResultsByEpisode[episodeId] = item;
             }
         }
-        if (bestResultsByEpisode.length === chapter.NumberOfEpisodes) {
+        let allEpisodes = []
+        for (var item in bestResultsByEpisode) {
+            allEpisodes++;
+        }
+        if (allEpisodes == chapter.NumberOfEpisodes) {        
             chaptersDone++;
         } 
     })

@@ -18,6 +18,7 @@
     {
         <div data-chapter-div="@chapter.Id" class="chapter-div" style="cursor: pointer;" onclick="location.href = '@Url.Action("Episodes", "Episode", new { id = chapter.Id })'">
             <p class="chapter-name">@chapter.Name</p>
+			<p class="estimated-time">Uppskattad tidsåtgång: ca @chapter.EstimatedTime</p>
             <div class="result-div" data-result-div="@chapter.Id">
                 <p class="completed"></p>
                 <p class="completed-episodes"></p>
