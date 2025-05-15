@@ -183,6 +183,10 @@
     color:gold;
 }
 
+#intro-text {
+    color: white;
+    
+
 @media (min-width:1900px){
     .container{
         max-width:1800px

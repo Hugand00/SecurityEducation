@@ -25,7 +25,7 @@ function showStoredResults() {
                 episodeComplete.textContent = "Inte avklarad"
                 episodeComplete.style.background = "red"
             }
-            resultP.textContent = `Senaste försöket: ${score.score.raw}/${score.score.max}`;
+            resultP.textContent = `Bästa försöket: ${score.score.raw}/${score.score.max}`;
             console.log("inne")
         }
         else {

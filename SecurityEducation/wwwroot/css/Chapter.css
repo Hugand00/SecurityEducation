@@ -18,8 +18,8 @@ body {
     align-items: center;
     text-align: center;
     background-color: #EDF3F9;
-    min-height: 560px;
-    max-height: 560px;
+    min-height: 600px;
+    max-height: 600px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -48,13 +48,15 @@ body {
     height: 75px;
     border-radius: 10px;
 }
-.completed{
-    margin:auto;
+.completed {
+    margin: auto;
     padding: 10px;
     border: 1px, solid, black;
-    background:green;
-    border-radius: 20px;
-    font-weight:bold;
+    background: forestgreen;
+    color: white;
+    border-radius: 0px;
+    font-weight: bold;
+    font-size: 24px;
 }
 .completed-episodes{
     font-size:18px;

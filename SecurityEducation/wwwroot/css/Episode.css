@@ -1,12 +1,10 @@
-﻿body {
-    background-color: lightgrey;
-}
-
+﻿
 .episode-container {
     display: flex;
     gap: 20px;
     justify-content: center;
     text-align: center;
+    
 
 }
 
@@ -20,8 +18,8 @@
     box-sizing: border-box;
     text-align: center;
     height: 100%;
-    min-height: 575px;
-    max-height:575px;
+    min-height: 600px;
+    max-height: 600px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -62,9 +60,11 @@ a:hover{
     margin: auto;
     padding: 10px;
     border: 1px, solid, black;
-    background: green;
-    border-radius: 20px;
+    background: forestgreen;
+    color: white;
+    border-radius: 0px;
     font-weight: bold;
+    font-size: 24px;
 }
 .result-text {
     font-size: 18px;
