@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     else {
         showCorrectAnswers(vm)
-    }    
-    
+    }      
 });
 function showCorrectAnswers(vm) {
     var resultText = document.querySelector("#result");

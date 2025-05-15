@@ -130,12 +130,12 @@ function ShowStoredEpisodes() {
                         medalText.textContent = "Guld!"
                         div.style.background = "gold";
                         medalImg.src = "/images/Kottemedbådetummarupp.png";
-                    } else if (score.score.raw >= 3) {
+                    } else if (score.score.raw > 3) {
                         ///silver
                         medalText.textContent = "Silver!"
                         div.style.background = "silver";
                         medalImg.src = "/images/Kottemedbådetummarupp.png";
-                    } else {
+                    } else if(score.score.raw =3){
                         ///bronze
                         medalText.textContent = "Brons!"
                         div.style.background = "#cd7f32"
@@ -193,12 +193,12 @@ function showStoredExamination() {
                 medalText.textContent = "Guld!"
                 medal.style.background = "gold";
                 medalImg.src = "/images/Kottemedbådetummarupp.png";
-            } else if (score.score.raw  >= 3) {
+            } else if (score.score.raw  > 3) {
                 ///silver
                 medalText.textContent = "Silver!"
                 medal.style.background = "silver";
                 medalImg.src = "/images/Kottemedbådetummarupp.png";
-            } else {
+            } else if (score.score.raw =3){
                 ///bronze
                 medalText.textContent = "Brons!"
                 medal.style.background = "#cd7f32"
