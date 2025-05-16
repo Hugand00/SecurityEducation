@@ -19,6 +19,7 @@ namespace SecurityEducationApi.Repositories
         {
             return await _context.Episodes
                                  .Where(e => e.ChapterId == chapterId)
+                                 .OrderBy(e => e.Id)
                                  .ToListAsync();
         }
     }

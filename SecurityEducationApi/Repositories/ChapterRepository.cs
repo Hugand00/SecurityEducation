@@ -14,9 +14,11 @@ namespace SecurityEducationApi.Repositories
 			_context = context;
 		}
 
-		public async Task<List<Chapter>> GetEveryChapter()
-		{
-			return await _context.Chapters.ToListAsync();
-		}
-	}
+        public async Task<List<Chapter>> GetEveryChapter()
+        {
+            return await _context.Chapters
+                .OrderBy(c => c.Id)
+                .ToListAsync();
+        }
+    }
 }
