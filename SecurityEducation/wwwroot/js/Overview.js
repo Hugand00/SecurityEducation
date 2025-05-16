@@ -97,14 +97,24 @@ function ShowStoredEpisodes() {
     episodes.forEach(div => {
         const episodeId = parseInt(div.getAttribute("data-episode-div"))
         const episodeStars = div.querySelector(".episode-star-div")
-
-        const matchingStatement = xapiData?.statements.find(statement => {
+        
+        let bestStatement = null;
+        let highestScore = -Infinity;
+        xapiData?.statements.forEach(statement => {
             const extensionId = parseInt(statement.object?.definition?.extensions?.["https://localhost:7142/extensions/episodeId"]);
-            return extensionId === episodeId;
+
+            if (extensionId === episodeId) {
+                const score = statement.result?.score?.raw ?? 0;
+
+                if (score > highestScore) {
+                    highestScore = score;
+                    bestStatement = statement;
+                }
+            }
         });
-        console.log(matchingStatement)
-        if (matchingStatement) {
-            const score = matchingStatement.result;
+            
+        if (bestStatement) {
+            const score = bestStatement.result;
             console.log(score)
             if (score.success === true) {
                 for (let i = 0; i < score.score.raw; i++) {
@@ -124,7 +134,7 @@ function ShowStoredEpisodes() {
                 
                 medal.forEach(div => {
                     const medalImg = div.querySelector(".episode-medal")
-                    const medalText = div.querySelector(".medal-text")
+                    const medalText = div.querySelector(".episode-medal-text")
                     if (score.score.raw === 5) {
                         ///gold
                         medalText.textContent = "Guld!"
@@ -135,7 +145,7 @@ function ShowStoredEpisodes() {
                         medalText.textContent = "Silver!"
                         div.style.background = "silver";
                         medalImg.src = "/images/Kottemedbådetummarupp.png";
-                    } else if(score.score.raw =3){
+                    } else if(score.score.raw = 3){
                         ///bronze
                         medalText.textContent = "Brons!"
                         div.style.background = "#cd7f32"
@@ -167,9 +177,20 @@ function showStoredExamination() {
     const matchingStatement = xapiData?.statements.find(statement => 
         statement.object?.id === "https://localhost:7142/Test/ExaminationResult"
     );
-    console.log(matchingStatement)
-    if (matchingStatement) {
-        const score = matchingStatement.result;
+    let bestStatement = null;
+    let highestScore = -Infinity;
+    xapiData?.statements.forEach(statement => {
+        statement.object?.id === "https://localhost:7142/Test/ExaminationResult";
+        const score = statement.result?.score?.raw ?? 0;
+            if (score > highestScore) {
+                highestScore = score;
+                bestStatement = statement;
+            }
+        
+    });
+ 
+    if (bestStatement) {
+        const score = bestStatement.result;
         if (score.success === true) {
             for (let i = 0; i < score.score.raw/2; i++) {
                 const star = document.createElement("p")

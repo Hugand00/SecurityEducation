@@ -28,14 +28,16 @@
                 <div class="episode-container">
                 @foreach(var episode in ((List<EpisodeDto>)Model.Episodes).Where(e => e.ChapterId == chapter.Id))
                 {
-                    <a>
+                        <a onclick ="location.href = '@Url.Action("Episodes", "Episode", new { id = chapter.Id })'">
                             <div class="episode-div" data-episode-div="@episode.Id">
                             <p class="episode-name">@episode.Name</p>
-                            <div class="episode-medal-div">
-                                <p class="medal-text"></p>
-                                <img class="episode-medal"/>
+                            <div class="episode-result">
+                                <div class="episode-medal-div">
+                                    <p class="episode-medal-text"></p>
+                                    <img class="episode-medal"/>
+                                </div>
+                                <div class="episode-star-div" data-episode-star-div="@episode.Id">
                             </div>
-                            <div class="episode-star-div" data-episode-star-div="@episode.Id">
                             
                             </div>
                         </div>

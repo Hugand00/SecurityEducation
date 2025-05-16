@@ -9,15 +9,24 @@ function showStoredResults() {
         const resultP = div.querySelector(".result-text");
         const episodeComplete = div.querySelector(".completed")
         console.log(episodeId)
-        const matchingStatement = xapiData?.statements.find(statement => {
+        let bestStatement = null;
+        let highestScore = -Infinity;
+        xapiData?.statements.forEach(statement => {
             const extensionId = parseInt(statement.object?.definition?.extensions?.["https://localhost:7142/extensions/episodeId"]);
-            console.log(extensionId)
-            return extensionId === episodeId;
+
+            if (extensionId === episodeId) {
+                const score = statement.result?.score?.raw ?? 0;
+
+                if (score > highestScore) {
+                    highestScore = score;
+                    bestStatement = statement;
+                }
+            }
         });
 
-        if (matchingStatement) {
-            const score = matchingStatement.result;
-            console.log(matchingStatement)
+        if (bestStatement) {
+            const score = bestStatement.result;
+          
             if (score.success === true) {
                 episodeComplete.textContent = "Avklarad";
             }
