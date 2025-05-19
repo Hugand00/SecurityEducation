@@ -16,6 +16,7 @@ body {
 }
 .chapter-div {
     border: black, 2px, solid;
+    position: relative;
     border-radius: 20px;
     padding: 10px;
     width: 308px;
@@ -91,6 +92,34 @@ body {
     display: flex;
     justify-content: center;
     margin-bottom: 5%;
+}
+.enter-chapter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5px;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 0px 80px;
+    background: forestgreen;
+}
+.enter-exam {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5px;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 0px 80px;
+    background: forestgreen;
 }
 .overlay {
     position: absolute;

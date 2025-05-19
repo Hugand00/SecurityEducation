@@ -9,16 +9,19 @@ namespace SecurityEducation.Controllers
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
+		private readonly IOverviewService _overviewService;
 
-		public HomeController(ILogger<HomeController> logger)
+		public HomeController(ILogger<HomeController> logger, IOverviewService overviewService)
 		{
 			_logger = logger;
-			
+			_overviewService = overviewService;
 		}
 
 		public async Task<IActionResult> Index()
 		{
-			return View();
+			var model = await _overviewService.GetChaptersAndEpisodes();
+			
+			return View(model);
 		}
 
         public IActionResult EducationInfo()

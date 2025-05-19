@@ -7,8 +7,9 @@
 <link href="~/css/overview.css" rel="stylesheet" asp-append-version="true"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="wrapper">
-    <h3 id="intro-text">Här ser du alla kapitel och avsnitt som finns i utbildningen liksom dina resultat.</h3>
-    <div class="overview-div">        
+    <h3 id="intro-text">Mina framsteg</h3>
+    <div class="overview-div">    
+        
         @foreach(var chapter in Model.Chapters)
         {
             <div class="chapter-episode-div">
@@ -59,7 +60,11 @@
                     </div>
                 </div>
             </a>
-            <button id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till kapitel!</button>
+            <div class="btn-div">
+                <button id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till kapitel!</button>
+                <button id="back-btn" onclick="location.href = '@Url.Action("Index", "Home")'">Gå till startsidan!</button>
+            </div>
+            
         </div>
         
     </div>

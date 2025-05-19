@@ -1,10 +1,18 @@
 ﻿
+.start-div {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .title-text{
     font-size: 24px;
     text-align:center;
     font-weight: bold;
     margin: 20px;
 }
+
 .welcome-text {
     font-size: 24px;
     text-align: center;
@@ -42,8 +50,7 @@ img {
 
 .div-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     border: 2px solid black;
     border-radius: 20px;
     background-color: #EDF3F9;
@@ -63,7 +70,7 @@ img {
     margin: 20px; /* Marginal runt pratbubblan */
 }
 
-    .speech-bubble::after {
+.speech-bubble::after {
         content: ""; /* Inget textinnehåll, bara ett triangulärt element */
         position: absolute; /* Absolut position för triangeln */
         bottom: -15px; /* Placera triangeln under bubblan */
@@ -74,4 +81,27 @@ img {
         border-left: 10px solid transparent; /* Vänster transparent kant */
         border-right: 10px solid transparent; /* Höger transparent kant */
         border-top: 15px solid #000; /* Den faktiska triangeln, svart */
-    }
+}
+.overview-div{
+    margin:20px;
+    border: 2px solid black;
+    border-radius:20px;
+    padding: 20px;
+    background-color: white;
+    min-width: 150px;
+    
+}
+.overview-header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+.chapter-name{
+    font-size: 20px;
+    font-weight: bold;
+}
+.completed-episode{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}

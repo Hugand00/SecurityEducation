@@ -1,4 +1,6 @@
-﻿@{
+﻿@using SecurityEducation.Dtos
+@using System.Text.Json
+@{
     ViewData["Title"] = "Home Page";
 
 }
@@ -6,14 +8,24 @@
 
 <link rel="stylesheet" href="/css/startPage.css" asp-append-version="true" />
 <main>
-<div class="div-container">    
-    <p class="welcome-text speech-bubble">Välkommen till min utbildning inom cyber- och informationssäkerhet, <br />dataskydd samt AI!</p>
-    <img src="images\Kotte som vinkar med sköld.png" alt="Igelkott med sköld som vinkar"/>    
-    <button id="start-btn" onclick="location.href = '@Url.Action("Overviews", "Overview")'">Starta utbildningen!</button>
-    <br />
-    <button id="info-btn" onclick="location.href = '@Url.Action("EducationInfo", "Home")'">Så här går det till.</button>
-</div>
+    <div class="div-container">    
+        <div class="start-div">
+            <p class="welcome-text speech-bubble">Välkommen till min utbildning inom cyber- och informationssäkerhet, <br />dataskydd samt AI!</p>
+            <img src="images\Kotte som vinkar med sköld.png" alt="Igelkott med sköld som vinkar"/>
+                <button id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Starta utbildningen!</button>
+            <br />
+            <button id="info-btn" onclick="location.href = '@Url.Action("EducationInfo", "Home")'">Så här går det till.</button>
+        </div>
+        <div class="overview-div">
+            <p class="overview-header">Översikt</p>
+        </div>
+    </div>
+    
 </main>
-
+<script>
+    var chapters = @Html.Raw(JsonSerializer.Serialize((List<ChapterDto>)Model.Chapters));
+</script>
 <script src="~/js/xapiwrapper.min.js"></script>
 <script src="~/js/xApi/xApiQueries.js"></script>
+<script src="~/js/Startpage.js"></script>
+

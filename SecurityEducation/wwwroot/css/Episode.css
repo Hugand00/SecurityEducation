@@ -4,12 +4,13 @@
     gap: 20px;
     justify-content: center;
     text-align: center;
+    position:relative;
     
-
 }
 
 .episode-div {
     align-items: center;
+    position:relative;
     border: 2px, solid, black;
     border-radius: 20px;
     padding: 5px;
@@ -41,7 +42,7 @@ a:hover{
     min-height: 55px;
 }
 .episode-img {
-    width: 90%;
+    width: 85%;
     height: 28%;
     border-radius: 20px;
     margin-bottom:10px;
@@ -90,6 +91,20 @@ a:hover{
     display: flex;
     justify-content: center;
     margin-bottom: 5%;
+}
+.enter-episode {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5px;
+    margin-top:5px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 0px 80px;
+    background: forestgreen;
 }
 
 h2 {
