@@ -1,8 +1,10 @@
+using QuestPDF.Infrastructure;
 using SecurityEducation.Services;
 using SecurityEducation.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
+QuestPDF.Settings.License = LicenseType.Community;
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IChapterService, ChapterService>();

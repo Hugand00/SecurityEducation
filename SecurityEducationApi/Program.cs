@@ -5,6 +5,7 @@ using SecurityEducationApi.Services.Interface;
 using SecurityEducationApi.Services;
 using SecurityEducationApi.Repositories.Interface;
 using SecurityEducationApi.Repositories;
+using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 

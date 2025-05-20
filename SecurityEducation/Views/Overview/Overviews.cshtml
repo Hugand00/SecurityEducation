@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="wrapper">
     <h3 id="intro-text">Mina framsteg</h3>
+    <form method="get" asp-controller="Pdf" asp-action="GeneratePdf">
+        <button type="submit">Ladda ner Intyg</button>
+    </form>
     <div class="overview-div">    
         
         @foreach(var chapter in Model.Chapters)

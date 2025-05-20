@@ -143,6 +143,7 @@ function getnumberOfCompletedEpisodes(chapterId) {
 function showCorrectFinalAnswers(vm) {
     var resultText = document.querySelector("#result");
     
+    
     const starCount = Math.round((amountOfCorrectFinalAnswers / 10) * 5);
     
     let starHtmlFinal = "";
@@ -158,6 +159,7 @@ function showCorrectFinalAnswers(vm) {
         resultText.innerHTML = `<img src="/images/Kottemedbådetummarupp.png" alt="Igelkott med båda tummarna upp" />
         <br>Grattis du är godkänd! Du fick ${amountOfCorrectFinalAnswers} av 10 rätt.<br>${starHtmlFinal}`;
         sendFinalExamStatement("completed", "klarade", amountOfCorrectFinalAnswers, true);
+        showDownloadDiplomaButton();
     } else {
         resultText.innerHTML = `<img src="/images/Kotte_med_tummarna_ner.png" alt="Igelkott med båda tummarna ned" />
         <br>Bra jobbat men tyvärr är du inte godkänd. Du fick ${amountOfCorrectFinalAnswers} av 10 rätt och det krävs 7 rätt för att bli godkänd.<br> Försök en gång till!<br>${starHtmlFinal}`;
@@ -193,6 +195,22 @@ function showCorrectFinalAnswers(vm) {
         finalMedalDiv.style.background = "gray";
     }
 
+
+    function showDownloadDiplomaButton() {
+       
+        var div = document.querySelector(".result-div")
+        var form = document.createElement("form")
+        var button = document.createElement("button")
+
+        form.method = "get";
+        form.action = "/Pdf/GeneratePdf"
+
+        button.type = "submit"
+        button.textContent ="Ladda ner intyg!"
+
+        form.appendChild(button)
+        div.appendChild(form)
+    }
 }
 
 
