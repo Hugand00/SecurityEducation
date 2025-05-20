@@ -155,12 +155,44 @@ function showCorrectFinalAnswers(vm) {
     }
 
     if (amountOfCorrectFinalAnswers >= 7) {
-        resultText.innerHTML = `Grattis du är godkänd! Du fick ${amountOfCorrectFinalAnswers} av 10 rätt.<br>${starHtmlFinal}`;
+        resultText.innerHTML = `<img src="/images/Kottemedbådetummarupp.png" alt="Igelkott med båda tummarna upp" />
+        <br>Grattis du är godkänd! Du fick ${amountOfCorrectFinalAnswers} av 10 rätt.<br>${starHtmlFinal}`;
         sendFinalExamStatement("completed", "klarade", amountOfCorrectFinalAnswers, true);
     } else {
-        resultText.innerHTML = `Bra jobbat men tyvärr är du inte godkänd. Du fick ${amountOfCorrectFinalAnswers} av 10 rätt och det krävs 7 rätt för att bli godkänd.<br> Försök en gång till!<br>${starHtmlFinal}`;
+        resultText.innerHTML = `<img src="/images/Kotte_med_tummarna_ner.png" alt="Igelkott med båda tummarna ned" />
+        <br>Bra jobbat men tyvärr är du inte godkänd. Du fick ${amountOfCorrectFinalAnswers} av 10 rätt och det krävs 7 rätt för att bli godkänd.<br> Försök en gång till!<br>${starHtmlFinal}`;
         sendFinalExamStatement("failed", "misslyckades med", amountOfCorrectFinalAnswers, false);
     }
+
+    const finalMedalDiv = document.querySelector(".final-medal-div");
+    const finalMedalImg = finalMedalDiv.querySelector(".final-medal");
+    const finalMedalText = finalMedalDiv.querySelector(".final-medal-text");
+
+    const finalMedalContainerDiv = document.querySelector(".final-medal-container-div")
+    const finalMedalCongrat = finalMedalContainerDiv.querySelector(".final-congrat-text");
+
+    if (amountOfCorrectFinalAnswers === 10) {
+        finalMedalCongrat.textContent = "Grattis du har fått guldmedalj på slutprovet!";
+        finalMedalText.textContent = "Guld";
+        finalMedalDiv.style.background = "gold";
+        finalMedalImg.src = "/images/Kottemedbådetummarupp.png";
+    } else if (amountOfCorrectFinalAnswers === 9) {
+        finalMedalCongrat.innerHTML = "Grattis du har fått silvermedalj på slutprovet!<br>Om du försöker igen kan du säkert få guld!";
+        finalMedalText.textContent = "Silver";
+        finalMedalDiv.style.background = "silver";
+        finalMedalImg.src = "/images/Kottemedbådetummarupp.png";
+    } else if (amountOfCorrectFinalAnswers === 8) {
+        finalMedalCongrat.innerHTML = "Grattis du har fått bronsmedalj på slutprovet!<br>Om du försöker igen kan du säkert få silver eller guld!";
+        finalMedalText.textContent = "Brons";
+        finalMedalDiv.style.background = "#cd7f32";
+        finalMedalImg.src = "/images/Kottemedbådetummarupp.png";
+    } else {
+        finalMedalCongrat.innerHTML = "Tyvärr fick du ingen medalj denna gång.<br>Men försök gärna igen så går det säkert bättre!";
+        //medalText.textContent = "";
+        finalMedalImg.src = "/images/förvirrad_kotte.png";
+        finalMedalDiv.style.background = "gray";
+    }
+
 }
 
 

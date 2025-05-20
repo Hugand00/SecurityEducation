@@ -16,7 +16,7 @@
     border-radius: 5px;
 }
 
-/* Döljer slides som inte är aktiva */
+
 .mySlides {
     display: none;
 }
@@ -40,7 +40,7 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
-    position: static; /* ta bort absolut positionering */
+    position: static;
     min-width: 120px;
 }
 
@@ -99,18 +99,16 @@
     }
 
 #check-answer {
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: forestgreen;
     font-weight: bold;
     color: white;
     font-size: 18px;
-    width: 20%;
-    max-width: 600px;
-    height: 50px;
+    width: 200px;   
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 20px auto;
+    justify-content: center;    
+    padding: 16px;    
 }
 
 /* Responsivitet för små skärmar */

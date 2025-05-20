@@ -41,11 +41,12 @@
             </div>
         }
         <div class="mySlides">
-            <p>Vill du rätta ditt prov?</p>
+            <h3>Vill du rätta in ditt prov?</h3>
             
-            <button id="check-answer" type='button' onclick="checkAnswers(@ViewBag.ChapterId, @ViewBag.EpisodeId)">Skicka</button>
+            
             <div class="nav-buttons">
                 <button type="button" class="prev" onclick="plusSlides(-1)">Tillbaka</button>
+                <button id="check-answer" type='button' onclick="checkAnswers(@ViewBag.ChapterId, @ViewBag.EpisodeId)">Rätta</button>
             </div>
         </div>
         

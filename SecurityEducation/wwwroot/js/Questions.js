@@ -7,8 +7,18 @@ function plusSlides(n) {
 }
 
 // Thumbnail image controls
-function currentSlide(n) {
-    showSlides(n);
+function plusSlides(n) {
+    // Om vi går framåt (n > 0), kontrollera om ett alternativ är valt
+    if (n > 0) {
+        const currentSlide = document.getElementsByClassName("mySlides")[slideIndex - 1];
+        const selected = currentSlide.querySelector('input[type="radio"]:checked');
+        if (!selected) {
+            alert("Du måste välja ett svar innan du går vidare.");
+            return; // Stoppa funktionen om inget är valt
+        }
+    }
+
+    showSlides(slideIndex += n);
 }
 
 function showSlides(n) {

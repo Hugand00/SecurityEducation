@@ -1,10 +1,25 @@
-﻿
+﻿.div-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: #EDF3F9;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-bottom: 3%;
+    gap: 20px; /* Flexbox gap istället för margin på barn */
+}
 .start-div {
-    width: 70%;
+    flex: 0 0 65%;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 .title-text{
     font-size: 24px;
@@ -40,7 +55,6 @@
     padding: 20px;
     font-size: 24px;
     font-weight: bold;
-
 }
 
 img {
@@ -48,26 +62,15 @@ img {
     height: auto;
 }
 
-.div-container {
-    display: flex;
-    flex-direction: row;
-    border: 2px solid black;
-    border-radius: 20px;
-    background-color: #EDF3F9;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-    margin-bottom: 3%;
-}
+
 
 .speech-bubble {
     position: relative; /* Gör att vi kan använda pseudo-element */
     background-color: #fff; /* Bakgrundsfärg på pratbubblan */
-    border: 2px solid #000; /* Rand på pratbubblan */
+    border: 2px solid black; /* Rand på pratbubblan */
     padding: 20px; /* Utrymme inne i bubblan */
-    border-radius: 10px; /* Rundade hörn */
-    max-width: auto; /* Maxbredd */
-    margin: 20px; /* Marginal runt pratbubblan */
+    border-radius: 20px; /* Rundade hörn */
+    max-width: auto; /* Maxbredd */    
 }
 
 .speech-bubble::after {
@@ -82,15 +85,15 @@ img {
         border-right: 10px solid transparent; /* Höger transparent kant */
         border-top: 15px solid #000; /* Den faktiska triangeln, svart */
 }
-.overview-div{
-    margin:20px;
+.overview-div {
+    flex: 0 0 30%;
+    box-sizing: border-box;
     border: 2px solid black;
-    border-radius:20px;
+    border-radius: 20px;
     padding: 20px;
-    background-color: white;
-    min-width: 150px;
-    
+    background-color: white;    
 }
+
 .overview-header {
     font-size: 24px;
     font-weight: bold;

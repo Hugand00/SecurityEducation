@@ -14,6 +14,8 @@
 .button-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: space-around;
 }
 
@@ -92,8 +94,8 @@ img {
 .medal-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
-    
 }
 
 .chapter-medal-div {
@@ -123,6 +125,50 @@ img {
     bottom: 7px;
     max-width: 100px;
     max-height: 100px;
+}
+
+.final-medal {
+    position: absolute;
+    bottom: 7px;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.final-medal-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 90px;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    box-shadow: 2px 4px 20px;
+}
+
+.final-medal-text {
+    position: absolute;
+    top: 12px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.final-medal-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 90px;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    box-shadow: 2px 4px 20px;
 }
 
 
