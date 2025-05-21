@@ -1,7 +1,7 @@
 ﻿
 
 .result-div {
-    display: flex;
+    display: flex;    
     flex-direction: column;
     justify-content: space-between;
     min-height: 500px;
@@ -15,8 +15,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 10px;
     justify-content: space-around;
+    align-items: center;
 }
 
 #start-page-btn {
@@ -111,6 +111,7 @@ img {
     margin-right: auto;
     text-align: center;
     box-shadow: 2px 4px 20px;
+
 }
 
 .chapter-medal-text {
@@ -177,6 +178,16 @@ img {
     font-weight: bold;
     color:white;
     font-size:20px;
+}
+
+@media (max-width: 320px) {
+    .star {
+        font-size: 40px;
+    }
+
+    .star-empty {
+        font-size: 40px;
+    }
 }
 
 

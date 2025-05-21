@@ -128,7 +128,15 @@ function showCorrectAnswers(vm) {
             medalChapterImg.src = "/images/förvirrad_kotte.png";
             medalChapterDiv.style.background = "gray";
         };
+    } else {
+        // 👇 Det här körs om användaren INTE klarat alla avsnitt
+        medalChapterCongrat.innerHTML = "Du har inte klarat alla avsnitt ännu.<br>Fortsätt kämpa för att få en kapitelmedalj!";
+        medalChapterText.textContent = "";
+        medalChapterDiv.style.background = "gray";
+        medalChapterImg.src = "/images/förvirrad_kotte.png";
+
     }
+
 }
 function getnumberOfCompletedEpisodes(chapterId) {
     let chapterArray = []

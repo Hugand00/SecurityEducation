@@ -45,7 +45,7 @@ a:hover{
     width: auto;
     max-height: 150px;
     border-radius: 20px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
     text-align:center;
 }
 .episode-description {
@@ -116,5 +116,12 @@ a:hover{
 h2 {
     text-align: center;
     color: white;
+}
+
+@media (min-width: 1640px) {
+
+    .episode-container {        
+        flex-wrap: nowrap;        
+    }
 }
 
