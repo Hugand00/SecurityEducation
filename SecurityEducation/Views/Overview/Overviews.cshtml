@@ -9,6 +9,9 @@
 <div class="wrapper">
     <h3 id="intro-text">Mina framsteg</h3>
     <form method="get" asp-controller="Pdf" asp-action="GeneratePdf">
+        <input type="hidden" name="Name" id="nameInput" />
+        <input type="hidden" name="AmountOfStars" id="starsInput" />
+        <input type="hidden" name="Chapters" id="chaptersInput" />
         <button type="submit">Ladda ner Intyg</button>
     </form>
     <div class="overview-div">    
@@ -75,6 +78,7 @@
 </div>
 <script>
     var chapters = @Html.Raw(JsonSerializer.Serialize((List<ChapterDto>)Model.Chapters));
+    var episodes = @Html.Raw(JsonSerializer.Serialize((List<EpisodeDto>)Model.Episodes));
 </script>
 
 <script src="~/js/xapiwrapper.min.js"></script>

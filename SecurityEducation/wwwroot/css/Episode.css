@@ -42,8 +42,8 @@ a:hover{
     min-height: 55px;
 }
 .episode-img {
-    width: 85%;
-    height: 28%;
+    width: auto;
+    max-height: 150px;
     border-radius: 20px;
     margin-bottom:10px;
     text-align:center;

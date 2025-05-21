@@ -49,14 +49,32 @@ function showStoredChapters() {
 
 function showExamination() {
     const examDiv = document.querySelector("#examination");
+    const examComplete = examDiv.querySelector(".completed");
     const result = allChaptersDone()
     console.log(result);
     if (!result) {
         const overlay = document.createElement("div")
         overlay.classList.add("overlay")
         examDiv.appendChild(overlay)
-    }  
+    } else if (result){
+        let bestStatement = null;
+        let highestScore = -Infinity;
+        xapiData?.statements.forEach(statement => {
+            statement.object?.id === "https://localhost:7142/Test/ExaminationResult";
+            const score = statement.result?.score?.raw ?? 0;
+            if (score > highestScore) {
+                highestScore = score;
+                bestStatement = statement;
+            }
+        });
+        if (bestStatement) {
+            examComplete.textContent = "Avklarad";
+            examComplete.style.background = "forestgreen"
+        }
+    }
+    
 }
+
 
 function allChaptersDone() {
     let chaptersDone = 0

@@ -1,4 +1,5 @@
 ﻿import { sendStatement, sendFinalExamStatement } from "./xApi/xApi-statements.js"
+import {GetAllChapterNames, GetTotalAmountOfStars } from "./Overview.js"
 
 const xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
 console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
@@ -195,12 +196,33 @@ function showCorrectFinalAnswers(vm) {
         finalMedalDiv.style.background = "gray";
     }
 
-
+    document.querySelector("form").addEventListener("submit", function () {
+        document.getElementById("nameInput").value = `${xapiData?.statements[0].actor?.name}` || "Okänd";
+        document.getElementById("starsInput").value = GetTotalAmountOfStars();
+        document.getElementById("chaptersInput").value = GetAllChapterNames().join(",");
+    });
     function showDownloadDiplomaButton() {
-       
+        
         var div = document.querySelector(".result-div")
         var form = document.createElement("form")
         var button = document.createElement("button")
+        var inputName = document.createElement("input")
+        var amountOfStar = document.createElement("input")
+        var chapters = document.createElement("input")
+
+        inputName.type = "hidden";
+        inputName.id = "nameInput";
+        inputName.value = 
+
+        amountOfStar.type = "hidden";
+        amountOfStar.id = "starsInput"
+        amountOfStar.value = 
+
+        chapters.type = "hidden";
+        chapters.id = "chaptersInput"
+        chapters.value = 
+
+        button.classList.add("download-btn")
 
         form.method = "get";
         form.action = "/Pdf/GeneratePdf"
@@ -208,6 +230,9 @@ function showCorrectFinalAnswers(vm) {
         button.type = "submit"
         button.textContent ="Ladda ner intyg!"
 
+        form.appendChild(inputName)
+        form.appendChild(amountOfStar)
+        form.appendChild(chapters);
         form.appendChild(button)
         div.appendChild(form)
     }

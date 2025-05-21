@@ -35,12 +35,12 @@ body {
     transform: translateY(-5px); /* Flyttar upp rutan 5px */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Större skugga för mer djupkänsla */
 }
-.chapter-div img{
-    width: auto;
-    height: 150px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    text-align: center;
+.chapter-div img {
+        width: auto;
+        max-height: 150px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        text-align: center;
 }
 .chapter-name{
     font-size:20px;

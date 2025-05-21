@@ -1,9 +1,14 @@
-﻿const xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
+﻿
+
+const xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
 console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
 
-ShowStoredEpisodes()
-ShowStoredChapter()
-showStoredExamination()
+document.addEventListener("DOMContentLoaded", function () {
+
+    ShowStoredEpisodes()
+    ShowStoredChapter()
+    showStoredExamination()
+});
 
 ///OBS inte klar! 
 function ShowStoredChapter() {
@@ -92,9 +97,9 @@ function ShowStoredChapter() {
     
 }
 function ShowStoredEpisodes() {
-    const episodes = document.querySelectorAll(".episode-div")
+    const episodeDivs = document.querySelectorAll(".episode-div")
     
-    episodes.forEach(div => {
+    episodeDivs.forEach(div => {
         const episodeId = parseInt(div.getAttribute("data-episode-div"))
         const episodeStars = div.querySelector(".episode-star-div")
         
@@ -252,4 +257,63 @@ function getnumberOfCompletedEpisodes(chapterId) {
         }
     });
     return chapterArray
+}
+
+document.querySelector("form").addEventListener("submit", function () {
+    document.getElementById("nameInput").value = `${xapiData?.statements[0].actor?.name}` || "Okänd";
+    document.getElementById("starsInput").value = GetTotalAmountOfStars();
+    document.getElementById("chaptersInput").value = GetAllChapterNames().join(",");
+});
+
+export function GetAllChapterNames() {
+    let chapterNames = [];
+
+    console.log(chapters)
+    chapters.forEach(chapter => {
+        if (!chapterNames.includes(chapter.Name)) {
+            chapterNames.push(chapter.Name);
+        }
+    });
+    console.log(chapterNames)
+    return chapterNames;
+}
+export function GetTotalAmountOfStars() {
+    let totalAmountOfStars = 0;
+    episodes.forEach(episode => {
+            let bestStatement = null;
+            let highestScore = -Infinity;
+            xapiData?.statements.forEach(statement => {
+                const extensionId = parseInt(statement.object?.definition?.extensions?.["https://localhost:7142/extensions/episodeId"]);
+
+                if (extensionId === episode.Id) {
+                    const score = statement.result?.score?.raw ?? 0;
+
+                    if (score > highestScore) {
+                        highestScore = score;
+                        bestStatement = statement;
+                    }
+                }
+            });
+            if (bestStatement) {
+                totalAmountOfStars += highestScore;
+            }
+    })
+   
+    let bestStatement = null;
+    let highestScore = -Infinity;
+    xapiData?.statements.forEach(statement => {
+        statement.object?.id === "https://localhost:7142/Test/ExaminationResult";
+        console.log("inne")
+        const score = statement.result?.score?.raw ?? 0;
+        if (score > highestScore) {
+            highestScore = score;
+            bestStatement = statement;
+        }
+
+    });
+    console.log(bestStatement)
+    if (bestStatement) {
+        totalAmountOfStars += highestScore;
+    }
+    return totalAmountOfStars;
 }
