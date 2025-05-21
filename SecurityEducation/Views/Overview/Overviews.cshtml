@@ -12,7 +12,7 @@
         <input type="hidden" name="Name" id="nameInput" />
         <input type="hidden" name="AmountOfStars" id="starsInput" />
         <input type="hidden" name="Chapters" id="chaptersInput" />
-        <button type="submit">Ladda ner Intyg</button>
+        <button aria-label="Ladd ner intyg för avklarad utbildning" type="submit">Ladda ner Intyg</button>
     </form>
     <div class="overview-div">    
         
@@ -67,8 +67,8 @@
                 </div>
             </a>
             <div class="btn-div">
-                <button id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till kapitel!</button>
-                <button id="back-btn" onclick="location.href = '@Url.Action("Index", "Home")'">Gå till startsidan!</button>
+                <button aria-label="Gå tillbaka till kapitel" id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till kapitel!</button>
+                <button aria-label="Gå tillbaka till startsidan" id="back-btn" onclick="location.href = '@Url.Action("Index", "Home")'">Gå till startsidan!</button>
             </div>
             
         </div>

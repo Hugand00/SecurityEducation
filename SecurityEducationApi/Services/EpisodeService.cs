@@ -22,6 +22,7 @@ namespace SecurityEducationApi.Services
               Name = e.Name,
               Description = e.Description,
               ImageUrl = e.ImageUrl, 
+              ImageAltText = e.ImageAltText,
               ChapterId = e.ChapterId,
               EstimatedTime = e.EstimatedTime,
           }).ToList();

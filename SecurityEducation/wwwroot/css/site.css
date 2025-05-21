@@ -7,17 +7,24 @@ html {
     font-size: 16px;
   }
 }
+
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+}
+
+body {
     display: flex;
     flex-direction: column;
 }
 
 .wrapper {
-    flex: 1;
+    flex: 1; /* Tar upp allt mellan header och footer */
+    display: flex;
+    flex-direction: column;
 }
+
 nav {
     background-color: #EDF3F9;
 }

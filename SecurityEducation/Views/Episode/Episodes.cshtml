@@ -23,7 +23,7 @@
                     <p class="completed"></p>
                     <p class="result-text"></p>
                 </div>
-                <img class="episode-img" src="@episode.ImageUrl" />
+                <img class="episode-img" alt="@episode.ImageAltText" src="@episode.ImageUrl" />
                 <p class="episode-description">@episode.Description</p>
                 <p class="enter-episode">Öppna avsnitt</p>
             </div>
@@ -32,7 +32,7 @@
 
 </div>
 <div class="button-container">
-    <button id="back-btn" onclick="history.back()">Gå tillbaka till Välj kapitel</button>
+    <button aria-label="Gå tillbaka till välj kapitel" id="back-btn" onclick="history.back()">Gå tillbaka till Välj kapitel</button>
 </div>
 
 <script>

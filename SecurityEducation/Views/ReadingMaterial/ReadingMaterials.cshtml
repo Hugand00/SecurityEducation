@@ -21,21 +21,21 @@
                             }
                         }
                     </div>
-                    <img class="slide-img" src="@readingMaterials.ImageUrl" />
+                    <img class="slide-img" alt="@readingMaterials.ImageAltText" src="@readingMaterials.ImageUrl" />
                 </div>
                 <div class="button-container">
-                    <button id="back-btn" onclick="history.back()">Gå tillbaka till Välj avsnitt<br /><span class="arrow">&#129120;</span></button>
+                    <button aria-label="Gå tillbaka till välj avsnitt" id="back-btn" onclick="history.back()">Gå tillbaka till Välj avsnitt<br /><span class="arrow">&#129120;</span></button>
                     @if (i == Model.ReadingMaterials.Count - 1)
                     {
-                        <button id="start-test-btn" onclick="location.href='@Url.Action("TestStartPage", "Test", new { chapterId = ViewBag.ChapterId, episodeId = readingMaterials.EpisodeId })'">Starta prov!<br /><span class="arrow">&#129122;</span></button>
+                        <button aria-label="Starta provet" id="start-test-btn" onclick="location.href='@Url.Action("TestStartPage", "Test", new { chapterId = ViewBag.ChapterId, episodeId = readingMaterials.EpisodeId })'">Starta prov!<br /><span class="arrow">&#129122;</span></button>
                     }
                 </div>
             </div>
         }
         
 
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <a aria-label="Tillbaka till föregående slide" class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a aria-label="Gå Till nästa slide" class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>    
 
     <div style="text-align:center">

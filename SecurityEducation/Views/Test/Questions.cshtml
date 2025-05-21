@@ -35,8 +35,8 @@
                     </div>
                 </div>
                 <div class="nav-buttons">
-                    <button type="button" class="prev" onclick="plusSlides(-1)">Tillbaka</button>
-                    <button type="button" class="next" onclick="plusSlides(1)">Nästa</button>
+                    <button aria-label="Tillbaka till föregående fråga" type="button" class="prev" onclick="plusSlides(-1)">Tillbaka</button>
+                    <button aria-label="Till nästa fråga" type="button" class="next" onclick="plusSlides(1)">Nästa</button>
                 </div>
             </div>
         }
@@ -45,8 +45,8 @@
             
             
             <div class="nav-buttons">
-                <button type="button" class="prev" onclick="plusSlides(-1)">Tillbaka</button>
-                <button id="check-answer" type='button' onclick="checkAnswers(@ViewBag.ChapterId, @ViewBag.EpisodeId)">Rätta</button>
+                <button aria-label ="Gå tillbaka" type="button" class="prev" onclick="plusSlides(-1)">Tillbaka</button>
+                <button aria-label="Rätta mitt prov" id="check-answer" type='button' onclick="checkAnswers(@ViewBag.ChapterId, @ViewBag.EpisodeId)">Rätta</button>
             </div>
         </div>
         

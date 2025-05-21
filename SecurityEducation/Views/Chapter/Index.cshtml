@@ -23,7 +23,7 @@
                 <p class="completed"></p>
                 <p class="completed-episodes"></p>
             </div>
-            <img src="@chapter.ImageUrl" />
+            <img alt=" @chapter.ImageAltText" src ="@chapter.ImageUrl" />
             <p class="chapter-description">@chapter.Description</p>
             <p class="enter-chapter">Öppna kapitel</p>
         </div>
@@ -42,7 +42,7 @@
     </div>
 </div>
 <div class="button-container">
-    <button id="back-btn" onclick="history.back()">Gå tillbaka till startsidan</button>
+    <button aria-label="Gå tillbaka till startsidan" id="back-btn" onclick="history.back()">Gå tillbaka till startsidan</button>
 </div>
 
 <script>

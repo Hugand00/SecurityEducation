@@ -23,6 +23,7 @@ namespace SecurityEducationApi.Services
                 Name = r.Name,
                 Content = r.Content,
                 ImageUrl = r.ImageUrl,
+                ImageAltText = r.ImageAltText,
                 PageNumber = r.PageNumber,
                 EpisodeId = r.EpisodeId,
             }).ToList();
