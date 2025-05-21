@@ -16,9 +16,9 @@
 <div class="chapter-container">
     @foreach (var chapter in Model.Chapters)
     {
-        <div data-chapter-div="@chapter.Id" class="chapter-div" style="cursor: pointer;" onclick="location.href = '@Url.Action("Episodes", "Episode", new { id = chapter.Id })'">
+        <a class="chapter-div" href="@Url.Action("Episodes", "Episode", new { id = chapter.Id })" data-chapter-div="@chapter.Id" style="text-decoration: none; color: inherit;">
             <p class="chapter-name">@chapter.Name</p>
-			<p class="estimated-time">Uppskattad tidsåtgång: ca @chapter.EstimatedTime</p>
+            <p class="estimated-time">Uppskattad tidsåtgång: ca @chapter.EstimatedTime</p>
             <div class="result-div" data-result-div="@chapter.Id">
                 <p class="completed"></p>
                 <p class="completed-episodes"></p>
@@ -26,7 +26,7 @@
             <img alt=" @chapter.ImageAltText" src ="@chapter.ImageUrl" />
             <p class="chapter-description">@chapter.Description</p>
             <p class="enter-chapter">Öppna kapitel</p>
-        </div>
+        </a>
     }
     <div id="examination">
         <div class="chapter-div" style="cursor: pointer;" onclick="location.href = '@Url.Action("Examination", "Test")'">

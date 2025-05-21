@@ -1,7 +1,4 @@
 ﻿
-body {
-    background-color: lightgray;
-}
 
 .chapter-container {
     display: flex;
@@ -18,7 +15,7 @@ body {
     font-size: 14px;
 }
 .chapter-div {
-    border: 2px, solid black;
+    border: 2px solid black;
     position: relative;
     border-radius: 20px;
     padding: 10px;
@@ -31,6 +28,13 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.chapter-div:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px black;
+    border: 2px solid black;
+}
+
 .chapter-div:hover {
     transform: translateY(-5px); /* Flyttar upp rutan 5px */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Större skugga för mer djupkänsla */
@@ -80,6 +84,15 @@ body {
     max-width: 600px;
     height:100px;
 }
+
+#back-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px black;
+    border: 2px solid black;
+}
+
+
+
 .exam-name {
     font-size: 20px;
     text-align: center;

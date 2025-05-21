@@ -70,6 +70,19 @@ img {
     margin-right: 10%;
 }
 
+#back-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px black;
+    border: 2px solid black;
+}
+
+
+#start-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px black;
+    border: 2px solid black;
+}
+
 @media screen and (max-width: 1350px) {
     .list-container,
     .info-img-container,

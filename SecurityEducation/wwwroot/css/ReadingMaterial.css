@@ -180,6 +180,12 @@ container{
     margin: 20px;
 }
 
+#start-test-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px black;
+    border: 2px solid black;
+}
+
 #back-btn {
     border-radius: 20px;
     background-color: #3498db;
@@ -192,6 +198,12 @@ container{
     align-items: center;
     justify-content: center;
     margin: 20px;
+}
+
+#back-btn:focus {
+     outline: none;
+     box-shadow: 0 0 0 4px black;
+     border: 2px solid black;
 }
 
 .arrow {

@@ -57,6 +57,21 @@
     font-weight: bold;
 }
 
+#start-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px black;
+    border: 2px solid black;
+}
+
+
+#info-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px black;
+    border: 2px solid black;
+}
+
+
+
 img {
     max-width: 25%;
     height: auto;
@@ -108,3 +123,5 @@ img {
     font-weight: bold;
     margin-bottom: 40px;
 }
+
+
