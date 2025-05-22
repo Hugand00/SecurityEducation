@@ -1,4 +1,7 @@
-﻿
+﻿h2 {
+    text-align: center;
+    color: white;
+}
 
 .overview-div {
     background-color: rgba(240, 248, 255, 1);

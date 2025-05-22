@@ -7,7 +7,7 @@
 <link href="~/css/overview.css" rel="stylesheet" asp-append-version="true"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="wrapper">
-    <h3 id="intro-text">Mina framsteg</h3>
+    <h2 id="intro-text">Mina framsteg</h2>
     <form method="get" asp-controller="Pdf" asp-action="GeneratePdf">
         <input type="hidden" name="Name" id="nameInput" />
         <input type="hidden" name="AmountOfStars" id="starsInput" />
@@ -70,7 +70,7 @@
             
         </div>
         <div class="btn-div">
-            <button aria-label="Gå tillbaka till kapitel" id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till kapitel!</button>
+            <button aria-label="Gå till välj kapitel" id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till Välj kapitel</button>
             <button aria-label="Gå tillbaka till startsidan" id="back-btn" onclick="location.href = '@Url.Action("Index", "Home")'">Gå till startsidan!</button>
         </div>
         

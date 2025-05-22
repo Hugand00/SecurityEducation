@@ -3,11 +3,16 @@ container{
     max-width:1600px;
 }
 
+h2 {
+    text-align: center;
+    color: white;
+}
+
 .reading-material-slide-cont {
     max-width: 1200px;
     position: relative;
     margin: auto;
-    min-height: 700px;
+    min-height: 600px;
     background-color: #EDF3F9;
     text-align: center;
     margin-bottom: 20px;
@@ -51,11 +56,11 @@ container{
     text-decoration:none;
 }
 .slide-img {
-    width: calc(50% - 10px); /* Tar ~40% av containern minus halva gap:en */
+    width: 40%;
     height: auto;
     margin: 0;
-    margin-top: 20px;
-    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;    
     padding: 10px;
 }
 /* Position the "next button" to the right */
@@ -164,6 +169,7 @@ container{
     justify-content: center;
     gap: 40px; /* Mindre gap för bättre responsivitet */
     margin: 20px;
+    margin-bottom: 10px;
 }
 
 #start-test-btn {
@@ -171,7 +177,7 @@ container{
     background-color: forestgreen;
     font-weight: bold;
     color: white;
-    font-size: 1.2em;
+    font-size: 2em;
     width: 35%;
     max-width: 600px;
     height: 100px;    
@@ -191,13 +197,13 @@ container{
     background-color: #3498db;
     font-weight: bold;
     color: white;
-    font-size: 1.2em;
+    font-size: 2em;
     width: 35%;
     max-width: auto;
     height: 100px;
     align-items: center;
     justify-content: center;
-    margin: 20px;
+    margin: 20px;    
 }
 
 #back-btn:focus {
@@ -245,18 +251,18 @@ container{
 
 
 
-    @media (max-width: 415px) {
+    @media (max-width: 480px) {
 
         #back-btn {
-            font-size: 1em;
+            font-size: 1.5em;
         }
 
         .arrow {
-            font-size: 1em;
+            font-size: 1.5em;
         }
 
         #start-test-btn {
-            font-size: 1em;
+            font-size: 1.5em;
         }
     }
 }

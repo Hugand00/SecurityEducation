@@ -80,25 +80,25 @@ img {
 
 
 .speech-bubble {
-    position: relative; /* Gör att vi kan använda pseudo-element */
-    background-color: #fff; /* Bakgrundsfärg på pratbubblan */
-    border: 2px solid black; /* Rand på pratbubblan */
-    padding: 20px; /* Utrymme inne i bubblan */
-    border-radius: 20px; /* Rundade hörn */
-    max-width: auto; /* Maxbredd */    
+    position: relative;
+    background-color: #fff;
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 20px;
+    max-width: auto; 
 }
 
 .speech-bubble::after {
-        content: ""; /* Inget textinnehåll, bara ett triangulärt element */
-        position: absolute; /* Absolut position för triangeln */
-        bottom: -15px; /* Placera triangeln under bubblan */
-        left: 50%; /* Centrerad horisontellt */
-        transform: translateX(-50%); /* Justera så att triangeln är centrerad */
+        content: "";
+        position: absolute;
+        bottom: -15px; 
+        left: 50%; 
+        transform: translateX(-50%); 
         width: 0;
         height: 0;
-        border-left: 10px solid transparent; /* Vänster transparent kant */
-        border-right: 10px solid transparent; /* Höger transparent kant */
-        border-top: 15px solid #000; /* Den faktiska triangeln, svart */
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent; 
+        border-top: 15px solid #000; 
 }
 .overview-div {
     flex: 0 0 30%;
@@ -114,14 +114,37 @@ img {
     font-weight: bold;
     text-align: center;
 }
-.chapter-name{
+.chapter-name {
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
 }
 .completed-episode{
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 18px;    
     margin-bottom: 40px;
+}
+
+.progress-wrapper {
+    width: 100%;
+    background-color: #dce3f0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 40px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: forestgreen;
+    width: 0;
+    transition: width 0.4s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 

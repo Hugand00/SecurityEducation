@@ -2,15 +2,15 @@
 console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
 showOverview()
 function showOverview() {
-    var div = document.querySelector(".overview-div")
+    var div = document.querySelector(".overview-div");
     chapters.forEach(chapter => {
-        var chapterName = document.createElement("p")
-        chapterName.classList.add("chapter-name")
+        var chapterName = document.createElement("p");
+        chapterName.classList.add("chapter-name");
 
-        var completedEpisode = document.createElement("p")
-        completedEpisode.classList.add("completed-episode")
+        var completedEpisode = document.createElement("p");
+        completedEpisode.classList.add("completed-episode");
 
-        var result = getnumberOfCompletedEpisodes(chapter.Id)
+        var result = getnumberOfCompletedEpisodes(chapter.Id);
 
         let bestResultsByEpisode = {};
         let rawRelevantItems = result.filter(item =>
@@ -25,21 +25,42 @@ function showOverview() {
             }
         }
         let relevantItems = Object.values(bestResultsByEpisode);
-        /*let chapter = chapters.find(item => item.Id === chapterId);*/
 
-        let numberOfEpisodes = []
-        if (chapter) {
-            numberOfEpisodes = chapter.NumberOfEpisodes;
-        }
+        let numberOfEpisodes = chapter?.NumberOfEpisodes ?? 0;
         let allSuccess = relevantItems.filter(item => item.result?.success === true);
+
         if (completedEpisode) {
             completedEpisode.textContent = `Avklarade avsnitt: ${allSuccess.length}/${numberOfEpisodes}`;
             chapterName.textContent = chapter.Name;
-            div.appendChild(chapterName)
-            div.appendChild(completedEpisode)
+
+            // Progressbar
+            var progressWrapper = document.createElement("div");
+            progressWrapper.classList.add("progress-wrapper");
+
+            
+            var progressBar = document.createElement("div");
+            progressBar.classList.add("progress-bar");
+
+            
+            let percent = numberOfEpisodes > 0 ? (allSuccess.length / numberOfEpisodes) * 100 : 0;
+            progressBar.style.width = `${percent}%`;
+
+            
+            let percentText = document.createElement("span");
+            percentText.textContent = `${Math.round(percent)}%`;
+            percentText.classList.add("progress-text");
+            progressBar.appendChild(percentText);
+
+            // Lägg ihop och lägg till i sidan
+            progressWrapper.appendChild(progressBar);
+            div.appendChild(chapterName);
+            div.appendChild(completedEpisode);
+            div.appendChild(progressWrapper);
         }
-    })
+    });
 }
+
+
 function getnumberOfCompletedEpisodes(chapterId) {
     let chapterArray = []
     xapiData?.statements.forEach(statement => {
