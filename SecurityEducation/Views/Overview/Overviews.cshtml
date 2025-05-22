@@ -35,7 +35,7 @@
                 <div class="episode-container">
                 @foreach(var episode in ((List<EpisodeDto>)Model.Episodes).Where(e => e.ChapterId == chapter.Id))
                 {
-                        <a onclick ="location.href = '@Url.Action("Episodes", "Episode", new { id = chapter.Id })'">
+                        <a class="epi-focus" href="@Url.Action("Episodes", "Episode", new { id = chapter.Id })">
                             <div class="episode-div" data-episode-div="@episode.Id">
                             <p class="episode-name">@episode.Name</p>
                             <div class="episode-result">
@@ -65,12 +65,12 @@
                     <div class="examination-star-div">
                     </div>
                 </div>
-            </a>
-            <div class="btn-div">
-                <button aria-label="Gå tillbaka till kapitel" id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till kapitel!</button>
-                <button aria-label="Gå tillbaka till startsidan" id="back-btn" onclick="location.href = '@Url.Action("Index", "Home")'">Gå till startsidan!</button>
-            </div>
+            </a>            
             
+        </div>
+        <div class="btn-div">
+            <button aria-label="Gå tillbaka till kapitel" id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till kapitel!</button>
+            <button aria-label="Gå tillbaka till startsidan" id="back-btn" onclick="location.href = '@Url.Action("Index", "Home")'">Gå till startsidan!</button>
         </div>
         
     </div>

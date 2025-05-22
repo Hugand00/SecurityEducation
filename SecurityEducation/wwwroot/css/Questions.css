@@ -73,7 +73,8 @@
 }
 
     .answer-box input[type="radio"] {
-        display: none;
+        position: absolute;
+        opacity: 0;        
     }
 
     .answer-box label {
@@ -97,6 +98,10 @@
 
     .answer-box label:hover {
         border: 2px solid #007bff;
+    }
+
+    .answer-box input[type="radio"]:focus + label {
+        outline: 3px solid black;
     }
 
 #check-answer {

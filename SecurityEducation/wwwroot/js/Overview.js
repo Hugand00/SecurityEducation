@@ -259,10 +259,15 @@ function getnumberOfCompletedEpisodes(chapterId) {
     return chapterArray
 }
 
-document.querySelector("form").addEventListener("submit", function () {
-    document.getElementById("nameInput").value = `${xapiData?.statements[0].actor?.name}` || "Okänd";
-    document.getElementById("starsInput").value = GetTotalAmountOfStars();
-    document.getElementById("chaptersInput").value = GetAllChapterNames().join(",");
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    if (form) {
+        form.addEventListener("submit", function () {
+            document.getElementById("nameInput").value = `${xapiData?.statements[0].actor?.name}` || "Okänd";
+            document.getElementById("starsInput").value = GetTotalAmountOfStars();
+            document.getElementById("chaptersInput").value = GetAllChapterNames().join(",");
+        });
+    }
 });
 
 export function GetAllChapterNames() {

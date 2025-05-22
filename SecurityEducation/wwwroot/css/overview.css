@@ -3,14 +3,15 @@
 .overview-div {
     background-color: rgba(240, 248, 255, 1);
     width: 100%;
-    max-width:2000px;
+    max-width:auto;
     border-radius:10px;
     margin:auto;
     box-sizing:border-box;
     display:flex;
     flex-direction:row;
-    justify-content:center;
-    max-height:765px;
+    justify-content:center;    
+    display: flex;
+    flex-wrap: wrap;
 }
 .chapter-episode-div{
     display:flex;
@@ -33,7 +34,7 @@
     text-align:center;
     margin-left:20px;
     width:275px;
-    min-height:185px;
+    
     max-height:185px;
 }
 .chapter-medal-div {
@@ -203,35 +204,44 @@
 }
 .btn-div{
     display:flex;
-    justify-content:center;
-    flex-direction:column;
+    justify-content:center;    
     align-items:center;
-    min-width:100%;
+    min-width:80%;
 }
 #start-btn {
-    position: absolute;
-    bottom: 30px;
     border-radius: 20px;
     background-color: forestgreen;
-    color: white;
-    max-width: 800px;
+    color: white;    
     padding: 10px 30px;
-    font-size: 20px;
+    font-size: 1.5em;
     font-weight: bold;
-    min-width:95%;
+    min-width: 35%;
+    margin: 10px;
 }
-#back-btn {
-    position: absolute;
-    bottom: 110px;
+
+    #start-btn:focus {
+        outline: none;
+        box-shadow: 0 0 0 4px black;
+        border: 2px solid black;
+    }
+
+#back-btn {        
     border-radius: 20px;
     background-color: #3498db;
-    color: white;
-    max-width: 800px;
+    color: white;    
     padding:10px 30px;
-    font-size: 20px;
+    font-size: 1.5em;
     font-weight: bold;
-    min-width:95%;
+    min-width:35%;
+    margin: 10px;    
 }
+
+#back-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px black;
+    border: 2px solid black;
+}
+
 .checked{
     color:gold;
 }
@@ -239,10 +249,47 @@
 #intro-text {
     color: white;
 }
+
+.epi-focus {
+    color: black;
+    text-decoration: none;
+}
+
+.epi-focus:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px black;
+    border: 2px solid black;
+    border-radius: 20px;
+}
     
 
 @media (min-width:1900px){
     .container{
         max-width:1800px
+    }
+}
+
+@media (max-width:370px) {
+
+    #back-btn {
+        
+        font-size: 1em;
+        
+    }
+
+    #start-btn {
+        font-size: 1em;
+    }
+    
+}
+
+@media (max-width:300px) {
+
+    #back-btn {
+        font-size: 0.75em;
+    }
+
+    #start-btn {
+        font-size: 0.75em;
     }
 }

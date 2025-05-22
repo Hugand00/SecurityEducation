@@ -6,5 +6,10 @@
         <h1>Välkommen till avsnittsprovet!</h1>
         <h2>@Model.TestInfo.Name</h2>
         <p>@Model.TestInfo.Description</p>
-    <button aria-label="Starta provet" onclick="location.href ='@Url.Action("Questions", "Test", new {chapterId = ViewBag.ChapterId, episodeId = Model.TestInfo.EpisodeId, testId = Model.TestInfo.Id})'">Starta prov</button>
+
+        <div class="button-container">
+        <button aria-label="Gå tillbaka till avsnittet" id="back-btn" onclick="history.back()">Gå tillbaka till Avsnitt</button>
+        <button id="start-btn" aria-label="Starta provet" onclick="location.href ='@Url.Action("Questions", "Test", new { chapterId = ViewBag.ChapterId, episodeId = Model.TestInfo.EpisodeId, testId = Model.TestInfo.Id })'">Starta prov</button>
+        </div>
+    
 </div>

@@ -32,6 +32,13 @@
     margin: 5%;
 }
 
+#start-page-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px black;
+    border: 2px solid black;
+}
+
+
 #overview-page-btn {
     border-radius: 20px;
     background-color: #3498db;
@@ -44,6 +51,13 @@
     height: max-content;
     margin: 5%;
 }
+
+#overview-page-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px black;
+    border: 2px solid black;
+}
+
 
 .star {
     font-size: 62px;

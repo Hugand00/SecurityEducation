@@ -15,7 +15,7 @@
 <div class="episode-container">
     @foreach (var episode in Model.Episodes)
     {
-        <a href="@Url.Action("ReadingMaterials", "ReadingMaterial", new { chapterId = episode.ChapterId, episodeId = episode.Id })">
+        <a class="epi-focus" href="@Url.Action("ReadingMaterials", "ReadingMaterial", new { chapterId = episode.ChapterId, episodeId = episode.Id })">
             <div class="episode-div" data-episode-div="@episode.Id">
                 <p class="episode-name">@episode.Name</p>
                 <p class="estimated-time">Uppskattad tidsåtgång: ca @episode.EstimatedTime</p>
