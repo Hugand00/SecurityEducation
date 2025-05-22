@@ -3,8 +3,11 @@
 }
 <link rel="stylesheet" href="~/css/ReadingMaterial.css" asp-append-version="true" />
 
+
 <div>
+    <h2>@ViewBag.EpisodeName</h2>
     <div class="reading-material-slide-cont">
+        
         @for (int i = 0; i < Model.ReadingMaterials.Count; i++)
         {
             var readingMaterials = Model.ReadingMaterials[i];
