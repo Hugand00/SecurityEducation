@@ -1,16 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuestPDF.Fluent;
+using SecurityEducation.Dtos;
 using SecurityEducation.Services;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.Json;
 
 namespace SecurityEducation.Controllers
 {
 	public class PdfController : Controller
 	{
-		public IActionResult GeneratePdf(string Name, int AmountOfStars, string Chapters)
+		
+		public IActionResult GeneratePdf(string Name, int AmountOfStars, string Chapters, string Episodes)
 		{
-			var chapters = Chapters.Split(",").ToList();
-			var questService = new QuestService(Name, AmountOfStars, chapters); 
+			
+			var questService = new QuestService(Name, AmountOfStars, Chapters, Episodes); 
 
 			byte[] pdfBytes = questService.GeneratePdfBytes(); ;
 

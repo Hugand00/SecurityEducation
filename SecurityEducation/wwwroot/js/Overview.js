@@ -261,26 +261,48 @@ function getnumberOfCompletedEpisodes(chapterId) {
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
+    console.log("Chapters JSON:", JSON.stringify(GetAllChapterNames()));
+    console.log("Episodes JSON:", JSON.stringify(GetAllEpisodeNames()));
     if (form) {
         form.addEventListener("submit", function () {
             document.getElementById("nameInput").value = `${xapiData?.statements[0].actor?.name}` || "Okänd";
             document.getElementById("starsInput").value = GetTotalAmountOfStars();
-            document.getElementById("chaptersInput").value = GetAllChapterNames().join(",");
+            document.getElementById("chaptersInput").value = JSON.stringify(GetAllChapterNames());
+            document.getElementById("episodesInput").value = JSON.stringify(GetAllEpisodeNames());
         });
     }
 });
+export function GetAllEpisodeNames() {
+    let episodesInfo = [];
 
-export function GetAllChapterNames() {
-    let chapterNames = [];
-
-    console.log(chapters)
     chapters.forEach(chapter => {
-        if (!chapterNames.includes(chapter.Name)) {
-            chapterNames.push(chapter.Name);
-        }
+        episodes.forEach(episode => {
+            if (chapter.Id === episode.ChapterId) {
+                if (!episodesInfo.some(e => e.id === episode.Id)) {
+                    episodesInfo.push({
+                        Id: episode.Id,
+                        Name: episode.Name,
+                        ChapterId: chapter.Id
+                    });
+                }
+            }
+        });
     });
-    console.log(chapterNames)
-    return chapterNames;
+    console.log(episodesInfo)
+    return episodesInfo;
+}
+export function GetAllChapterNames() {
+    let chapterInfo = [];
+  
+    chapters.forEach(chapter => {
+        chapterInfo.push({
+            Id: chapter.Id,
+            Name: chapter.Name
+        });
+    });
+
+    console.log(chapterInfo)
+    return chapterInfo;
 }
 export function GetTotalAmountOfStars() {
     let totalAmountOfStars = 0;

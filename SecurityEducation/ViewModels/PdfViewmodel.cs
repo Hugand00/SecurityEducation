@@ -6,5 +6,7 @@
 		public int AmountOfStars { get; set; }
 
 		public string[] Chapters { get; set; }
+
+		public string[] Episodes { get; set; }
 	}
 }
