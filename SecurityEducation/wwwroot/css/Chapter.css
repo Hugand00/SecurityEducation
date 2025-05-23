@@ -98,9 +98,17 @@
     min-height: 97px;
 }
 #examination {
-   
+    color:black;
     position: relative;
+    text-decoration:none;
 }
+    #examination:focus {
+        outline: none;
+        box-shadow: 0 0 0 4px black;
+        border: 2px solid black;
+        border-radius:20px;
+    }
+
 .button-container {
     margin-top: 2%;
     display: flex;

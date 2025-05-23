@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ShowStoredEpisodes()
     ShowStoredChapter()
     showStoredExamination()
+    showTotalAmountOfStars()
 });
 
 ///OBS inte klar! 
@@ -50,17 +51,17 @@ function ShowStoredChapter() {
         const calcResult = Math.round(totalStars / numberOfEpisodes)
         console.log(calcResult)
         if (allSuccess.length === numberOfEpisodes) {
-            for (let i = 0; i < calcResult; i++) {
-                const star = document.createElement("p")
-                star.innerHTML = "&#9733";
-                star.classList.add("checked")
-                chapterStars.appendChild(star)
-            }
-            for (let i = 0; i < 5 - calcResult; i++) {
-                const star = document.createElement("p")
-                star.innerHTML = "&#9734";
-                chapterStars.appendChild(star)
-            }
+            //for (let i = 0; i < calcResult; i++) {
+            //    const star = document.createElement("p")
+            //    star.innerHTML = "&#9733";
+            //    star.classList.add("checked")
+            //    chapterStars.appendChild(star)
+            //}
+            //for (let i = 0; i < 5 - calcResult; i++) {
+            //    const star = document.createElement("p")
+            //    star.innerHTML = "&#9734";
+            //    chapterStars.appendChild(star)
+            //}
             const medal = div.querySelectorAll(".chapter-medal-div")
          
             medal.forEach(div => {
@@ -86,13 +87,13 @@ function ShowStoredChapter() {
             })
            
         }
-        else {
-            for (let i = 0; i < 5; i++) {
-                const star = document.createElement("p")
-                star.innerHTML = "&#9734";
-                chapterStars.appendChild(star)
-            }
-        }
+        //else {
+        //    for (let i = 0; i < 5; i++) {
+        //        const star = document.createElement("p")
+        //        star.innerHTML = "&#9734";
+        //        chapterStars.appendChild(star)
+        //    }
+        //}
     })
     
 }
@@ -197,6 +198,7 @@ function showStoredExamination() {
     if (bestStatement) {
         const score = bestStatement.result;
         if (score.success === true) {
+            showDiplomaButton()
             for (let i = 0; i < score.score.raw/2; i++) {
                 const star = document.createElement("p")
                 star.innerHTML = "&#9733";
@@ -248,6 +250,15 @@ function showStoredExamination() {
         }
     }
 }
+function showDiplomaButton() {
+    
+    var button = document.getElementById("diploma-btn");
+
+    if (button) {
+        button.removeAttribute("hidden");
+    }
+}
+
 function getnumberOfCompletedEpisodes(chapterId) {
     let chapterArray = []
     xapiData?.statements.forEach(statement => {
@@ -343,4 +354,18 @@ export function GetTotalAmountOfStars() {
         totalAmountOfStars += highestScore;
     }
     return totalAmountOfStars;
+}
+export function showTotalAmountOfStars() {
+    let amountOfStars = GetTotalAmountOfStars()
+    var div = document.querySelector(".total-star-div")
+
+    var amount = document.createElement("p")
+    var star = document.createElement("p")
+    star.innerHTML = `<span class="star">&#9733;</span>`
+    star.classList.add("checked");
+    amount.textContent = `${amountOfStars}/65`
+
+    div.appendChild(amount)
+    div.appendChild(star)
+    
 }

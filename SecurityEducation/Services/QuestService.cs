@@ -76,7 +76,7 @@ namespace SecurityEducation.Services
 						column.Item().AlignCenter().Text("har klarat utbildningen inom cyber-, informationssäkerhet och dataskydd samt AI")
 							.FontSize(14).Italic().AlignCenter();
 
-						column.Item().AlignCenter().Container().MaxWidth(300).Image(imageData).FitWidth();
+						
 
 						column.Item().AlignCenter().Text($"Totalt antal stjärnor: {_amountOfStars}/65")
 							.FontSize(14).FontColor(Colors.Black);
@@ -85,7 +85,8 @@ namespace SecurityEducation.Services
 
 						column.Item().PaddingLeft(10).Grid(grid =>
 						{
-							int columnsCount = _chapters.Count; 
+							int columnsCount = _chapters.Count;
+							
 							grid.Columns(columnsCount);
 
 							foreach (var chapter in _chapters)

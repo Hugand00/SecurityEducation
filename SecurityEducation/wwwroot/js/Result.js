@@ -1,5 +1,5 @@
 ﻿import { sendStatement, sendFinalExamStatement } from "./xApi/xApi-statements.js"
-import {GetAllChapterNames, GetTotalAmountOfStars } from "./Overview.js"
+
 
 const xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
 console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
@@ -11,6 +11,17 @@ document.addEventListener("DOMContentLoaded", function () {
     //console.log(vm.Chapter.Name)
     if (isExamination === true) {
         showCorrectFinalAnswers(vm)
+        const form = document.querySelector("form");
+        console.log("Chapters JSON:", JSON.stringify(GetAllChapterNames()));
+        console.log("Episodes JSON:", JSON.stringify(GetAllEpisodeNames()));
+        if (form) {
+            form.addEventListener("submit", function () {
+                document.getElementById("nameInput").value = `${xapiData?.statements[0].actor?.name}` || "Okänd";
+                document.getElementById("starsInput").value = GetTotalAmountOfStars();
+                document.getElementById("chaptersInput").value = JSON.stringify(GetAllChapterNames());
+                document.getElementById("episodesInput").value = JSON.stringify(GetAllEpisodeNames());
+            });
+        }
     }
     else {
         showCorrectAnswers(vm)
@@ -204,48 +215,87 @@ function showCorrectFinalAnswers(vm) {
         finalMedalDiv.style.background = "gray";
     }
 
-    document.querySelector("form").addEventListener("submit", function () {
-        document.getElementById("nameInput").value = `${xapiData?.statements[0].actor?.name}` || "Okänd";
-        document.getElementById("starsInput").value = GetTotalAmountOfStars();
-        document.getElementById("chaptersInput").value = GetAllChapterNames().join(",");
-    });
+   
     function showDownloadDiplomaButton() {
-        
-        var div = document.querySelector(".result-div")
-        var form = document.createElement("form")
-        var button = document.createElement("button")
-        var inputName = document.createElement("input")
-        var amountOfStar = document.createElement("input")
-        var chapters = document.createElement("input")
+        var button = document.getElementById("diploma-btn");
 
-        inputName.type = "hidden";
-        inputName.id = "nameInput";
-        inputName.value = 
-
-        amountOfStar.type = "hidden";
-        amountOfStar.id = "starsInput"
-        amountOfStar.value = 
-
-        chapters.type = "hidden";
-        chapters.id = "chaptersInput"
-        chapters.value = 
-
-        button.classList.add("download-btn")
-
-        form.method = "get";
-        form.action = "/Pdf/GeneratePdf"
-
-        button.type = "submit"
-        button.textContent ="Ladda ner intyg!"
-
-        form.appendChild(inputName)
-        form.appendChild(amountOfStar)
-        form.appendChild(chapters);
-        form.appendChild(button)
-        div.appendChild(form)
+        if (button) {
+           button.removeAttribute("hidden");
+        }
     }
 }
+function GetAllEpisodeNames() {
+    let episodesInfo = [];
+   
+    window.chapters.forEach(chapter => {
+        window.episodes.forEach(episode => {
+            if (chapter.Id === episode.ChapterId) {
+                if (!episodesInfo.some(e => e.id === episode.Id)) {
+                    episodesInfo.push({
+                        Id: episode.Id,
+                        Name: episode.Name,
+                        ChapterId: chapter.Id
+                    });
+                }
+            }
+        });
+    });
+    console.log(episodesInfo)
+    return episodesInfo;
+}
+function GetAllChapterNames() {
+    let chapterInfo = [];
+    
+    window.chapters.forEach(chapter => {
+        chapterInfo.push({
+            Id: chapter.Id,
+            Name: chapter.Name
+        });
+    });
 
+    console.log(chapterInfo)
+    return chapterInfo;
+}
+function GetTotalAmountOfStars() {
+    let totalAmountOfStars = 0;
+    window.episodes.forEach(episode => {
+        let bestStatement = null;
+        let highestScore = -Infinity;
+        xapiData?.statements.forEach(statement => {
+            const extensionId = parseInt(statement.object?.definition?.extensions?.["https://localhost:7142/extensions/episodeId"]);
+
+            if (extensionId === episode.Id) {
+                const score = statement.result?.score?.raw ?? 0;
+
+                if (score > highestScore) {
+                    highestScore = score;
+                    bestStatement = statement;
+                }
+            }
+        });
+        if (bestStatement) {
+            totalAmountOfStars += highestScore;
+        }
+    })
+
+    let bestStatement = null;
+    let highestScore = -Infinity;
+    xapiData?.statements.forEach(statement => {
+        statement.object?.id === "https://localhost:7142/Test/ExaminationResult";
+        console.log("inne")
+        const score = statement.result?.score?.raw ?? 0;
+        if (score > highestScore) {
+            highestScore = score;
+            bestStatement = statement;
+        }
+
+    });
+    console.log(bestStatement)
+    if (bestStatement) {
+        totalAmountOfStars += highestScore;
+    }
+    return totalAmountOfStars;
+}
 
 
 

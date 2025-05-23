@@ -10,22 +10,27 @@
 <main>
     <div class="div-container">    
         <div class="start-div">
-            <p class="welcome-text speech-bubble">Välkommen till min utbildning inom cyber- och informationssäkerhet, <br />dataskydd samt AI! Starta utbildningen genom att gå till välj kapitel nedan.</p>
-            <img alt="Igelkott som står och vinkar, håller i en blå sköld som det är ett lås på" src="images\Kotte som vinkar med sköld.png" alt="Igelkott med sköld som vinkar"/>
+            <p class="welcome-text speech-bubble">Välkommen till min utbildning inom cyber- och informationssäkerhet, <br />dataskydd samt AI!<br /> Starta utbildningen genom att gå till välj kapitel nedan.</p>
+            <img alt="Igelkott som står och vinkar, håller i en blå sköld som det är ett lås på" src="images\Kotte som vinkar med sköld.png"/>
             <button aria-label="Gå till Välj kapitel" id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till Välj kapitel</button>
             <br />
             <button aria-label="Så här går det till" id="info-btn" onclick="location.href = '@Url.Action("EducationInfo", "Home")'">Så här går det till.</button>
         </div>
         <div class="overview-div">
             <p class="overview-header">Översikt</p>
+            <div class="total-star-div">
+            </div>
         </div>
+        
     </div>
     
 </main>
 <script>
     var chapters = @Html.Raw(JsonSerializer.Serialize((List<ChapterDto>)Model.Chapters));
+    var episodes = @Html.Raw(JsonSerializer.Serialize((List<EpisodeDto>)Model.Episodes));
 </script>
 <script src="~/js/xapiwrapper.min.js"></script>
 <script src="~/js/xApi/xApiQueries.js"></script>
 <script src="~/js/Startpage.js"></script>
+
 

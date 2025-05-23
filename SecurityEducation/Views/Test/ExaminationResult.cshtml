@@ -1,4 +1,5 @@
 ﻿@using System.Text.Json
+@using SecurityEducation.Dtos
 @{
     ViewData["Title"] = "Resultat slutprov";
 }
@@ -18,6 +19,13 @@
             <img class="final-medal" />
         </div>
     </div>
+    <form method="get" asp-controller="Pdf" asp-action="GeneratePdf">
+        <input type="hidden" name="Name" id="nameInput" />
+        <input type="hidden" name="AmountOfStars" id="starsInput" />
+        <input type="hidden" name="Chapters" id="chaptersInput" />
+        <input type="hidden" name="Episodes" id="episodesInput" />
+        <button id="diploma-btn" hidden="hidden" aria-label="Ladd ner intyg för avklarad utbildning" type="submit">Ladda ner Intyg</button>
+    </form>
 
     <div class="button-container">
         <button aria-label="Gå till mina startsidan" id="start-page-btn" onclick="location.href = '@Url.Action("Index", "Home")'">Gå till startsidan</button>
@@ -30,6 +38,8 @@
 <script>
     window.viewModel = @Html.Raw(JsonSerializer.Serialize(Model));
     var isExamination = @Html.Raw(JsonSerializer.Serialize(isExamination));
+    window.chapters = @Html.Raw(JsonSerializer.Serialize((List<ChapterDto>)Model.Chapters));
+    window.episodes = @Html.Raw(JsonSerializer.Serialize((List<EpisodeDto>)Model.Episodes));
 </script>
 <script src="~/js/xapiwrapper.min.js"></script>
 <script type="module" src="~/js/Result.js"></script>

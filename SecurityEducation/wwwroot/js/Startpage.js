@@ -1,6 +1,8 @@
-﻿const xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
+﻿
+const xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
 console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
 showOverview()
+showTotalAmountOfStars()
 function showOverview() {
     var div = document.querySelector(".overview-div");
     chapters.forEach(chapter => {
@@ -71,3 +73,58 @@ function getnumberOfCompletedEpisodes(chapterId) {
     });
     return chapterArray
 }
+function GetTotalAmountOfStars() {
+    let totalAmountOfStars = 0;
+    episodes.forEach(episode => {
+            let bestStatement = null;
+            let highestScore = -Infinity;
+            xapiData?.statements.forEach(statement => {
+                const extensionId = parseInt(statement.object?.definition?.extensions?.["https://localhost:7142/extensions/episodeId"]);
+
+                if (extensionId === episode.Id) {
+                    const score = statement.result?.score?.raw ?? 0;
+
+                    if (score > highestScore) {
+                        highestScore = score;
+                        bestStatement = statement;
+                    }
+                }
+            });
+            if (bestStatement) {
+                totalAmountOfStars += highestScore;
+            }
+    })
+   
+    let bestStatement = null;
+    let highestScore = -Infinity;
+    xapiData?.statements.forEach(statement => {
+        statement.object?.id === "https://localhost:7142/Test/ExaminationResult";
+        console.log("inne")
+        const score = statement.result?.score?.raw ?? 0;
+        if (score > highestScore) {
+            highestScore = score;
+            bestStatement = statement;
+        }
+
+    });
+    console.log(bestStatement)
+    if (bestStatement) {
+        totalAmountOfStars += highestScore;
+    }
+    return totalAmountOfStars;
+}
+function showTotalAmountOfStars() {
+    let amountOfStars = GetTotalAmountOfStars()
+    var div = document.querySelector(".total-star-div")
+
+    var amount = document.createElement("p")
+    var star = document.createElement("p")
+    star.innerHTML = `<span class="star">&#9733;</span>`
+    star.classList.add("checked");
+    amount.textContent = `${amountOfStars}/65`
+
+    div.appendChild(amount)
+    div.appendChild(star)
+    
+}
+

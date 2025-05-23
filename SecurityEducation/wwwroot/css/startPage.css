@@ -1,4 +1,5 @@
 ﻿.div-container {
+   
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -13,7 +14,7 @@
     gap: 20px; /* Flexbox gap istället för margin på barn */
 }
 .start-div {
-    flex: 0 0 65%;
+    flex: 0 0 55%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -101,12 +102,13 @@ img {
         border-top: 15px solid #000; 
 }
 .overview-div {
+    position: relative;
     flex: 0 0 30%;
     box-sizing: border-box;
     border: 2px solid black;
     border-radius: 20px;
     padding: 20px;
-    background-color: white;    
+    background-color: white;
 }
 
 .overview-header {
@@ -146,5 +148,25 @@ img {
     font-weight: bold;
     font-size: 16px;
 }
+.checked{
+    color:gold;
+
+}
+
+.total-star-div {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+    .total-star-div .checked {
+        font-size: 30px;
+        margin-top: -12px;
+        margin-left: 5px;
+    }
 
 

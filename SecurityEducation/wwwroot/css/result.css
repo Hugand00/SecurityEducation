@@ -1,5 +1,13 @@
 ﻿
-
+#diploma-btn {
+    background-color: forestgreen;
+    padding: 20px 100px;
+    margin:10px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
 .result-div {
     display: flex;    
     flex-direction: column;

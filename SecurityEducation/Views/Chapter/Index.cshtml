@@ -28,8 +28,8 @@
             <p class="enter-chapter">Öppna kapitel</p>
         </a>
     }
-    <div id="examination">
-        <div class="chapter-div" style="cursor: pointer;" onclick="location.href = '@Url.Action("Examination", "Test")'">
+    <a id="examination" style="cursor: pointer;" href="@Url.Action("Examination", "Test")">
+        <div class="chapter-div">
             <p class="exam-name">Slutprov</p>
             <div class="result-div" style="margin-bottom:35px;">
                 <p class="completed"></p>
@@ -39,7 +39,7 @@
             <p class="chapter-description">Här får du sätta dina kunskaper på prov! Detta prov blandar frågor från samtliga kapitel och är sista steget för att klara utbildningen</p>
             <p class="enter-exam">Öppna slutprov</p>
         </div>
-    </div>
+    </a>
 </div>
 <div class="button-container">
     <button aria-label="Gå till startsidan" id="back-btn" onclick="location.href = '@Url.Action("Index", "Home")'">Gå till startsidan</button>

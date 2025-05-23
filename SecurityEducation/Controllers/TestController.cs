@@ -61,18 +61,35 @@ namespace SecurityEducation.Controllers
 		public async Task<IActionResult> Result(int chapterId, int episodeId)
 		{
             InfoViewModel model = new InfoViewModel();
-            var chapteriInfo = await _chapterService.GetChapterFromId(chapterId);
-            var episodeInfo = await _episodeService.GetEpisodeById(episodeId, chapterId);
-            model.Chapter = chapteriInfo;
-            model.Episode = episodeInfo;
+			var chapteriInfo = await _chapterService.GetChapterFromId(chapterId);
+			var episodeInfo = await _episodeService.GetEpisodeById(episodeId, chapterId);
+			model.Chapter = chapteriInfo;
+			model.Episode = episodeInfo;
 			return View(model);
 		}
 
         [HttpGet("/Test/ExaminationResult/")]
-        public async Task<IActionResult> ExaminationResult()
+        public async Task<IActionResult> ExaminationResult(int chapterId, int episodeId)
         {
             InfoViewModel model = new InfoViewModel();
-            return View(model);
+			var chapteriInfo = await _chapterService.GetChapterFromId(chapterId);
+			var episodeInfo = await _episodeService.GetEpisodeById(episodeId, chapterId);
+			model.Chapter = chapteriInfo;
+			model.Episode = episodeInfo;
+			var chapterData = await _chapterService.GetEveryChapter();
+
+			foreach (var chapter in chapterData.Chapters)
+			{
+				model.Chapters.Add(chapter);
+				var episodeData = await _episodeService.GetEpisodesByChapterId(chapter.Id);
+				foreach (var episodes in episodeData.Episodes)
+				{
+					model.Episodes.Add(episodes);
+				}
+			}
+
+			return View(model);
+		
         }
 
     }

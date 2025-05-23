@@ -7,10 +7,14 @@ namespace SecurityEducation.Services
 	public class TestService : ITestService
 	{
 		private readonly ApiEngine _apiEngine;
+		private readonly IChapterService _chapterService;
+		private readonly IEpisodeService _episodeService;
 
-		public TestService(ApiEngine apiEngine)
+		public TestService(ApiEngine apiEngine, IChapterService chapterService, IEpisodeService episodeService)
 		{
 			_apiEngine = apiEngine;
+			_chapterService = chapterService;
+			_episodeService = episodeService;
 		}
 
 		public async Task<TestViewModel> GetTestInfoByEpisodeId(int episodeId)
@@ -18,8 +22,11 @@ namespace SecurityEducation.Services
 			TestViewModel viewModel = new TestViewModel();
 			var testData = await _apiEngine.GetAsync<TestDto>($"https://localhost:7215/api/Test/TestInfo?id={episodeId}");
 			viewModel.TestInfo = testData;
+
+			
 			return viewModel;
 		}
+		
 
 		
 	}
