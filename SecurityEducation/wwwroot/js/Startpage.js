@@ -121,10 +121,18 @@ function showTotalAmountOfStars() {
     var star = document.createElement("p")
     star.innerHTML = `<span class="star">&#9733;</span>`
     star.classList.add("checked");
-    amount.textContent = `${amountOfStars}/60`
+    amount.textContent = `${amountOfStars}/${GetAllStarsAmount()}`
 
     div.appendChild(amount)
     div.appendChild(star)
     
+}
+function GetAllStarsAmount() {
+    let episodeStars = 0
+    episodes.forEach(episode => {
+        episodeStars += 5
+    })
+    episodeStars += 5
+    return episodeStars
 }
 
