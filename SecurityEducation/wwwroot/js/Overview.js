@@ -363,7 +363,7 @@ export function showTotalAmountOfStars() {
     var star = document.createElement("p")
     star.innerHTML = `<span class="star">&#9733;</span>`
     star.classList.add("checked");
-    amount.textContent = `${amountOfStars}/65`
+    amount.textContent = `${amountOfStars}/60`
 
     div.appendChild(amount)
     div.appendChild(star)
