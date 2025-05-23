@@ -32,7 +32,11 @@ nav {
     height: 60px;
     text-align: center;
     line-height: 60px;
-    background-color: #EDF3F9;
+    background-color: #EDF3F9;    
+}
+
+.container {
+    color: black;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
