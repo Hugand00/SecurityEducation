@@ -109,7 +109,7 @@ function GetTotalAmountOfStars() {
     });
     console.log(bestStatement)
     if (bestStatement) {
-        totalAmountOfStars += highestScore;
+        totalAmountOfStars += highestScore/2;
     }
     return totalAmountOfStars;
 }
