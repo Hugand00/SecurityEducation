@@ -1,8 +1,11 @@
-﻿
+﻿import { sendQuery } from "./xApi/xApiQueries.js" 
+const queryResult = sendQuery("completed");
+sessionStorage.setItem("myXapiQuery", JSON.stringify(queryResult));
 const xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
 console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
 showOverview()
 showTotalAmountOfStars()
+
 function showOverview() {
     var div = document.querySelector(".overview-div");
     chapters.forEach(chapter => {
@@ -109,7 +112,7 @@ function GetTotalAmountOfStars() {
     });
     console.log(bestStatement)
     if (bestStatement) {
-        totalAmountOfStars += highestScore/2;
+        totalAmountOfStars += Math.floor(highestScore/2);
     }
     return totalAmountOfStars;
 }

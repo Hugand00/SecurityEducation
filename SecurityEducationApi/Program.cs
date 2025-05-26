@@ -15,9 +15,14 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Configuration
+	.SetBasePath(Directory.GetCurrentDirectory())
+	.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+	.AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
+	.AddUserSecrets<Program>(optional: true) // <-- viktigt
+	.AddEnvironmentVariables();
 builder.Services.AddDbContext<AppDbContext>(options =>
-	options.UseNpgsql(builder.Configuration.GetConnectionString("Production")),
+	options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")),
 	ServiceLifetime.Scoped
 );
 
@@ -39,7 +44,7 @@ builder.Services.AddScoped<IAnswerService, AnswerService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || builder.Configuration.GetValue<bool>("EnableSwagger"))
 {
 	app.UseSwagger();
 	app.UseSwaggerUI();

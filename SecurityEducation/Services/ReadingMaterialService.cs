@@ -7,11 +7,13 @@ namespace SecurityEducation.Services
 {
     public class ReadingMaterialService : IReadingMaterialService
     {
+        private readonly string _baseUrl;
         private readonly ApiEngine _apiEngine;
 
-        public ReadingMaterialService(ApiEngine apiEngine)
+        public ReadingMaterialService(ApiEngine apiEngine, IConfiguration configuration)
         {
-            _apiEngine = apiEngine;
+			_baseUrl = configuration["ApiBaseUrl"];
+			_apiEngine = apiEngine;
         }
 
 
@@ -19,7 +21,7 @@ namespace SecurityEducation.Services
 		public async Task<ReadingMaterialViewModel> GetReadingMaterialByEpisodeId(int id)
         {
             ReadingMaterialViewModel readingMaterialViewModel = new ReadingMaterialViewModel();
-            var readingMaterials = await _apiEngine.GetAsync<ICollection<ReadingMaterialDto>>($"https://localhost:7215/api/ReadingMaterial/ReadingMaterials?episodeId={id}");
+            var readingMaterials = await _apiEngine.GetAsync<ICollection<ReadingMaterialDto>>($"{_baseUrl}api/ReadingMaterial/ReadingMaterials?episodeId={id}");
             foreach (var readingMaterial in readingMaterials)
             {
                 readingMaterialViewModel.ReadingMaterials.Add(readingMaterial);

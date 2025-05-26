@@ -48,20 +48,12 @@ function ShowStoredChapter() {
         for (let item of allSuccess) {
             totalStars += item.result.score.raw;
         }
-        const calcResult = Math.round(totalStars / numberOfEpisodes)
+        console.log(numberOfEpisodes)
+        console.log(totalStars)
+        const calcResult = Math.floor(totalStars / numberOfEpisodes)
         console.log(calcResult)
         if (allSuccess.length === numberOfEpisodes) {
-            //for (let i = 0; i < calcResult; i++) {
-            //    const star = document.createElement("p")
-            //    star.innerHTML = "&#9733";
-            //    star.classList.add("checked")
-            //    chapterStars.appendChild(star)
-            //}
-            //for (let i = 0; i < 5 - calcResult; i++) {
-            //    const star = document.createElement("p")
-            //    star.innerHTML = "&#9734";
-            //    chapterStars.appendChild(star)
-            //}
+          
             const medal = div.querySelectorAll(".chapter-medal-div")
          
             medal.forEach(div => {
@@ -87,13 +79,6 @@ function ShowStoredChapter() {
             })
            
         }
-        //else {
-        //    for (let i = 0; i < 5; i++) {
-        //        const star = document.createElement("p")
-        //        star.innerHTML = "&#9734";
-        //        chapterStars.appendChild(star)
-        //    }
-        //}
     })
     
 }
@@ -351,7 +336,7 @@ export function GetTotalAmountOfStars() {
     });
     console.log(bestStatement)
     if (bestStatement) {
-        totalAmountOfStars += highestScore/2;
+        totalAmountOfStars += Math.floor(highestScore / 2);
     }
     return totalAmountOfStars;
 }

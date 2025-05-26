@@ -7,11 +7,14 @@ namespace SecurityEducation.Services
 {
 	public class ChapterService : IChapterService
 	{
+		
+		private readonly string _baseUrl;
 		private readonly ApiEngine _apiEngine;
 		private readonly IEpisodeService _episodeService;
 
-		public ChapterService(ApiEngine apiEngine, IEpisodeService episodeService)
+		public ChapterService(ApiEngine apiEngine, IEpisodeService episodeService, IConfiguration configuration)
 		{
+			_baseUrl = configuration["ApiBaseUrl"];
 			_apiEngine = apiEngine;
 			_episodeService = episodeService;
 		}
@@ -19,7 +22,7 @@ namespace SecurityEducation.Services
 		public async Task<ChapterViewModel> GetEveryChapter()
 		{
 			ChapterViewModel chapterViewModel = new ChapterViewModel();
-			var chapters = await _apiEngine.GetAsync<ICollection<ChapterDto>>("https://localhost:7215/api/Chapter/Chapters");
+			var chapters = await _apiEngine.GetAsync<ICollection<ChapterDto>>($"{_baseUrl}api/Chapter/Chapters");
 			
 			foreach (var chapter in chapters)
 			{
@@ -31,7 +34,7 @@ namespace SecurityEducation.Services
 		}
 		public async Task<ChapterDto> GetChapterFromId(int chapterId)
 		{
-			var chapters = await _apiEngine.GetAsync<ICollection<ChapterDto>>("https://localhost:7215/api/Chapter/Chapters");
+			var chapters = await _apiEngine.GetAsync<ICollection<ChapterDto>>($"{_baseUrl}api/Chapter/Chapters");
 			foreach (var chapter in chapters)
 			{
 				if(chapter.Id == chapterId)

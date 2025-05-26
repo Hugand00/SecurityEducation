@@ -17,7 +17,7 @@ builder.Services.AddScoped<IOverviewService, OverviewService>();
 builder.Services.AddHttpClient<ApiEngine>();
 
 var app = builder.Build();
-
+Console.WriteLine($"Current environment: {builder.Environment.EnvironmentName}");
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

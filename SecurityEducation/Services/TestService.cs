@@ -9,9 +9,11 @@ namespace SecurityEducation.Services
 		private readonly ApiEngine _apiEngine;
 		private readonly IChapterService _chapterService;
 		private readonly IEpisodeService _episodeService;
+		private readonly string _baseUrl;
 
-		public TestService(ApiEngine apiEngine, IChapterService chapterService, IEpisodeService episodeService)
+		public TestService(ApiEngine apiEngine, IChapterService chapterService, IEpisodeService episodeService, IConfiguration configuration)
 		{
+			_baseUrl = configuration["ApiBaseUrl"];
 			_apiEngine = apiEngine;
 			_chapterService = chapterService;
 			_episodeService = episodeService;
@@ -20,7 +22,7 @@ namespace SecurityEducation.Services
 		public async Task<TestViewModel> GetTestInfoByEpisodeId(int episodeId)
 		{
 			TestViewModel viewModel = new TestViewModel();
-			var testData = await _apiEngine.GetAsync<TestDto>($"https://localhost:7215/api/Test/TestInfo?id={episodeId}");
+			var testData = await _apiEngine.GetAsync<TestDto>($"{_baseUrl}api/Test/TestInfo?id={episodeId}");
 			viewModel.TestInfo = testData;
 
 			

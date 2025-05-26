@@ -30,7 +30,7 @@
                 <div class="episode-container">
                 @foreach(var episode in ((List<EpisodeDto>)Model.Episodes).Where(e => e.ChapterId == chapter.Id))
                 {
-                        <a class="epi-focus" href="@Url.Action("Episodes", "Episode", new { id = chapter.Id })">
+                        <a class="epi-focus" href="@Url.Action("ReadingMaterials", "ReadingMaterial", new { chapterId = chapter.Id, episodeId = episode.Id })">
                             <div class="episode-div" data-episode-div="@episode.Id">
                             <p class="episode-name">@episode.Name</p>
                             <div class="episode-result">

@@ -1,19 +1,16 @@
 ﻿import { sendStatement, sendFinalExamStatement } from "./xApi/xApi-statements.js"
+import { sendQuery } from "./xApi/xApiQueries.js"
+let xapiData;
 
-
-const xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
-console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
 var amountOfCorrectAnswers = parseInt(sessionStorage.getItem('correctAnswers'))
 var amountOfCorrectFinalAnswers = parseInt(sessionStorage.getItem('correctFinalAnswers'))
 document.addEventListener("DOMContentLoaded", function () {
+    xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
     const vm = window.viewModel;
-    //console.log(vm.Episode.Name)
-    //console.log(vm.Chapter.Name)
     if (isExamination === true) {
         showCorrectFinalAnswers(vm)
         const form = document.querySelector("form");
-        console.log("Chapters JSON:", JSON.stringify(GetAllChapterNames()));
-        console.log("Episodes JSON:", JSON.stringify(GetAllEpisodeNames()));
+     
         if (form) {
             form.addEventListener("submit", function () {
                 document.getElementById("nameInput").value = `${xapiData?.statements[0].actor?.name}` || "Okänd";
@@ -43,6 +40,10 @@ function showCorrectAnswers(vm) {
         resultText.innerHTML = `<img src="/images/Kottemedbådetummarupp.png" alt="Igelkott med båda tummarna upp" />
         <br>Grattis du är godkänd! Du fick ${amountOfCorrectAnswers} av 5 rätt.<br>${starHtml}`;
         sendStatement("completed", "klarade", amountOfCorrectAnswers, vm.Chapter.Id, vm.Chapter.Name, vm.Episode.Id, vm.Episode.Name, true);
+        const queryResult = sendQuery("completed");
+        sessionStorage.setItem("myXapiQuery", JSON.stringify(queryResult)); 
+        xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
+        console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
     } else {
         resultText.innerHTML = `<img src="/images/Kotte_med_tummarna_ner.png" alt="Igelkott med båda tummarna ned" />
         <br>Bra jobbat men tyvärr är du inte godkänd. Du fick ${amountOfCorrectAnswers} av 5 rätt.<br>Försök en gång till!<br>${starHtml}`;
@@ -103,8 +104,7 @@ function showCorrectAnswers(vm) {
             bestResultsByEpisode[episodeId] = item;
         }
     }
-    console.log(rawRelevantItems);    
-    console.log(vm.Chapter);
+    console.log(result)
 
     let relevantItems = Object.values(bestResultsByEpisode);
         
@@ -113,11 +113,10 @@ function showCorrectAnswers(vm) {
     for (let item of allSuccess) {
         totalStars += item.result.score.raw;
     }
-    const calcResult = Math.round(totalStars / vm.Chapter.NumberOfEpisodes)
-    console.log(calcResult);
-    console.log(allSuccess.length);
+    const calcResult = Math.floor(totalStars / vm.Chapter.NumberOfEpisodes)
+    
     if (allSuccess.length === parseInt(vm.Chapter.NumberOfEpisodes)) {
-        console.log(calcResult);
+        
         if (calcResult === 5) {
             medalChapterCongrat.textContent = "Grattis du har fått guldmedalj på kapitlet!";
             medalChapterText.textContent = "Guld";
@@ -240,7 +239,6 @@ function GetAllEpisodeNames() {
             }
         });
     });
-    console.log(episodesInfo)
     return episodesInfo;
 }
 function GetAllChapterNames() {
@@ -252,8 +250,6 @@ function GetAllChapterNames() {
             Name: chapter.Name
         });
     });
-
-    console.log(chapterInfo)
     return chapterInfo;
 }
 function GetTotalAmountOfStars() {
@@ -282,15 +278,14 @@ function GetTotalAmountOfStars() {
     let highestScore = -Infinity;
     xapiData?.statements.forEach(statement => {
         statement.object?.id === "https://localhost:7142/Test/ExaminationResult";
-        console.log("inne")
+        
         const score = statement.result?.score?.raw ?? 0;
         if (score > highestScore) {
             highestScore = score;
             bestStatement = statement;
         }
-
     });
-    console.log(bestStatement)
+  
     if (bestStatement) {
         totalAmountOfStars += highestScore/2;
     }

@@ -30,7 +30,6 @@
     var episodes = @Html.Raw(JsonSerializer.Serialize((List<EpisodeDto>)Model.Episodes));
 </script>
 <script src="~/js/xapiwrapper.min.js"></script>
-<script src="~/js/xApi/xApiQueries.js"></script>
-<script src="~/js/Startpage.js"></script>
+<script type="module" src="~/js/Startpage.js"></script>
 
 

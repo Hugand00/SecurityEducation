@@ -5,6 +5,7 @@ using QuestPDF.Infrastructure;
 using System.IO;
 using SecurityEducation.Dtos;
 using System.Text.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace SecurityEducation.Services
 {
 	
@@ -78,7 +79,7 @@ namespace SecurityEducation.Services
 
 						
 
-						column.Item().AlignCenter().Text($"Totalt antal stjärnor: {_amountOfStars}/65")
+						column.Item().AlignCenter().Text($"Totalt antal stjärnor: {_amountOfStars}/{GetAllStarsAmount()}")
 							.FontSize(14).FontColor(Colors.Black);
 
 						column.Item().PaddingTop(10).PaddingLeft(10).Text("Utbildningen har bestått av följande delar:").SemiBold().FontSize(14);
@@ -127,5 +128,20 @@ namespace SecurityEducation.Services
 			Document.Create(Compose).GeneratePdf(stream);
 			return stream.ToArray();
 		}
+		public int GetAllStarsAmount()
+		{
+			int episodeStars = 0;
+			foreach (var item in _episodes)
+			{
+				episodeStars += 5;
+			}
+			episodeStars += 5;
+			return episodeStars;
+		}
+
+
 	}
-}
+	
+
+	}
+

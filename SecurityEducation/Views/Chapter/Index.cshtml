@@ -28,7 +28,7 @@
             <p class="enter-chapter">Öppna kapitel</p>
         </a>
     }
-    <a id="examination" style="cursor: pointer;" href="@Url.Action("Examination", "Test")">
+    <a id="examination" style="cursor: pointer;">
         <div class="chapter-div">
             <p class="exam-name">Slutprov</p>
             <div class="result-div" style="margin-bottom:35px;">
@@ -47,6 +47,9 @@
 
 <script>
     var chapters = @Html.Raw(JsonSerializer.Serialize((List<ChapterDto>)Model.Chapters));
+    
+    const examUrl = '@Url.Action("Examination", "Test")';
+
 </script>
 
 <script src="~/js/Chapter.js"></script>

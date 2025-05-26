@@ -58,7 +58,10 @@ function showExamination() {
         const overlay = document.createElement("div")
         overlay.classList.add("overlay")
         examDiv.appendChild(overlay)
-    } else if (result){
+    } else if (result) {
+        if (typeof examUrl !== 'undefined') {
+            examDiv.setAttribute("href", examUrl);
+        }
         xapiData?.statements.forEach(statement => {
             statement.object?.id === "https://localhost:7142/Test/ExaminationResult";
             const score = statement.result?.score?.raw ?? 0;
@@ -72,6 +75,7 @@ function showExamination() {
             examComplete.textContent = "Avklarad";
             examComplete.style.background = "forestgreen"
         }
+        
     }
     
 }

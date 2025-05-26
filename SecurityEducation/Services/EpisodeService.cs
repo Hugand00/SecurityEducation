@@ -8,17 +8,19 @@ namespace SecurityEducation.Services
     public class EpisodeService : IEpisodeService
     {
         private readonly ApiEngine _apiEngine;
+        private readonly string _baseUrl;
 
-        public EpisodeService(ApiEngine apiEngine)
+        public EpisodeService(ApiEngine apiEngine, IConfiguration configuration)
         {
-            _apiEngine = apiEngine;
+			_baseUrl = configuration["ApiBaseUrl"];
+			_apiEngine = apiEngine;
         }
 
         [HttpGet("Episode/Episodes/{id}")]
         public async Task<EpisodeViewModel> GetEpisodesByChapterId(int id)
         {
             EpisodeViewModel episodeViewModel = new EpisodeViewModel();
-            var episodes = await _apiEngine.GetAsync<ICollection<EpisodeDto>>($"https://localhost:7215/api/Episode/Episodes?chapterId={id}");
+            var episodes = await _apiEngine.GetAsync<ICollection<EpisodeDto>>($"{_baseUrl}api/Episode/Episodes?chapterId={id}");
             foreach (var episode in episodes)
             {
                 episodeViewModel.Episodes.Add(episode);
@@ -27,7 +29,7 @@ namespace SecurityEducation.Services
         }
 		public async Task<EpisodeDto> GetEpisodeById(int episodeId, int chapterId)
         {
-			var episodes = await _apiEngine.GetAsync<ICollection<EpisodeDto>>($"https://localhost:7215/api/Episode/Episodes?chapterId={chapterId}");
+			var episodes = await _apiEngine.GetAsync<ICollection<EpisodeDto>>($"{_baseUrl}api/Episode/Episodes?chapterId={chapterId}");
             foreach(var episode in episodes)
             {
                 if (episode.Id == episodeId)

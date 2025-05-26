@@ -7,9 +7,11 @@ namespace SecurityEducation.Services
 	{
 		private readonly IChapterService _chapterService;
 		private readonly IEpisodeService _episodeService;
+		private readonly string _baseUrl;
 
-		public OverviewService( IChapterService chapterService, IEpisodeService episodeService)
+		public OverviewService( IChapterService chapterService, IEpisodeService episodeService,IConfiguration configuration)
 		{
+			_baseUrl = configuration["ApiBaseUrl"];
 			_chapterService = chapterService;
 			_episodeService = episodeService;
 		}

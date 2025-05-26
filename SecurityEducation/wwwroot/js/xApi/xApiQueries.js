@@ -1,7 +1,7 @@
 ﻿const queryResult = sendQuery("completed");
 console.log(queryResult)
 sessionStorage.setItem("myXapiQuery", JSON.stringify(queryResult)); 
-function sendQuery(verb)
+export function sendQuery(verb)
 { 
     const uName = "admin";
     const uEmail = "huan2300@student.miun.se";
