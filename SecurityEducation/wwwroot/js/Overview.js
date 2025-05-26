@@ -1,10 +1,14 @@
-﻿
+﻿import { sendQuery } from "./xApi/xApiQueries.js"
 
-const xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
-console.log("Tidigare hämtad xAPI-data:", xapiData.statements);
+let xapiData;
 
 document.addEventListener("DOMContentLoaded", function () {
-
+    const queryResult = sendQuery("completed");
+    sessionStorage.setItem("myXapiQuery", JSON.stringify(queryResult));
+    
+  
+    xapiData = JSON.parse(sessionStorage.getItem("myXapiQuery"));
+    
     ShowStoredEpisodes()
     ShowStoredChapter()
     showStoredExamination()
@@ -177,15 +181,15 @@ function showStoredExamination() {
     let bestStatement = null;
     let highestScore = -Infinity;
     xapiData?.statements.forEach(statement => {
-        statement.object?.id === "https://localhost:7142/Test/ExaminationResult";
-        const score = statement.result?.score?.raw ?? 0;
+        if (statement.object?.id === "https://localhost:7142/Test/ExaminationResult") {
+            const score = statement.result?.score?.raw ?? 0;
             if (score > highestScore) {
                 highestScore = score;
                 bestStatement = statement;
             }
-        
+        }
     });
- 
+    console.log(bestStatement)
     if (bestStatement) {
         const score = bestStatement.result;
         if (score.success === true) {
@@ -213,13 +217,13 @@ function showStoredExamination() {
                 medal.style.background = "gold";
                 medalImg.src = "/images/Kottemedbådetummarupp.png";
                 medalImg.alt = "Igelkott med båda tummarna upp.";
-            } else if (score.score.raw  > 3) {
+            } else if (score.score.raw/2  > 3) {
                 ///silver
                 medalText.textContent = "Silver"
                 medal.style.background = "silver";
                 medalImg.src = "/images/Kottemedbådetummarupp.png";
                 medalImg.alt = "Igelkott med båda tummarna upp.";
-            } else if (score.score.raw =3){
+            } else if ((score.score.raw/2) == 3){
                 ///bronze
                 medalText.textContent = "Brons"
                 medal.style.background = "#cd7f32"
@@ -335,14 +339,13 @@ export function GetTotalAmountOfStars() {
     let bestStatement = null;
     let highestScore = -Infinity;
     xapiData?.statements.forEach(statement => {
-        statement.object?.id === "https://localhost:7142/Test/ExaminationResult";
-        console.log("inne")
-        const score = statement.result?.score?.raw ?? 0;
-        if (score > highestScore) {
-            highestScore = score;
-            bestStatement = statement;
+        if (statement.object?.id === "https://localhost:7142/Test/ExaminationResult") {
+            const score = statement.result?.score?.raw ?? 0;
+            if (score > highestScore) {
+                highestScore = score;
+                bestStatement = statement;
+            }
         }
-
     });
     console.log(bestStatement)
     if (bestStatement) {

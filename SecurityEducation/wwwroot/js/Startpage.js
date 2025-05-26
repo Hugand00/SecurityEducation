@@ -101,14 +101,13 @@ function GetTotalAmountOfStars() {
     let bestStatement = null;
     let highestScore = -Infinity;
     xapiData?.statements.forEach(statement => {
-        statement.object?.id === "https://localhost:7142/Test/ExaminationResult";
-        console.log("inne")
-        const score = statement.result?.score?.raw ?? 0;
-        if (score > highestScore) {
-            highestScore = score;
-            bestStatement = statement;
+        if (statement.object?.id === "https://localhost:7142/Test/ExaminationResult") {
+            const score = statement.result?.score?.raw ?? 0;
+            if (score > highestScore) {
+                highestScore = score;
+                bestStatement = statement;
+            }
         }
-
     });
     console.log(bestStatement)
     if (bestStatement) {
