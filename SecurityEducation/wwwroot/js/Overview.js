@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     showTotalAmountOfStars()
 });
 
-///OBS inte klar! 
+ 
 function ShowStoredChapter() {
     const chapterDivs = document.querySelectorAll(".chapter-div")
    
@@ -53,7 +53,7 @@ function ShowStoredChapter() {
         const calcResult = Math.floor(totalStars / numberOfEpisodes)
         console.log(calcResult)
         if (allSuccess.length === numberOfEpisodes) {
-          
+            
             const medal = div.querySelectorAll(".chapter-medal-div")
          
             medal.forEach(div => {
@@ -65,20 +65,23 @@ function ShowStoredChapter() {
                     medalText.textContent ="Guld"
                     div.style.background = "gold";
                     medalImg.src = "/images/Kottemedbådetummarupp.png";
-                } else if (calcResult >= 3) {
+                    medalImg.alt = "Igelkott med båda tummarna upp.";
+                } else if (calcResult > 3) {
                     ///silver
                     medalText.textContent = "Silver"
                     div.style.background = "silver";
                     medalImg.src = "/images/Kottemedbådetummarupp.png";
+                    medalImg.alt = "Igelkott med båda tummarna upp.";
                 } else {
                     ///bronze
                     medalText.textContent = "Brons"
                     div.style.background = "#cd7f32"
                     medalImg.src = "/images/Kottemedbådetummarupp.png";
+                    medalImg.alt = "Igelkott med båda tummarna upp.";
                 }
             })
            
-        }
+        }        
     })
     
 }
@@ -131,16 +134,19 @@ function ShowStoredEpisodes() {
                         medalText.textContent = "Guld"
                         div.style.background = "gold";
                         medalImg.src = "/images/Kottemedbådetummarupp.png";
+                        medalImg.alt = "Igelkott med båda tummarna upp.";
                     } else if (score.score.raw > 3) {
                         ///silver
                         medalText.textContent = "Silver"
                         div.style.background = "silver";
                         medalImg.src = "/images/Kottemedbådetummarupp.png";
+                        medalImg.alt = "Igelkott med båda tummarna upp.";
                     } else if(score.score.raw = 3){
                         ///bronze
                         medalText.textContent = "Brons"
                         div.style.background = "#cd7f32"
                         medalImg.src = "/images/Kottemedbådetummarupp.png";
+                        medalImg.alt = "Igelkott med båda tummarna upp.";
                     }
                 });
             }
@@ -206,18 +212,22 @@ function showStoredExamination() {
                 medalText.textContent = "Guld"
                 medal.style.background = "gold";
                 medalImg.src = "/images/Kottemedbådetummarupp.png";
+                medalImg.alt = "Igelkott med båda tummarna upp.";
             } else if (score.score.raw  > 3) {
                 ///silver
                 medalText.textContent = "Silver"
                 medal.style.background = "silver";
                 medalImg.src = "/images/Kottemedbådetummarupp.png";
+                medalImg.alt = "Igelkott med båda tummarna upp.";
             } else if (score.score.raw =3){
                 ///bronze
                 medalText.textContent = "Brons"
                 medal.style.background = "#cd7f32"
                 medalImg.src = "/images/Kottemedbådetummarupp.png";
+                medalImg.alt = "Igelkott med båda tummarna upp.";
             }
             medalImg.src = "/images/Kottemedbådetummarupp.png";
+            medalImg.alt = "Igelkott med båda tummarna upp.";
         }
         else {
             for (let i = 0; i < 5; i++) {

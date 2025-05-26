@@ -6,6 +6,10 @@
     
 }
 
+h2 {
+    margin: 25px;    
+}
+
 .questionSlideCont {
     width: 90%;
     max-width: 1000px;
@@ -36,7 +40,7 @@
     font-size: 18px;
     font-weight: bold;
     border-radius: 10px;
-    background-color: #3498db;
+    background-color: #0000CD;
     color: white;
     border: none;
     cursor: pointer;
@@ -144,5 +148,19 @@
         align-items: center;
         gap: 10px;
         
+    }    
+}
+
+@media (max-width: 330px) {
+    h2 {
+        font-size: 14px;
+    }
+
+    .answer-box label {
+        
+        font-size: 14px;
+        
     }
 }
+
+

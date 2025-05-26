@@ -11,7 +11,7 @@
     box-sizing: border-box;
     padding: 20px;
     margin-bottom: 3%;
-    gap: 20px; /* Flexbox gap istället för margin på barn */
+    gap: 20px;
 }
 .start-div {
     flex: 0 0 55%;
@@ -48,7 +48,7 @@
 }
 #info-btn {
     border-radius: 20px;
-    background-color: #3498db;
+    background-color: #0000CD;
     color: white;
     width: 90%;
     max-width: 600px;
@@ -168,5 +168,30 @@ img {
         margin-top: -12px;
         margin-left: 5px;
     }
+
+@media (max-width: 400px) {
+    .welcome-text {
+        font-size: 16px;
+        text-align: center;
+        font-weight: bold;
+        margin: 20px;
+    }
+
+}
+
+@media (max-width: 350px) {
+    .overview-div {
+        width: 200px;
+    }
+
+    .chapter-name {
+        font-size: 14px;
+    }
+
+    .completed-episode {
+        font-size: 12px;
+    }
+    
+}
 
 

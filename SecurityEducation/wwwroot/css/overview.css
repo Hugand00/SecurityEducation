@@ -16,10 +16,10 @@ h2 {
 }
 
 .overview-div {
-    position:relative;
+    /*position:relative;*/
     background-color: rgba(240, 248, 255, 1);
     width: 100%;
-    max-width:auto;
+    max-width:auto;    
     border-radius:10px;
     margin:auto;
     box-sizing:border-box;
@@ -81,13 +81,14 @@ h2 {
 .star-div{
     display:flex;
     justify-content:center;
-    flex-direction:row;
-    max-height:fit-content;
+    flex-direction:row;    
+    max-height:fit-content;    
 }
     .star-div p {
         font-size: 24px;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     }
+
 .episode-container{
     display:flex;
     flex-direction:column;
@@ -241,15 +242,15 @@ h2 {
         border: 2px solid black;
     }
 
-#back-btn {        
+#back-btn {
     border-radius: 20px;
-    background-color: #3498db;
-    color: white;    
-    padding:10px 30px;
+    background-color: #0000CD;
+    color: white;
+    padding: 10px 30px;
     font-size: 1.5em;
     font-weight: bold;
-    min-width:35%;
-    margin: 10px;    
+    min-width: 35%;
+    margin: 10px;
 }
 
 #back-btn:focus {
@@ -261,20 +262,32 @@ h2 {
 .checked{
     color:gold;
 }
-.total-star-div{
-    position:absolute;
-    right:5px;
-    top: 2px;
-    display:flex;
-    flex-direction:row;
-    margin-top:5px;
-    font-weight:bold;
-   
+.total-star-div {   
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    font-weight: bold;    
+    max-width: 100%; 
+    flex-wrap: wrap;    
+    font-size: 36px;
+    margin-bottom: 0px;
 }
 .total-star-div .checked{
     font-size:30px;
     margin-top:-12px;
     margin-left:5px;
+}
+
+.total-star-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.star {
+    font-size: 50px; 
+    color: gold;
 }
 
 #intro-text {

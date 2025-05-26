@@ -5,27 +5,26 @@
     ViewData["Title"] = "Översikt";
 }
 <link href="~/css/overview.css" rel="stylesheet" asp-append-version="true"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> *@
 <div class="wrapper">
-    <h2 id="intro-text">Mina framsteg</h2>
-    
-    <div class="overview-div">    
-        
+    <h2 id="intro-text">Mina framsteg</h2>    
+    <div class="overview-div">
+        <div class="total-star-wrapper">
+        <div class="total-star-div"></div>
+        </div>
+
         @foreach(var chapter in Model.Chapters)
-        {
+        {            
             <div class="chapter-episode-div">
                 <a>
                     <div class="chapter-div" data-chapter-div="@chapter.Id">
                         <p class="chapter-name">@chapter.Name</p>
                         <div class="chapter-medal-div">
                             <p class="medal-text"></p>
-                            <img class="chapter-medal"/>
-                        </div>
-                    
-                        <div class="star-div">
-                       
-                        </div>
-                    </div>
+                            <img alt="" class="chapter-medal" />
+                        </div>               
+                        
+                    </div>                    
                 </a>
                 <div class="episode-container">
                 @foreach(var episode in ((List<EpisodeDto>)Model.Episodes).Where(e => e.ChapterId == chapter.Id))
@@ -36,7 +35,7 @@
                             <div class="episode-result">
                                 <div class="episode-medal-div">
                                     <p class="episode-medal-text"></p>
-                                    <img class="episode-medal"/>
+                                    <img alt="" class="episode-medal"/>
                                 </div>
                                 <div class="episode-star-div" data-episode-star-div="@episode.Id">
                             </div>
@@ -69,9 +68,7 @@
                 <button id="diploma-btn" hidden="hidden" aria-label="Ladd ner intyg för avklarad utbildning" type="submit">Ladda ner Intyg</button>
             </form>
         </div>
-        <div class="total-star-div">
-
-        </div>
+        
         <div class="btn-div">
             <button aria-label="Gå till välj kapitel" id="start-btn" onclick="location.href = '@Url.Action("Index", "Chapter")'">Gå till Välj kapitel</button>
             <button aria-label="Gå tillbaka till startsidan" id="back-btn" onclick="location.href = '@Url.Action("Index", "Home")'">Gå till startsidan!</button>

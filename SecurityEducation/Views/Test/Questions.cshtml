@@ -17,7 +17,7 @@
         {
             <div class="mySlides">
                 <div class="question-block" style="margin-bottom: 20px;">
-                    <h2><strong>@question.Title</strong></h2>
+                    <h2>@question.Title</h2>
                     <div class="answer-grid">
                         @foreach (var answer in ((List<AnswerDto>)Model.Answers).Where(a => a.QuestionId == question.Id))
                         {
@@ -41,7 +41,7 @@
             </div>
         }
         <div class="mySlides">
-            <h3>Vill du rätta in ditt prov?</h3>
+            <h3>Vill du rätta ditt prov?</h3>
             
             
             <div class="nav-buttons">

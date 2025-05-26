@@ -8,6 +8,11 @@ h2 {
     color: white;
 }
 
+.reading-over-div {    
+    height: fit-content;
+    
+}
+
 .reading-material-slide-cont {
     max-width: 1200px;
     position: relative;
@@ -23,7 +28,6 @@ h2 {
     gap: 20px;
     justify-content: center;
     align-items: flex-start;
-    
 }
 /* Hide the images by default */
 .mySlides {
@@ -56,12 +60,12 @@ h2 {
     text-decoration:none;
 }
 .slide-img {
-    width: 40%;
-    height: auto;
-    margin: 0;
-    margin-bottom: 20px;
-    margin-top: 20px;    
-    padding: 10px;
+    width: 30%;
+    max-height: 300px;
+    margin: 10px auto;
+    object-fit: contain;
+    display: block;
+    align-self: center;
 }
 /* Position the "next button" to the right */
 .next {
@@ -91,17 +95,18 @@ h2 {
 }
 
 .material-text {
-    width: calc(50% - 10px); /* Tar ~60% av containern minus halva gap:en */
+    width: calc(50% - 10px);
     margin: 0;
     margin-top: 20px;
     padding: 10px;
     text-align:left;
     font-size: 18px;
+    margin-left: 20px;
 }
 
 .text-and-img-container {
     display: flex;
-    flex-direction: row; /* standard: bild + text i rad */
+    flex-direction: row;
     gap: 20px;
     align-items: flex-start;
 }   
@@ -164,10 +169,10 @@ h2 {
 
 .button-container {
     display: flex;
-    flex-wrap: wrap; /* Tillåt radbrytning */
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    gap: 40px; /* Mindre gap för bättre responsivitet */
+    gap: 40px;
     margin: 20px;
     margin-bottom: 10px;
 }
@@ -194,7 +199,7 @@ h2 {
 
 #back-btn {
     border-radius: 20px;
-    background-color: #3498db;
+    background-color: #0000CD;
     font-weight: bold;
     color: white;
     font-size: 2em;
@@ -203,7 +208,7 @@ h2 {
     height: 100px;
     align-items: center;
     justify-content: center;
-    margin: 20px;    
+    margin: 20px;
 }
 
 #back-btn:focus {
@@ -220,13 +225,13 @@ h2 {
 
 @media (max-width: 1000px) {
     .text-and-img-container {
-        flex-direction: column; /* bild ovanför text */
-        align-items: center; /* centrera innehållet horisontellt */
-        text-align: center; /* valfritt: centrera text */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
     .material-text {
-        width: 100%; /* så texten inte kläms åt */
+        width: 100%;
     }
 
     .slide-img {
@@ -240,6 +245,7 @@ h2 {
 
     #back-btn {
         width: 50%;
+        font-size: 1.5em;
     }
 
     .arrow {
@@ -254,7 +260,7 @@ h2 {
     @media (max-width: 480px) {
 
         #back-btn {
-            font-size: 1.5em;
+            font-size: 1em;
         }
 
         .arrow {
@@ -262,7 +268,7 @@ h2 {
         }
 
         #start-test-btn {
-            font-size: 1.5em;
+            font-size: 1em;
         }
     }
 }

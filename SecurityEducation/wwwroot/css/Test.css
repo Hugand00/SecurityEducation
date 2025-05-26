@@ -46,7 +46,7 @@ p {
 
 #back-btn {
     border-radius: 20px;
-    background-color: #3498db;
+    background-color: #0000CD;
     font-weight: bold;
     color: white;
     font-size: 2em;
@@ -64,18 +64,19 @@ p {
     border: 2px solid black;
 }
 
+@media (max-width: 516px ) {
+    #back-btn {
+        font-size: 1.5em;
+    }
+
+    #start-btn {
+        font-size: 1.5em;
+    }
+}
+
+
 @media (max-width: 410px ) {
     #back-btn {
-        font-size: 1.5em;
-    }
-
-    #start-btn {
-        font-size: 1.5em;
-    }
-}
-
-@media (max-width: 320px ) {
-    #back-btn {
         font-size: 1.0em;
     }
 
@@ -83,3 +84,4 @@ p {
         font-size: 1.0em;
     }
 }
+

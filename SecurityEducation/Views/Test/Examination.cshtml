@@ -17,7 +17,7 @@
             <div class="mySlides">
                 <h3>Slutprov</h3>
                 <div class="question-block" style="margin-bottom: 20px;">
-                    <p><strong>@question.Title</strong></p>
+                    <h2>@question.Title</h2>
                     <div class="answer-grid">
                         @foreach (var answer in ((List<AnswerDto>)Model.Answers).Where(a => a.QuestionId == question.Id))
                         {

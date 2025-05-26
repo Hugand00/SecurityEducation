@@ -62,21 +62,25 @@ function showCorrectAnswers(vm) {
         medalCongrat.textContent = "Grattis du har fått guldmedalj på avsnittet!";
         medalText.textContent = "Guld";
         medalDiv.style.background = "gold";
-        medalImg.src = "/images/Kottemedbådetummarupp.png";        
+        medalImg.src = "/images/Kottemedbådetummarupp.png";
+        medalImg.alt = "Igelkott med båda tummarna upp."
     } else if (amountOfCorrectAnswers === 4) {
         medalCongrat.innerHTML = "Grattis du har fått silvermedalj på avsnittet!<br>Om du försöker igen kan du säkert få guld!";
         medalText.textContent = "Silver";
         medalDiv.style.background = "silver";
         medalImg.src = "/images/Kottemedbådetummarupp.png";
+        medalImg.alt = "Igelkott med båda tummarna upp."
     } else if (amountOfCorrectAnswers === 3) {
         medalCongrat.innerHTML = "Grattis du har fått bronsmedalj på avsnittet!<br>Om du försöker igen kan du säkert få silver eller guld!";
         medalText.textContent = "Brons";
         medalDiv.style.background = "#cd7f32"; 
         medalImg.src = "/images/Kottemedbådetummarupp.png";
+        medalImg.alt = "Igelkott med båda tummarna upp."
     } else {        
         medalCongrat.innerHTML = "Tyvärr fick du ingen medalj denna gång.<br>Men försök gärna igen så går det säkert bättre!";
         //medalText.textContent = "";
         medalImg.src = "/images/förvirrad_kotte.png";
+        medalImg.alt = "Igelkott som ser förvirrad ut."
         medalDiv.style.background = "gray";
     }
 
@@ -122,29 +126,32 @@ function showCorrectAnswers(vm) {
             medalChapterText.textContent = "Guld";
             medalChapterDiv.style.background = "gold";
             medalChapterImg.src = "/images/Kottemedbådetummarupp.png";
+            medalChapterImg.alt = "Igelkott med båda tummarna upp.";
         } else if (calcResult === 4) {
             medalChapterCongrat.innerHTML = "Grattis du har fått silvermedalj på kapitlet!<br>Om du försöker igen kan du säkert få guld!";
             medalChapterText.textContent = "Silver";
             medalChapterDiv.style.background = "silver";
             medalChapterImg.src = "/images/Kottemedbådetummarupp.png";
+            medalChapterImg.alt = "Igelkott med båda tummarna upp.";
         } else if (calcResult === 3) {
             medalChapterCongrat.innerHTML = "Grattis du har fått bronsmedalj på kapitlet!<br>Om du försöker igen kan du säkert få silver eller guld!";
             medalChapterText.textContent = "Brons";
             medalChapterDiv.style.background = "#cd7f32";
             medalChapterImg.src = "/images/Kottemedbådetummarupp.png";
+            medalChapterImg.alt = "Igelkott med båda tummarna upp.";
         } else {
             medalChapterCongrat.innerHTML = "Tyvärr fick du ingen kapitelmedalj denna gång.<br>Men försök gärna igen så går det säkert bättre!";
             //medalText.textContent = "";
             medalChapterImg.src = "/images/förvirrad_kotte.png";
+            medalChapterImg.alt = "Igelkott som ser förvirrad ut.";
             medalChapterDiv.style.background = "gray";
         };
-    } else {
-        // 👇 Det här körs om användaren INTE klarat alla avsnitt
+    } else {        
         medalChapterCongrat.innerHTML = "Du har inte klarat alla avsnitt ännu.<br>Fortsätt kämpa för att få en kapitelmedalj!";
         medalChapterText.textContent = "";
         medalChapterDiv.style.background = "gray";
         medalChapterImg.src = "/images/förvirrad_kotte.png";
-
+        medalChapterImg.alt = "Igelkott som ser förvirrad ut.";
     }
 
 }
@@ -197,20 +204,24 @@ function showCorrectFinalAnswers(vm) {
         finalMedalText.textContent = "Guld";
         finalMedalDiv.style.background = "gold";
         finalMedalImg.src = "/images/Kottemedbådetummarupp.png";
+        finalMedalImg.alt = "Igelkott med båda tummarna upp.";
     } else if (amountOfCorrectFinalAnswers === 9) {
         finalMedalCongrat.innerHTML = "Grattis du har fått silvermedalj på slutprovet!<br>Om du försöker igen kan du säkert få guld!";
         finalMedalText.textContent = "Silver";
         finalMedalDiv.style.background = "silver";
         finalMedalImg.src = "/images/Kottemedbådetummarupp.png";
+        finalMedalImg.alt = "Igelkott med båda tummarna upp.";
     } else if (amountOfCorrectFinalAnswers === 8) {
         finalMedalCongrat.innerHTML = "Grattis du har fått bronsmedalj på slutprovet!<br>Om du försöker igen kan du säkert få silver eller guld!";
         finalMedalText.textContent = "Brons";
         finalMedalDiv.style.background = "#cd7f32";
         finalMedalImg.src = "/images/Kottemedbådetummarupp.png";
+        finalMedalImg.alt = "Igelkott med båda tummarna upp.";
     } else {
         finalMedalCongrat.innerHTML = "Tyvärr fick du ingen medalj denna gång.<br>Men försök gärna igen så går det säkert bättre!";
         //medalText.textContent = "";
         finalMedalImg.src = "/images/förvirrad_kotte.png";
+        finalMedalImg.alt = "Igelkott som ser förvirrad ut.";
         finalMedalDiv.style.background = "gray";
     }
 
