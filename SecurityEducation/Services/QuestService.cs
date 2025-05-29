@@ -72,17 +72,17 @@ namespace SecurityEducation.Services
 						column.Item().AlignCenter().Text("Intyg")
 							.FontSize(24).SemiBold().FontColor(Colors.Blue.Darken2);
 
-						column.Item().AlignCenter().Text($"{_name} ")
-							.FontSize(16);
+						column.Item().PaddingTop(20).AlignCenter().Text($"{_name} ")
+							.FontSize(20);
 						column.Item().AlignCenter().Text("har klarat utbildningen inom cyber-, informationssäkerhet och dataskydd samt AI")
 							.FontSize(14).Italic().AlignCenter();
 
 						
 
-						column.Item().AlignCenter().Text($"Totalt antal stjärnor: {_amountOfStars}/{GetAllStarsAmount()}")
-							.FontSize(14).FontColor(Colors.Black);
+						column.Item().PaddingTop(30).AlignCenter().Text($"Totalt antal stjärnor: {_amountOfStars}/{GetAllStarsAmount()}")
+							.FontSize(16).FontColor(Colors.Black);
 
-						column.Item().PaddingTop(10).PaddingLeft(10).Text("Utbildningen har bestått av följande delar:").SemiBold().FontSize(14);
+						column.Item().PaddingTop(200).PaddingLeft(10).Text("Utbildningen har bestått av följande delar:").SemiBold().FontSize(14);
 
 						column.Item().PaddingLeft(10).Grid(grid =>
 						{

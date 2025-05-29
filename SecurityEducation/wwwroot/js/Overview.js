@@ -194,14 +194,14 @@ function showStoredExamination() {
         const score = bestStatement.result;
         if (score.success === true) {
             showDiplomaButton()
-            for (let i = 0; i < score.score.raw/2; i++) {
+            for (let i = 0; i < Math.floor(score.score.raw/2); i++) {
                 const star = document.createElement("p")
                 star.innerHTML = "&#9733";
                 star.classList.add("checked")
                 examinationStarDiv.appendChild(star)
             }
-            if (score.score.raw/2 < 5) {
-                for (let i = 0; i < 5 - score.score.raw/2; i++) {
+            if (Math.floor(score.score.raw / 2) < 5) {
+                for (let i = 0; i < 5 - Math.floor(score.score.raw / 2); i++) {
                     const star = document.createElement("p")
                     star.innerHTML = "&#9734";
                     examinationStarDiv.appendChild(star)
@@ -211,19 +211,19 @@ function showStoredExamination() {
             const medalImg = document.querySelector(".examination-medal")
             const medalText = medal.querySelector(".medal-text")
             console.log(medal)
-            if (score.score.raw/2 === 5) {
+            if (Math.floor(score.score.raw / 2) === 5) {
                 ///gold
                 medalText.textContent = "Guld"
                 medal.style.background = "gold";
                 medalImg.src = "/images/Kottemedbådetummarupp.png";
                 medalImg.alt = "Igelkott med båda tummarna upp.";
-            } else if (score.score.raw/2  > 3) {
+            } else if (Math.floor(score.score.raw / 2)  > 3) {
                 ///silver
                 medalText.textContent = "Silver"
                 medal.style.background = "silver";
                 medalImg.src = "/images/Kottemedbådetummarupp.png";
                 medalImg.alt = "Igelkott med båda tummarna upp.";
-            } else if ((score.score.raw/2) == 3){
+            } else if (Math.floor(score.score.raw / 2) == 3){
                 ///bronze
                 medalText.textContent = "Brons"
                 medal.style.background = "#cd7f32"
