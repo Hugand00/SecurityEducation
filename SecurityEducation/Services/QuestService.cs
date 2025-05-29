@@ -53,12 +53,6 @@ namespace SecurityEducation.Services
 				page.Margin(0);
 				page.PageColor(Colors.BlueGrey.Lighten3); // Diplombakgrund
 
-				page.Header().Column(column =>
-				{
-					column.Item().PaddingRight(10).PaddingTop(2).Text($"Utfärdat: {_date:dd MMMM yyyy}")
-					.FontSize(12).FontColor(Colors.Black).AlignRight();
-
-				});
 				
 				page.Content()
 					.Padding(10)
@@ -76,8 +70,10 @@ namespace SecurityEducation.Services
 							.FontSize(20);
 						column.Item().AlignCenter().Text("har klarat utbildningen inom cyber-, informationssäkerhet och dataskydd samt AI")
 							.FontSize(14).Italic().AlignCenter();
+						column.Item().PaddingTop(2).AlignCenter().Text($"Utfärdat: {_date:dd MMMM yyyy}")
+						.FontSize(14).FontColor(Colors.Black);
 
-						
+
 
 						column.Item().PaddingTop(30).AlignCenter().Text($"Totalt antal stjärnor: {_amountOfStars}/{GetAllStarsAmount()}")
 							.FontSize(16).FontColor(Colors.Black);
