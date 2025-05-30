@@ -50,6 +50,7 @@ function showStoredChapters() {
 function showExamination() {
     const examDiv = document.querySelector("#examination");
     const examComplete = examDiv.querySelector(".completed");
+    
     const result = allChaptersDone()
     let bestStatement = null;
     let highestScore = -Infinity;

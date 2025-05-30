@@ -9,7 +9,11 @@
     text-align: center;
     
 }
-
+.estimated-time {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
 .episode-div {
     display: flex;
     flex-direction: column;

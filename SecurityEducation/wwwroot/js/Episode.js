@@ -40,7 +40,7 @@ function showStoredResults() {
         else {
             episodeComplete.textContent = "Inte avklarad"
             episodeComplete.style.background = "red"
-            resultP.textContent = "Senaste försöket: Saknas"
+            resultP.textContent = "Bästa försöket: Saknas"
         }
     });
 }
