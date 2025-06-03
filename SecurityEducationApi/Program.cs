@@ -19,7 +19,7 @@ builder.Configuration
 	.SetBasePath(Directory.GetCurrentDirectory())
 	.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
 	.AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
-	.AddUserSecrets<Program>(optional: true) // <-- viktigt
+	.AddUserSecrets<Program>(optional: true) 
 	.AddEnvironmentVariables();
 builder.Services.AddDbContext<AppDbContext>(options =>
 	options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")),

@@ -32,7 +32,7 @@ h2 {
     flex-direction: row;
 }
 
-/* Nästa & föregående-knappar */
+
 .prev,
 .next {
     width: 200px;
@@ -121,7 +121,7 @@ h2 {
     padding: 16px;    
 }
 
-/* Responsivitet för små skärmar */
+
 @media (max-width: 600px) {
     .answer-grid {
         grid-template-columns: 1fr;

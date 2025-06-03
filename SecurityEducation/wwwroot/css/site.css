@@ -20,7 +20,7 @@ body {
 }
 
 .wrapper {
-    flex: 1; /* Tar upp allt mellan header och footer */
+    flex: 1; 
     display: flex;
     flex-direction: column;
 }
@@ -50,10 +50,6 @@ html {
 
 body {
     background: linear-gradient(to right,#012a4a, #014f86, #2a6f97, #2c7da0, #468faf, #89c2d9, #a9d6e5);
-    /*background-image: url('../images/17930.jpg');
-    background-size: cover;
-    background-repeat: repeat-y;
-    background-position: center;*/
 }
 
 footer {

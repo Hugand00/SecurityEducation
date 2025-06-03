@@ -1,12 +1,29 @@
 ﻿<!DOCTYPE html>
 <html lang="sv-SE">
 <head>
+    @inject Microsoft.Extensions.Options.IOptions<xApiSettings> xApiOptions
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Utbildning</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/SecurityEducation.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @{
+        var auth = "Basic " + Convert.ToBase64String(
+        System.Text.Encoding.UTF8.GetBytes($"{xApiOptions.Value.AccessKeyUser}:{xApiOptions.Value.AccessKeyPass}")
+        );
+
+    }
+    <script>//Hanterar koppling till xapi
+        const xApiConfig = {
+            endpoint: '@xApiOptions.Value.Endpoint', 
+            auth: '@auth',
+            userEmail: '@xApiOptions.Value.UserEmail',
+            userName: '@xApiOptions.Value.User'
+        };
+        console.log(xApiConfig);
+    </script>
+    
 </head>
 <body>
     <div class="wrapper">

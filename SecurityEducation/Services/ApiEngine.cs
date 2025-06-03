@@ -18,7 +18,7 @@ namespace SecurityEducation.Services
 
 			if (!string.IsNullOrEmpty(apiKey))
 			{
-				request.Headers.Add("x-api-key", apiKey); // Lägg till API-nyckel om den finns
+				request.Headers.Add("x-api-key", apiKey); 
 			}
 
 			var response = await _httpClient.SendAsync(request);
@@ -28,28 +28,25 @@ namespace SecurityEducation.Services
 
 			return JsonSerializer.Deserialize<TResponse>(responseString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 		}
-		// POST-request (API-nyckel i body)
+		
 		public async Task<TResponse> PostAsync<TRequest, TResponse>(string url, TRequest request, string apiKey)
 		{
 			var requestBody = new { apiKey, data = request };
 			return await SendRequestAsync<TResponse>(url, HttpMethod.Post, requestBody);
 		}
 
-		//  PUT-request (API-nyckel i body)
 		public async Task<TResponse> PutAsync<TRequest, TResponse>(string url, TRequest request, string apiKey)
 		{
 			var requestBody = new { apiKey, data = request };
 			return await SendRequestAsync<TResponse>(url, HttpMethod.Put, requestBody);
 		}
 
-		// DELETE-request (API-nyckel i body)
 		public async Task<TResponse> DeleteAsync<TRequest, TResponse>(string url, TRequest request, string apiKey)
 		{
 			var requestBody = new { apiKey, data = request };
 			return await SendRequestAsync<TResponse>(url, HttpMethod.Delete, requestBody);
 		}
 
-		// Send
 		private async Task<TResponse> SendRequestAsync<TResponse>(string url, HttpMethod method, object requestBody)
 		{
 			var json = JsonSerializer.Serialize(requestBody);

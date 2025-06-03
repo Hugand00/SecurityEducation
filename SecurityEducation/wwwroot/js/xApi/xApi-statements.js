@@ -1,30 +1,30 @@
 ﻿
 export function sendStatement(verb, verbSwe, userResult, chapterId, chapterName, episodeId, episodeName, passed) {
-    const uName = "admin";
-    const uEmail = "huan2300@student.miun.se";
+    const uName = "admin"; //Displaynamn
+    const uEmail = "huan2300@student.miun.se";//Mail till inloggade användare = unikt id
 
 
     const config = {
-        "endpoint": "https://seceducation-hugand.lrs.io/xapi/",
-        "auth": "Basic " + btoa("herabr:dudfoh")
+        "endpoint": "https://seceducation-hugand.lrs.io/xapi/", //Skapa egen Lrs hos Veracity
+        "auth": "Basic " + btoa("herabr:dudfoh") //Access key
     }
     ADL.XAPIWrapper.changeConfig(config)
 
 
     const statement = {
         "actor": {
-            "name": uName,
-            "mbox": "mailto:" + uEmail
+            "name": uName, //Displaynamn
+            "mbox": "mailto:" + uEmail //Vem har gjort det?
         },
         "verb": {
-            "id": "http://adlnet.gov/expapi/verbs/" + verb,
+            "id": "http://adlnet.gov/expapi/verbs/" + verb, //Vad har gjorts
             "display": { "sv-SE": verbSwe }
         },
         "object": {
-            "id": "https://localhost:7142/Test/Result/" + chapterId + "/" + episodeId, //Inkluderar båda id:n i objectets id
-            "objectType": "Activity",// Se till att objektet definieras som en aktivitet
+            "id": "https://localhost:7142/Test/Result/" + chapterId + "/" + episodeId, //Vilket object har det gjorts på
+            "objectType": "Activity",
             "definition": {
-                "name": {"sv-SE": chapterName + " - " + episodeName}, // Kombinera kapitel och episodenamn
+                "name": {"sv-SE": chapterName + " - " + episodeName}, 
                 "extensions": {
                     "https://localhost:7142/extensions/chapterId": chapterId,
                     "https://localhost:7142/extensions/episodeId": episodeId
@@ -47,14 +47,15 @@ export function sendStatement(verb, verbSwe, userResult, chapterId, chapterName,
 }
 
 export function sendFinalExamStatement(verb, verbSwe, userResult, passed) {
-    const uName = "admin";
-    const uEmail = "huan2300@student.miun.se";
-
-    const config = {
-        "endpoint": "https://seceducation-hugand.lrs.io/xapi/",
-        "auth": "Basic " + btoa("herabr:dudfoh")
-    };
-    ADL.XAPIWrapper.changeConfig(config);
+    //const uName = "admin";
+    //const uEmail = "huan2300@student.miun.se";
+    const uName = xApiConfig.user;//Behövs ej egentligen
+    const uEmail = xApiConfig.userEmail;//ID för inloggade användare
+    //const config = {
+    //    "endpoint": "https://seceducation-hugand.lrs.io/xapi/",
+    //    "auth": "Basic " + btoa("herabr:dudfoh")
+    //};
+    ADL.XAPIWrapper.changeConfig(xApiConfig);
 
     const statement = {
         "actor": {
@@ -66,7 +67,7 @@ export function sendFinalExamStatement(verb, verbSwe, userResult, passed) {
             "display": { "sv-SE": verbSwe }
         },
         "object": {
-            "id": "https://localhost:7142/Test/ExaminationResult", // Generell ID för slutprovet
+            "id": "https://localhost:7142/Test/ExaminationResult", 
             "objectType": "Activity",
             "definition": {
                 "name": { "sv-SE": "Slutprov" },
@@ -76,7 +77,7 @@ export function sendFinalExamStatement(verb, verbSwe, userResult, passed) {
         "result": {
             "score": {
                 "min": 0,
-                "max": 10, // Anpassa detta till din faktiska maxpoäng
+                "max": 10, 
                 "raw": userResult,
                 "scaled": userResult / 10
             },
@@ -85,5 +86,4 @@ export function sendFinalExamStatement(verb, verbSwe, userResult, passed) {
     };
 
     const res = ADL.XAPIWrapper.sendStatement(statement);
-    console.log(res);
 }

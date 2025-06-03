@@ -38,7 +38,7 @@ function showOverview() {
             completedEpisode.textContent = `Avklarade avsnitt: ${allSuccess.length}/${numberOfEpisodes}`;
             chapterName.textContent = chapter.Name;
 
-            // Progressbar
+           
             var progressWrapper = document.createElement("div");
             progressWrapper.classList.add("progress-wrapper");
 
@@ -56,7 +56,7 @@ function showOverview() {
             percentText.classList.add("progress-text");
             progressBar.appendChild(percentText);
 
-            // Lägg ihop och lägg till i sidan
+            
             progressWrapper.appendChild(progressBar);
             div.appendChild(chapterName);
             div.appendChild(completedEpisode);

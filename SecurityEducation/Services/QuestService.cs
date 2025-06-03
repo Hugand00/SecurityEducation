@@ -51,14 +51,14 @@ namespace SecurityEducation.Services
 			{
 				page.Size(PageSizes.A4);
 				page.Margin(0);
-				page.PageColor(Colors.BlueGrey.Lighten3); // Diplombakgrund
+				page.PageColor(Colors.BlueGrey.Lighten3); 
 
 				
 				page.Content()
 					.Padding(10)
 					.Border(2)
 					.BorderColor(Colors.Grey.Darken2)
-					.Background(Colors.White) // Vitt "papper" i mitten
+					.Background(Colors.White) 
 					.Column(column =>
 					{
 						column.Spacing(10);

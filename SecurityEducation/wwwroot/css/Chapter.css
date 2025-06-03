@@ -132,16 +132,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px; /* lite mindre text */
+    font-size: 16px; 
     color: white;
     border: 2px solid black;
     border-radius: 20px;
-    padding: 0px 30px; /* mindre padding för smalare knapp */
+    padding: 0px 30px; 
     background: green;
     white-space: nowrap;
-    width: fit-content; /* anpassar sig efter innehållet */
+    width: fit-content; 
     margin-left: auto;
-    margin-right: auto; /* centrerar knappen */
+    margin-right: auto; 
 }
 .enter-exam {
     height: 40px;
@@ -150,16 +150,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px; /* lite mindre text */
+    font-size: 16px; 
     color: white;
     border: 2px solid black;
     border-radius: 20px;
-    padding: 0px 30px; /* mindre padding för smalare knapp */
+    padding: 0px 30px; 
     background: green;
     white-space: nowrap;
-    width: fit-content; /* anpassar sig efter innehållet */
+    width: fit-content;
     margin-left: auto;
-    margin-right: auto; /* centrerar knappen */
+    margin-right: auto;
 }
 .overlay {
     position: absolute;

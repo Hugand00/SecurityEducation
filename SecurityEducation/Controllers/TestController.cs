@@ -37,7 +37,7 @@ namespace SecurityEducation.Controllers
         {
             var model = await _questionService.GetAllQuestions();
 
-            // randomizes the questions and gives 
+          
             var random = new Random();
             model.Questions = model.Questions.OrderBy(q => random.Next()).Take(10).ToList();
 

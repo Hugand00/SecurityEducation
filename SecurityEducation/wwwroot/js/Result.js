@@ -30,9 +30,9 @@ function showCorrectAnswers(vm) {
     let starHtml = "";
     for (let i = 0; i < 5; i++) {
         if (i < amountOfCorrectAnswers) {
-            starHtml += `<span class="star">&#9733;</span>`; // fylld stjärna
+            starHtml += `<span class="star">&#9733;</span>`;
         } else {
-            starHtml += `<span class="star-empty">&#9734;</span>`; // tom stjärna
+            starHtml += `<span class="star-empty">&#9734;</span>`;
         }
     }
 
@@ -78,7 +78,6 @@ function showCorrectAnswers(vm) {
         medalImg.alt = "Igelkott med båda tummarna upp."
     } else {        
         medalCongrat.innerHTML = "Tyvärr fick du ingen medalj denna gång.<br>Men försök gärna igen så går det säkert bättre!";
-        //medalText.textContent = "";
         medalImg.src = "/images/förvirrad_kotte.png";
         medalImg.alt = "Igelkott som ser förvirrad ut."
         medalDiv.style.background = "gray";
@@ -141,7 +140,6 @@ function showCorrectAnswers(vm) {
             medalChapterImg.alt = "Igelkott med båda tummarna upp.";
         } else {
             medalChapterCongrat.innerHTML = "Tyvärr fick du ingen kapitelmedalj denna gång.<br>Men försök gärna igen så går det säkert bättre!";
-            //medalText.textContent = "";
             medalChapterImg.src = "/images/förvirrad_kotte.png";
             medalChapterImg.alt = "Igelkott som ser förvirrad ut.";
             medalChapterDiv.style.background = "gray";
@@ -175,9 +173,9 @@ function showCorrectFinalAnswers(vm) {
     let starHtmlFinal = "";
     for (let i = 0; i < 5; i++) {
         if (i < starCount) {
-            starHtmlFinal += `<span class="star">&#9733;</span>`; // fylld stjärna
+            starHtmlFinal += `<span class="star">&#9733;</span>`;
         } else {
-            starHtmlFinal += `<span class="star-empty">&#9734;</span>`; // tom stjärna
+            starHtmlFinal += `<span class="star-empty">&#9734;</span>`; 
         }
     }
 
@@ -219,7 +217,6 @@ function showCorrectFinalAnswers(vm) {
         finalMedalImg.alt = "Igelkott med båda tummarna upp.";
     } else {
         finalMedalCongrat.innerHTML = "Tyvärr fick du ingen medalj denna gång.<br>Men försök gärna igen så går det säkert bättre!";
-        //medalText.textContent = "";
         finalMedalImg.src = "/images/förvirrad_kotte.png";
         finalMedalImg.alt = "Igelkott som ser förvirrad ut.";
         finalMedalDiv.style.background = "gray";
